@@ -37,7 +37,7 @@ $binn = substr($cc,0,6);
 if($cbin == "3"){
     $cardnum = "$cc5 $cc6 $cc7";
 }else{
-   $cardnum = "$cc1 $cc2 $cc3 $cc4"; 
+   $cardnum = "$cc1 $cc2 $cc3 $cc4";
 }
 
 // If(strlen($ano) > 2)
@@ -173,7 +173,7 @@ $update = curl_exec($ch);
 
 
 curl_close($ch);
- 
+
 // echo $update;
 
 
@@ -254,7 +254,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 'accept: application/json',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZ2YXJuZXIzQGdtYWlsLmNvbSIsImlhdCI6MTU4NzcwOTk2OSwiZXhwIjoxNTg3NzEzNTY5fQ.p2TkLVQsBIlkZN1H5_skgFwClZiX0Jud7Py-B356aMI',
+'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZ2YXJuZXIzQGdtYWlsLmNvbSIsImlhdCI6MTU4NzcxMzk4NywiZXhwIjoxNTg3NzE3NTg3fQ.lh38OSbPudDsLb8-1R-r26DnhfevnoasCkFh-kFvhrI',
 'content-type: application/json',
 'country: us',
 'currency: 5b9914161998f706d07fed75',
@@ -319,7 +319,7 @@ $result = curl_exec($ch);
 
  else{
 
-  
+
      echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | '.$type.' | '.$category.'</font></b></font></td></tr>';
 
 
@@ -334,4 +334,3 @@ ob_flush();
    // echo $result;
  // echo $c_pago;
 ?>
-
