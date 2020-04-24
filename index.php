@@ -10,9 +10,9 @@
 </head>
 
 <body>
-  
+
   <marquee width="100%" direction="left" height="50px" scrollamount="12">
- <a href="https://t.me/Hotshotsniper"> ⚛ V O I D ⚛&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp⚛ V O I D ⚛&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp⚛ V O I D ⚛</a>
+ <a href="https://telegram.me/Hotshotsniper"> ⚛ V O I D ⚛&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp⚛ V O I D ⚛&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp⚛ V O I D ⚛</a>
 </marquee>
     <br>
     <div class="row col-md-12">
@@ -92,7 +92,7 @@ $(document).ready(function(){
 
     $("#bode").hide();
   $("#esconde").show();
-  
+
   $('#mostra').click(function(){
   $("#bode").slideToggle();
   });
@@ -108,7 +108,7 @@ $(document).ready(function(){
 
     $("#bode2").hide();
   $("#esconde2").show();
-  
+
   $('#mostra2').click(function(){
   $("#bode2").slideToggle();
   });
@@ -177,7 +177,7 @@ $(document).ready(function(){
 
 
     <div class="footer-copyright text-center py-3">
-      <a href="https://t.me/Hotshotsniper"> ⚛ V O I D ⚛</a>
+      <a href="https://telegram.me/Hotshotsniper"> ⚛ V O I D ⚛</a>
     </div>
 
 
