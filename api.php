@@ -176,6 +176,40 @@ curl_close($ch);
 
 // echo $update;
 
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://backend.elabelz.com/users/signup');
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+   // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+   // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'accept: application/json',
+'accept-encoding: gzip, deflate, br',
+'accept-language: en-US,en;q=0.9',
+'content-type: application/json',
+'country: sa',
+'currency: 5b9914161998f706d07fed75',
+'locale: en',
+'origin: https://www.elabelz.com',
+'referer: https://www.elabelz.com/sa/product/Coccolatini/pattern-printed-blue-beanie-3265183',
+'user-agent: '.$browser.''
+));
+
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"email":"'.$email.'","password":"meghashyam96","firstName":"Mason","lastName":"Warner","subscribeToNewsletters":false,"sessionUUID":"d0f433f5-bcb8-40c8-96e3-a47931a3ba4b"}');
+
+
+$a_pago = curl_exec($ch);
+
+$refresh_token = trim(strip_tags(getstr($a_pago,'"accessToken":"','"')));
 
 
 
@@ -254,7 +288,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 'accept: application/json',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtzbWl0aGUzQGdtYWlsLmNvbSIsImlhdCI6MTU4ODE0NzAzNiwiZXhwIjoxNTg4MTUwNjM2fQ.RjSey4etFZdEmeQbiGmqSbmJq9PD5EdHRdVcnyXW9SI',
+'authorization: Bearer '.$refresh_token.'',
 'content-type: application/json',
 'country: us',
 'currency: 5b9914161998f706d07fed75',
