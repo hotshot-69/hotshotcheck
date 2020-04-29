@@ -254,7 +254,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 'accept: application/json',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc29ud2FybmVyNEBnbWFpbC5jb20iLCJpYXQiOjE1ODgxNDY1NDYsImV4cCI6MTU4ODE1MDE0Nn0.NUOlFTgbCBqbk7TNTOSZkUr0F2zeifitkA635nQzZr0',
+'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc29ud2FyLm5lcjRAZ21haWwuY29tIiwiaWF0IjoxNTg4MTQ2ODM3LCJleHAiOjE1ODgxNTA0Mzd9.cE_lsiZ1nmwFUO68LAU_Y_Sgoh_4TAIShCOeLQnXzuk',
 'content-type: application/json',
 'country: us',
 'currency: 5b9914161998f706d07fed75',
