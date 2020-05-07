@@ -97,8 +97,8 @@ function datosapellido(){
 }
 
 
-function email($nombre){
-	$email = preg_replace('<\W+>', "", $nombre).rand(0000,9999)."@hotmail.com";
+function email($apellido){
+	$email = preg_replace('<\W+>', "", $apellido).rand(0000,9999)."@hotmail.com";
 	return $email;
 }
  function ibuuproxy(){
@@ -112,7 +112,7 @@ function email($nombre){
 ///$cpf = cpf(1);
 $nombre = datosnombre();
 $apellido = datosapellido();
-$email = email($nombre);
+$email = email($apellido);
 $zip = substr(str_shuffle(str_repeat("0123456789", 5)), 0, 5);
 $username = 'lum-customer-hl_7873c611-zone-static_res';
 $password = 'p8txkzc6mq9h';
