@@ -46,10 +46,10 @@ if($cbin == "3"){
    $cardnum = "$cc1 $cc2 $cc3 $cc4";
 }
 
-If(strlen($ano) > 2)
-{
-  $ano = substr($ano,2,2);
-}
+// If(strlen($ano) > 2)
+// {
+//   $ano = substr($ano,2,2);
+// }
  function value($str,$find_start,$find_end){
 $start = @strpos($str,$find_start);
 if ($start === false) {
