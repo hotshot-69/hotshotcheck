@@ -175,7 +175,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'referer: https://payments.braintree-api.com/',
 'user-agent: '.$browser.''
 ));
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"aa35ce74-02d1-4291-a255-cdfbcd5ee9fb"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'""cvv":"'.$cvv.'","billingAddress":{"postalCode":"33101","streetAddress":"661 STATE ST"}},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"aa35ce74-02d1-4291-a255-cdfbcd5ee9fb"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'","billingAddress":{"postalCode":"33101","streetAddress":"661 STATE ST"}},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
 
 $b_pago = curl_exec($ch);
 
@@ -188,7 +188,6 @@ $issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
 $issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
 $type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
 $category = trim(strip_tags(getstr($b_pago,'"commercial":"','"')));
-
 
 
 
@@ -268,6 +267,7 @@ else {
 
 // updatecart();
 }
+
 curl_close($curl);
 ob_flush();
        // echo $result;
