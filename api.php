@@ -163,11 +163,10 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'Cookie: landing_page=https%3A%2F%2Fwww.artofhearing.com.au%2F; external_referral_site=https%3A%2F%2Fwww.artofhearing.com.au%2F; soundestID=20200605030326-WwmAJQN65GxQ6WcWK06UGlh7gbJ4Q8bw8wUHWsFscOG9LD8B0; omnisendAnonymousID=ICTwJJ3E5Jc1DG-20200605030326; tk_ai=woo%3AOKpJ%2BkfjVqAD9gwdRz527Bb3; wp_woocommerce_session_32f5003ec3b6d66ccbe7ba41cc09cc9d=94ecc6e78c59725a1f42e754c62e73c6%7C%7C1591499073%7C%7C1591495473%7C%7Cf64db11e102bd77c91b41ea9198bb484; woocommerce_items_in_cart=1; woocommerce_cart_hash=0945495a71038112d87c33579ffd3487; psn_atf=1; pre_submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fcheckout%2F; omnisendSessionID=FN8mNsJv1oiZDk-20200606204854; soundest-views=44; submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fwp-admin%2Fadmin-ajax.php%3Faction%3Dwphpc_action%26uid%3D1591476521.9259%26eid%3D3.4203128814697%26url%3Dwww.artofhearing.com.au%252Fcheckout%252F%26lastid%3D776743%26hash%3D9e0991a7%26wphpc_browserTime%3D10878%26_%3D1591476531947
-',
-'Host: www.artofhearing.com.au',
-'Origin: https://www.artofhearing.com.au',
-'Referer: https://www.artofhearing.com.au/checkout/',
+'cookie: landing_page=https%3A%2F%2Fwww.artofhearing.com.au%2F; external_referral_site=https%3A%2F%2Fwww.artofhearing.com.au%2F; soundestID=20200605030326-WwmAJQN65GxQ6WcWK06UGlh7gbJ4Q8bw8wUHWsFscOG9LD8B0; omnisendAnonymousID=ICTwJJ3E5Jc1DG-20200605030326; tk_ai=woo%3AOKpJ%2BkfjVqAD9gwdRz527Bb3; wp_woocommerce_session_32f5003ec3b6d66ccbe7ba41cc09cc9d=94ecc6e78c59725a1f42e754c62e73c6%7C%7C1591499073%7C%7C1591495473%7C%7Cf64db11e102bd77c91b41ea9198bb484; woocommerce_items_in_cart=1; woocommerce_cart_hash=0945495a71038112d87c33579ffd3487; psn_atf=1; pre_submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2Fcheckout%2F; omnisendSessionID=FN8mNsJv1oiZDk-20200606204854; soundest-views=44; submission_page=https%3A%2F%2Fwww.artofhearing.com.au%2F%3Fwc-ajax%3Dcheckout',
+'host: www.artofhearing.com.au',
+'origin: https://www.artofhearing.com.au',
+'referer: https://www.artofhearing.com.au/checkout/',
 'user-agent: '.$browser.''
 ));
 
@@ -204,6 +203,6 @@ else {
 
 curl_close($ch);
 ob_flush();
-   // echo $result;
+   echo $result;
  // echo $c_pago;
 ?>
