@@ -307,6 +307,6 @@ else {
 
 curl_close($curl);
 ob_flush();
-       echo $result;
+       // echo $result;
 //echo $browser;
 ?>
