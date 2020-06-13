@@ -206,7 +206,7 @@ $token = trim(strip_tags(getstr($b_pago,'"token":"','"')));
 // // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://airstreamsupplycompany.com/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://airstreamsuplycompany.com/?wc-ajax=checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
