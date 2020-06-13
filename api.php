@@ -239,7 +239,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: __cfduid=d55665530dd99891ba0ee7d71215c38ae1592018202; persist%3AAirstream_Ecommerce_undefined_session={%22loggedIn%22:%22false%22%2C%22username%22:%22null%22%2C%22totalItemsInCart%22:%220%22%2C%22_persist%22:%22{%5C%22version%5C%22:-1%2C%5C%22rehydrated%5C%22:true}%22}; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3ASCdbWeis28A2IAusgceP44k%2B; woocommerce_items_in_cart=1; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=a7808208a5203b799ee68b46b43426c9%7C%7C1592191395%7C%7C1592187795%7C%7C093b0a8a478f121bfae8ea9a2360f71c; woocommerce_cart_hash=7957ba0ef000bac82a9079f6a774b596',
+'cookie: __cfduid=d55665530dd99891ba0ee7d71215c38ae1592018202; persist%3AAirstream_Ecommerce_undefined_session={%22loggedIn%22:%22false%22%2C%22username%22:%22null%22%2C%22totalItemsInCart%22:%220%22%2C%22_persist%22:%22{%5C%22version%5C%22:-1%2C%5C%22rehydrated%5C%22:true}%22}; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3ASCdbWeis28A2IAusgceP44k%2B; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=a7808208a5203b799ee68b46b43426c9%7C%7C1592191395%7C%7C1592187795%7C%7C093b0a8a478f121bfae8ea9a2360f71c; woocommerce_items_in_cart=1; woocommerce_cart_hash=97d0875ca548471533ae727af3f22d8d',
 'origin: https://airstreamsupplycompany.com',
 'referer: https://airstreamsupplycompany.com/checkout/',
 'user-agent: '.$browser.''
@@ -247,7 +247,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'shipping_email=pubgkittu%40gmail.com&shipping_phone=&ship_to_different_address=1&shipping_first_name=Vincent&shipping_last_name=Warner&shipping_country=US&shipping_address_1=+12th+Ave&shipping_address_2=&shipping_city=New+York&shipping_state=NY&shipping_postcode=10080&payment_method=braintree_payment_gateway&braintree_payment_gateway_nonce='.$token.'&braintree_device_data=&bfwc_is_vaulted_nonce=&woocommerce-process-checkout-nonce=1b96500a61&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review&billing_first_name=Vincent&billing_last_name=Warner&billing_country=US&billing_address_1=+12th+Ave+S&billing_address_2=&billing_city=miami&billing_state=FL&billing_postcode=33101&billing_email=pubgkittu%40gmail.com&account_password=');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'shipping_email=pubgkittu%40gmail.com&shipping_phone=&ship_to_different_address=1&shipping_first_name=Vincent&shipping_last_name=Warner&shipping_country=US&shipping_address_1=12+avenue&shipping_address_2=&shipping_city=miami&shipping_state=FL&shipping_postcode=33101&payment_method=braintree_payment_gateway&braintree_payment_gateway_nonce='.$token.'&braintree_device_data=&bfwc_is_vaulted_nonce=&woocommerce-process-checkout-nonce=1b96500a61&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review&billing_first_name=Vincent&billing_last_name=Warner&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=miami&billing_state=FL&billing_postcode=33101&billing_email=pubgkittu%40gmail.com&account_password=');
 
 // // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
