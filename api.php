@@ -239,7 +239,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: __cfduid=d55665530dd99891ba0ee7d71215c38ae1592018202; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3ASCdbWeis28A2IAusgceP44k%2B; wordpress_logged_in_57c55ae70790bf394bcb2a7313c0b037=pubgki.tt.u%40gmail.com%7C1593415281%7CkuanORC5qv5Hc36XickKTVOOX5Gd2nDawLDd5MgjWrC%7Cd3385303147ee1d09e73e3c9bf91b40aae300b4540ad03fe8f6a54aa1114b863; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=2765%7C%7C1592378572%7C%7C1592374972%7C%7C37326ce583598c46a28635b75b8444e4; woocommerce_items_in_cart=1; woocommerce_cart_hash=97d0875ca548471533ae727af3f22d8d; persist%3AAirstream_Ecommerce_undefined_session={%22loggedIn%22:%22false%22%2C%22username%22:%22%5C%22Vincent%5C%22%22%2C%22totalItemsInCart%22:%220%22%2C%22_persist%22:%22{%5C%22version%5C%22:-1%2C%5C%22rehydrated%5C%22:true}%22}',
+'cookie: __cfduid=d55665530dd99891ba0ee7d71215c38ae1592018202; reduxPersistIndex=[%22persist:Airstream_Ecommerce_undefined_session%22]; tk_ai=woo%3ASCdbWeis28A2IAusgceP44k%2B; woocommerce_items_in_cart=1; wordpress_logged_in_57c55ae70790bf394bcb2a7313c0b037=vvarner3%40gmail.com%7C1593483501%7C7RQEfQ92eeX2GaOQmDPoMlkXi0mffuGgPkFTFREw2sz%7C5436bc1da51b1f7311aa95ea63611267fa4233a37baeb155a1d5c20719593c52; wp_woocommerce_session_57c55ae70790bf394bcb2a7313c0b037=2774%7C%7C1592378572%7C%7C1592374972%7C%7Cdac3237a6a13c7ef5956982a805a2bfe; woocommerce_cart_hash=97d0875ca548471533ae727af3f22d8d;',
 'origin: https://airstreamsupplycompany.com',
 'referer: https://airstreamsupplycompany.com/checkout/',
 'user-agent: '.$browser.''
