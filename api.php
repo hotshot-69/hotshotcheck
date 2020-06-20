@@ -151,7 +151,7 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 9)), 0, 10);
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.wiredzone.com/payment/braintree/s2s/create_json_3ds');
+curl_setopt($ch, CURLOPT_URL, 'https://www.iredzone.com/payment/braintree/s2s/create_json_3ds');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
