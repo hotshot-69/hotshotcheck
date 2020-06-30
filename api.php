@@ -198,7 +198,7 @@ $dbtime = substr(str_shuffle(str_repeat("0123456789", 10)), 0, 10);
 // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.tesselaar.net.au/checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://www.esselaar.net.au/checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
