@@ -238,7 +238,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: PHPSESSID=l2883lrk54mpe8bgako9ttj653; wp_woocommerce_session_f1026b68ad2463df8b4ff034c7d3ae71=77790c137e49dcb91963c78520180548%7C%7C1593964951%7C%7C1593961351%7C%7C73dd5527fec664b6f3522963f7f88610; smarter-navigation[title]=Products+Archive+-+Genovese+Coffee; smarter-navigation[query]=%7B%22orderby%22%3A%22price%22%2C%22post_type%22%3A%22product%22%7D; smarter-navigation[url]=https%3A%2F%2Fwww.genovese.com.au%2Fshop%2F%3Forderby%3Dprice; woocommerce_recently_viewed=370; woocommerce_items_in_cart=1; woocommerce_cart_hash=316169fe2160ee3a58b6c49ffe217925'.
+'cookie: PHPSESSID=l2883lrk54mpe8bgako9ttj653; wp_woocommerce_session_f1026b68ad2463df8b4ff034c7d3ae71=77790c137e49dcb91963c78520180548%7C%7C1593964951%7C%7C1593961351%7C%7C73dd5527fec664b6f3522963f7f88610; smarter-navigation[title]=Products+Archive+-+Genovese+Coffee; woocommerce_recently_viewed=370; smarter-navigation[query]=%7B%22orderby%22%3A%22price%22%2C%22post_type%22%3A%22product%22%7D; smarter-navigation[url]=https%3A%2F%2Fwww.genovese.com.au%2Fshop%2F%3Forderby%3Dprice; woocommerce_items_in_cart=1; woocommerce_cart_hash=316169fe2160ee3a58b6c49ffe217925'.
 'origin: https://www.genovese.com.au'.
 'referer: https://www.genovese.com.au/checkout/',
 'user-agent: '.$browser.''
