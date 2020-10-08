@@ -235,7 +235,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: application/json, text/javascript, */*; q=0.01',
-'accept-encoding: gzip, deflate, br',
+'accept-encoding: gzip, deflate',
 'accept-language: en-US,en;q=0.9',
 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
 'cookie: __cfduid=d2d36f7039afe6b43f5527fe9ec8288fa1601870448; PHPSESSID=a164dde119c34119fb98d1048e34f55a; woocommerce_items_in_cart=1; wp_woocommerce_session_e3053ee089c390d746dea1ed9bba8429=c386dde35dc7c4402ca7bb8cd8536389%7C%7C1602350055%7C%7C1602346455%7C%7C64e4595f342a47f03192f336692b78ca; woocommerce_cart_hash=01bbef63f4e7bb779e6a365dd7fe2216',
